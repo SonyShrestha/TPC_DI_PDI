@@ -493,18 +493,8 @@
   </connection>
   <order>
     <hop>
-      <from>CompanySurroateKey</from>
-      <to>DimCompany</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Add constants</from>
       <to>Sort Rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>FINWARE</from>
-      <to>Filter CMP</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -548,18 +538,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>IsLowGrade</from>
-      <to>Change Format</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Merge Join Status</from>
       <to>IsLowGrade</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Change Format</from>
-      <to>Sort rows by PTS</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -567,12 +547,87 @@
       <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Analytic query</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null</from>
+      <to>Sort rows by PTS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IsLowGrade</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>Change Format</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>InsertIntoDIMessage</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>InsertIntoDIMessage</from>
+      <to>DIMESSAGES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CompanySurroateKey</from>
+      <to>SPrating</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CompanySurroateKey</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Change Format</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Analytic query</from>
+      <to>IsCurrent 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IsCurrent 2</from>
+      <to>If field value is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SPrating</from>
+      <to>DimCompany</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>FINWIRE</from>
+      <to>PTS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PTS</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Filter CMP</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add constants</name>
     <type>Constant</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -581,18 +636,6 @@
     </partitioning>
     <fields>
       <field>
-        <name>IsCurrent</name>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>True</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
         <name>BatchID</name>
         <type>Integer</type>
         <format/>
@@ -600,18 +643,6 @@
         <decimal/>
         <group/>
         <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>EndDate</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>9999-12-31</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -626,8 +657,46 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>512</xloc>
       <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Analytic query</name>
+    <type>AnalyticQuery</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <group>
+      <field>
+        <name>CIK</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>EndDate</aggregate>
+        <subject>PTS</subject>
+        <type>LEAD</type>
+        <valuefield>1</valuefield>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1472</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -650,7 +719,7 @@
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask>yyyyMMdd</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -662,26 +731,9 @@
         <storage_type/>
       </meta>
       <meta>
-        <name>CIK</name>
-        <rename>CIK</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>isLowGrade</name>
-        <rename>isLowGrade</rename>
-        <type>Boolean</type>
+        <name>CompanyName</name>
+        <rename>CompanyName</rename>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -705,8 +757,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
-      <yloc>448</yloc>
+      <xloc>1200</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -721,7 +773,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>sk_company_id</valuename>
+    <valuename>sk_companyid</valuename>
     <use_database>N</use_database>
     <connection>oracle_con</connection>
     <schema/>
@@ -740,8 +792,72 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1664</xloc>
+      <xloc>1824</xloc>
       <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIMESSAGES</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <schema/>
+    <table>DIMESSAGES</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>BatchID</column_name>
+        <stream_name>BatchID</stream_name>
+      </field>
+      <field>
+        <column_name>MessageSource</column_name>
+        <stream_name>MessageSource</stream_name>
+      </field>
+      <field>
+        <column_name>MessageType</column_name>
+        <stream_name>MessageType</stream_name>
+      </field>
+      <field>
+        <column_name>MessageText</column_name>
+        <stream_name>MessageText</stream_name>
+      </field>
+      <field>
+        <column_name>MESSAGEDATA</column_name>
+        <stream_name>alert</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2256</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -851,8 +967,8 @@
         <stream_name>BatchID</stream_name>
       </field>
       <field>
-        <column_name>sk_company_id</column_name>
-        <stream_name>sk_company_id</stream_name>
+        <column_name>sk_companyid</column_name>
+        <stream_name>sk_companyid</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -864,13 +980,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
+      <xloc>2256</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>FINWARE</name>
+    <name>FINWIRE</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -884,7 +1000,7 @@
     <passing_through_fields>N</passing_through_fields>
     <accept_field/>
     <accept_stepname/>
-    <separator>;</separator>
+    <separator/>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
@@ -908,7 +1024,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\</name>
+      <name>${input_path}\${sf}\${batch}\</name>
       <filemask>FINWIRE.*</filemask>
       <exclude_filemask>FINWIRE.*_audit.csv</exclude_filemask>
       <file_required>N</file_required>
@@ -919,6 +1035,21 @@
     <filters>
     </filters>
     <fields>
+      <field>
+        <name>PTS</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>0</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
       <field>
         <name>RecType</name>
         <type>String</type>
@@ -931,7 +1062,7 @@
         <position>15</position>
         <length>3</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -946,7 +1077,7 @@
         <position>18</position>
         <length>60</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -961,7 +1092,7 @@
         <position>78</position>
         <length>10</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -976,7 +1107,7 @@
         <position>88</position>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -991,7 +1122,7 @@
         <position>92</position>
         <length>2</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1006,13 +1137,13 @@
         <position>94</position>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>FoundingDate</name>
         <type>String</type>
-        <format>yyyyMMdd</format>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -1021,7 +1152,7 @@
         <position>98</position>
         <length>8</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1036,7 +1167,7 @@
         <position>106</position>
         <length>80</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1051,7 +1182,7 @@
         <position>186</position>
         <length>80</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1066,7 +1197,7 @@
         <position>266</position>
         <length>12</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1081,7 +1212,7 @@
         <position>278</position>
         <length>25</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1096,7 +1227,7 @@
         <position>303</position>
         <length>20</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1111,7 +1242,7 @@
         <position>323</position>
         <length>24</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1126,7 +1257,7 @@
         <position>347</position>
         <length>46</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -1141,22 +1272,7 @@
         <position>393</position>
         <length>150</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>PTS</name>
-        <type>Date</type>
-        <format>yyyyMMdd-HHmmss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>0</position>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -1194,8 +1310,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>304</yloc>
+      <xloc>112</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1215,13 +1331,67 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>RecType</leftvalue>
-        <function>=</function>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <conditions>
+              <condition>
+                <negated>N</negated>
+                <leftvalue>RecType</leftvalue>
+                <function>=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>String</type>
+                  <text>CMP</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask/>
+                </value>
+              </condition>
+            </conditions>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>InsertIntoDIMessage</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>Y</negated>
+        <leftvalue>SPrating</leftvalue>
+        <function>IN LIST</function>
         <rightvalue/>
         <value>
           <name>constant</name>
           <type>String</type>
-          <text>CMP</text>
+          <text>AAA;AA;A;BBB;BB;B;CCC;CC;C;D;AA+;A+;BBB+;BB+;B+;CCC+;AA-;A-;BBB-;BB-;B-;CCC-</text>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
@@ -1238,7 +1408,47 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>1824</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>EndDate</name>
+        <value>9999-12-31 00:00:00</value>
+        <mask>yyyy-MM-dd HH:mm:ss</mask>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1472</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1282,7 +1492,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\Industry.txt</name>
+      <name>${input_path}\${sf}\${batch}\Industry.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1379,6 +1589,129 @@
     </GUI>
   </step>
   <step>
+    <name>InsertIntoDIMessage</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var alert;
+alert='CO_ID ='+ CIK+', CO_SP_RATE='+SPrating;
+var MessageType='Alert';
+var MessageText='Invalid SPRating';
+var MessageSource='DimCompany';</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>alert</name>
+        <rename>alert</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>MessageType</name>
+        <rename>MessageType</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>MessageText</name>
+        <rename>MessageText</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>MessageSource</name>
+        <rename>MessageSource</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2048</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>IsCurrent 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var IsCurrent='0';
+if(!EndDate){
+	IsCurrent='1';
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>IsCurrent</name>
+        <rename>IsCurrent</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1472</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>IsLowGrade</name>
     <type>ScriptValueMod</type>
     <description/>
@@ -1427,7 +1760,7 @@ else
     </remotesteps>
     <GUI>
       <xloc>1200</xloc>
-      <yloc>448</yloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1495,6 +1828,173 @@ else
     </remotesteps>
     <GUI>
       <xloc>1200</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PTS</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+
+// Extract date and time components
+var datePart = PTS.substring(0, 8);
+var timePart = PTS.substring(9);
+
+// Format the date and time strings
+var formattedDate = datePart.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
+var formattedTime = timePart.replace(/(\d{2})(\d{2})(\d{2})/, '$1:$2:$3');
+
+// Concatenate date and time strings
+var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>PTS</name>
+        <rename>PTS</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SPrating</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+
+
+var SPrating;
+var isLowGrade;
+if (SPrating.trim()==='AAA' || SPrating.trim()==='AA' || SPrating.trim()==='A' || SPrating.trim()==='BBB' || SPrating.trim()==='BB' || SPrating.trim()==='B' || SPrating.trim()==='CCC' || SPrating.trim()==='CC' || SPrating.trim()==='C' || SPrating.trim()==='D' || SPrating.trim()==='AA+' || SPrating.trim()==='A+' || SPrating.trim()==='BBB+' || SPrating.trim()==='BB+' || SPrating.trim()==='B+' || SPrating.trim()==='CCC+' || SPrating.trim()==='AA-' || SPrating.trim()==='A-' || SPrating.trim()==='BBB-' || SPrating.trim()==='BB-' || SPrating.trim()==='B-' || SPrating.trim()==='CCC-'){
+
+}
+else{
+	SPrating=null;
+	isLowGrade=null;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>SPrating</name>
+        <rename>SPrating</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>isLowGrade</name>
+        <rename>isLowGrade</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2032</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>PTS</name>
+        <rename>PTS</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1579,7 +2079,7 @@ else
     </remotesteps>
     <GUI>
       <xloc>928</xloc>
-      <yloc>176</yloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1668,6 +2168,56 @@ else
     </GUI>
   </step>
   <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CIK</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>PTS</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1472</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Sort rows by PTS</name>
     <type>SortRows</type>
     <description/>
@@ -1704,7 +2254,7 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
+      <xloc>1648</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1748,7 +2298,7 @@ else
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\StatusType.txt</name>
+      <name>${input_path}\${sf}\${batch}\StatusType.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1826,6 +2376,46 @@ else
     <GUI>
       <xloc>1200</xloc>
       <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>CompanyName</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper/>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

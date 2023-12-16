@@ -497,11 +497,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter RecType=FIN</from>
-      <to>Regex Evaluation</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Join with CoNameOrCIK</from>
       <to>no</to>
       <enabled>Y</enabled>
@@ -547,11 +542,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>no</from>
-      <to>Sort CoNameOrCIK 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Change Data Type</from>
       <to>Financial</to>
       <enabled>Y</enabled>
@@ -586,6 +576,31 @@
       <to>Change Data Type</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>no</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>Sort CoNameOrCIK 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PTS</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter RecType=FIN</from>
+      <to>PTS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Regex Evaluation</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Change Data Type</name>
@@ -604,7 +619,7 @@
         <name>QtrStartDate</name>
         <rename>QtrStartDate</rename>
         <type>Date</type>
-        <length>8</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask>yyyyMMdd</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -621,7 +636,7 @@
         <name>PostingDate</name>
         <rename>PostingDate</rename>
         <type>Date</type>
-        <length>8</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask>yyyyMMdd</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -882,7 +897,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
+      <xloc>1472</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -900,13 +915,12 @@
     </partitioning>
     <connection>oracle_con</connection>
     <sql>SELECT
-  SK_COMPANY_ID
+  SK_COMPANYID
 , companyid
 , effectivedate
 , enddate
-, trim(NAME) as name 
-FROM dimcompany
-</sql>
+, UPPER(trim(NAME)) as name 
+FROM dimcompany</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -917,11 +931,11 @@ FROM dimcompany
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>SK_COMPANY_ID</name>
+        <name>SK_COMPANYID</name>
         <length>38</length>
         <precision>0</precision>
         <origin>DimCompany</origin>
-        <comments>SK_COMPANY_ID</comments>
+        <comments>SK_COMPANYID</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1142,7 +1156,7 @@ FROM dimcompany
     <name>FINWARE.txt</name>
     <type>TextFileInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1157,7 +1171,7 @@ FROM dimcompany
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
-    <header>Y</header>
+    <header>N</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
     <nr_footerlines>1</nr_footerlines>
@@ -1177,7 +1191,7 @@ FROM dimcompany
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\</name>
+      <name>${input_path}\${sf}\${batch}\</name>
       <filemask>FINWIRE.*</filemask>
       <exclude_filemask>FINWIRE.*_audit.csv</exclude_filemask>
       <file_required>Y</file_required>
@@ -1355,8 +1369,8 @@ FROM dimcompany
       </field>
       <field>
         <name>PTS</name>
-        <type>Date</type>
-        <format>yyyyMMddHHmmss</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -1494,7 +1508,7 @@ FROM dimcompany
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Regex Evaluation</send_true_to>
+    <send_true_to>PTS</send_true_to>
     <send_false_to/>
     <compare>
       <condition>
@@ -1557,8 +1571,8 @@ FROM dimcompany
     <return_field/>
     <fields>
       <field>
-        <column_name>sk_company_id</column_name>
-        <stream_name>sk_company_id</stream_name>
+        <column_name>sk_companyid</column_name>
+        <stream_name>sk_companyid</stream_name>
       </field>
       <field>
         <column_name>fi_year</column_name>
@@ -1631,7 +1645,7 @@ FROM dimcompany
     <name>Join COMPANYID</name>
     <type>MergeJoin</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1672,7 +1686,7 @@ FROM dimcompany
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
+    <join_type>RIGHT OUTER</join_type>
     <step1>Sort NAME</step1>
     <step2>Sort CoNameOrCIK 2</step2>
     <keys_1>
@@ -1690,7 +1704,7 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
+      <xloc>1072</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1740,10 +1754,67 @@ FROM dimcompany
     </GUI>
   </step>
   <step>
+    <name>PTS</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+
+// Extract date and time components
+var datePart = PTS.substring(0, 8);
+var timePart = PTS.substring(9);
+
+// Format the date and time strings
+var formattedDate = datePart.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
+var formattedTime = timePart.replace(/(\d{2})(\d{2})(\d{2})/, '$1:$2:$3');
+
+// Concatenate date and time strings
+var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>PTS</name>
+        <rename>PTS</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Regex Evaluation</name>
     <type>RegexEval</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1776,6 +1847,51 @@ FROM dimcompany
     <GUI>
       <xloc>496</xloc>
       <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>PTS</name>
+        <rename>PTS</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1883,7 +1999,7 @@ FROM dimcompany
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>CoNameOrCIK</name>
+        <name>Name</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1900,7 +2016,7 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
+      <xloc>928</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1942,8 +2058,48 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
+      <xloc>944</xloc>
       <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>CoNameOrCIK</in_stream_name>
+        <out_stream_name>Name</out_stream_name>
+        <trim_type>both</trim_type>
+        <lower_upper>upper</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1976,7 +2132,7 @@ FROM dimcompany
     <name>union</name>
     <type>Dummy</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>

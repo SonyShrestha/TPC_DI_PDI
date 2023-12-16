@@ -430,7 +430,7 @@
     <created_date>2023/10/29 15:46:05.109</created_date>
     <modified_user>-</modified_user>
     <modified_date>2023/10/29 15:46:05.109</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -497,11 +497,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculate sum</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Calculator</from>
       <to>Sort rows date</to>
       <enabled>Y</enabled>
@@ -509,11 +504,6 @@
     <hop>
       <from>CashTransactions</from>
       <to>Sort CT_CA_ID</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cumulative sum</from>
-      <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -527,23 +517,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join date</from>
-      <to>Calculate sum</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort CT_CA_ID</from>
       <to>Merge Join accID</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Cumulative sum</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -554,11 +529,6 @@
     <hop>
       <from>DimAccount</from>
       <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -574,6 +544,31 @@
     <hop>
       <from>Sort rows 3</from>
       <to>Merge Join date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join date</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Calculate sum</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Cumulative sum</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate sum</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cumulative sum</from>
+      <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -611,7 +606,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1920</xloc>
+      <xloc>1856</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -637,10 +632,10 @@
     <give_back_row>N</give_back_row>
     <group>
       <field>
-        <name>date</name>
+        <name>ACCOUNTID</name>
       </field>
       <field>
-        <name>accountid</name>
+        <name>date</name>
       </field>
     </group>
     <fields>
@@ -660,7 +655,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
+      <xloc>1408</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -745,7 +740,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\CashTransaction.txt</name>
+      <name>${input_path}\${sf}\${batch}\CashTransaction.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>Y</file_required>
@@ -853,52 +848,6 @@
     <GUI>
       <xloc>272</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cumulative sum</name>
-    <type>GroupBy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <all_rows>Y</all_rows>
-    <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore/>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>grp</prefix>
-    <add_linenr>N</add_linenr>
-    <linenr_fieldname/>
-    <give_back_row>Y</give_back_row>
-    <group>
-      <field>
-        <name>sk_accountid</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>sum</aggregate>
-        <subject>CT_AMT_sum</subject>
-        <type>CUM_SUM</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1760</xloc>
-      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1344,50 +1293,6 @@ FROM dimaccount
     </GUI>
   </step>
   <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sk_dateid</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sk_accountid</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sk_customerid</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CT_AMT_sum</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1376</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Sort CT_CA_ID</name>
     <type>SortRows</type>
     <description/>
@@ -1449,61 +1354,19 @@ FROM dimaccount
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>sk_accountid</name>
+        <name>ACCOUNTID</name>
         <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
+        <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
+        <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
-      <field>
-        <name>sk_dateid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1632</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows date</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
       <field>
         <name>date</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
+        <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
@@ -1516,37 +1379,7 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>      </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1504</xloc>
+      <xloc>1280</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1632,6 +1465,144 @@ FROM dimaccount
     <GUI>
       <xloc>1104</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows date</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>date</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Cumulative sum</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>Y</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>Y</give_back_row>
+    <group>
+      <field>
+        <name>sk_accountid</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>sum</aggregate>
+        <subject>CT_AMT_sum</subject>
+        <type>CUM_SUM</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1696</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>sk_accountid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sk_dateid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>Y</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1536</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

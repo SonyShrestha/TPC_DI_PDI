@@ -6,7 +6,6 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,9 +427,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/11/20 17:49:35.943</created_date>
+    <created_date>2023/11/19 10:48:38.513</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/11/20 17:49:35.943</modified_date>
+    <modified_date>2023/11/19 10:48:38.513</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -493,26 +492,6 @@
   </connection>
   <order>
     <hop>
-      <from>DimAccount</from>
-      <to>Sort rows 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DimSecurity</from>
-      <to>Sort rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter account date</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Sort rows</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Filter rows 2</from>
       <to>InsertIntoDIMessage</to>
       <enabled>Y</enabled>
@@ -520,16 +499,6 @@
     <hop>
       <from>Filter rows 2 2</from>
       <to>InsertIntoDIMessage 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 3</from>
-      <to>Sort rows 2</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Filter security date</from>
-      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -543,28 +512,38 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join 4</from>
-      <to>change type</to>
+      <from>Trade</from>
+      <to>is_invalid_comm</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join 4 2</from>
-      <to>Filter account date</to>
+      <from>Trade</from>
+      <to>is_invalid_fee</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Sort rows 8</to>
+      <from>is_invalid_comm</from>
+      <to>Get variables</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
-      <to>Merge Join</to>
+      <from>Get variables</from>
+      <to>Filter rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
-      <to>Merge Join</to>
+      <from>is_invalid_fee</from>
+      <to>Get variables 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables 2</from>
+      <to>Filter rows 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DimSecurity</from>
+      <to>Sort rows 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -573,13 +552,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 4</from>
-      <to>Merge Join 4 2</to>
+      <from>Sort rows</from>
+      <to>Merge Join 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 7</from>
-      <to>Merge Join 4</to>
+      <from>DimAccount</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Merge Join 4 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -598,83 +582,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Trade</from>
-      <to>Filter rows 3</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Trade</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Trade</from>
-      <to>is_invalid_comm</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Trade</from>
-      <to>is_invalid_fee</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Trade Type</from>
       <to>Stream lookup 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>TradeHistory</from>
-      <to>Filter rows</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>TradeHistory</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>is_invalid_comm</from>
-      <to>Filter rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>change type</from>
-      <to>Filter security date</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>is_invalid_fee</from>
-      <to>Filter rows 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>BatchId</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>DimTrade</to>
+      <from>Filter rows</from>
+      <to>Block this step until steps finish</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Get Only Date Time</from>
       <to>Calculator 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Row denormaliser</from>
-      <to>Get Only Date Time</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Calculator 2</from>
-      <to>Sort rows 7</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Join</from>
-      <to>is_cancel</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -684,13 +603,108 @@
     </hop>
     <hop>
       <from>Stream lookup 2</from>
-      <to>BatchId</to>
+      <to>Get variables 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables 3</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>DIMTRADE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until steps finish</from>
+      <to>Insert / update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 4</from>
+      <to>change type</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter security date</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Sort rows 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 4 2</from>
+      <to>Filter account date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter account date</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>change type</from>
+      <to>Filter security date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Row denormaliser</from>
+      <to>Get Only Date Time</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trade</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BatchDate.txt</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator 2</from>
+      <to>Modified JavaScript value</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join rows (cartesian product)</from>
+      <to>Filter rows 3</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>is_cancel</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 4 2</from>
+      <to>Stream lookup</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>change type</from>
+      <to>Select values</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Join rows (cartesian product)</from>
+      <to>is_cancel</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>BatchId</name>
-    <type>Constant</type>
+    <name>BatchDate.txt</name>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -699,20 +713,86 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>N</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${input_path}\${sf}\${batch}\BatchDate.txt</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
     <fields>
       <field>
-        <name>BatchID</name>
-        <type>Integer</type>
+        <name>BatchDate</name>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>1</nullif>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
     </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -722,8 +802,39 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2192</xloc>
-      <yloc>400</yloc>
+      <xloc>32</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until steps finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>DIMTRADE</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2336</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -740,9 +851,9 @@
     </partitioning>
     <failIfNoFile>Y</failIfNoFile>
     <calculation>
-      <field_name>TH_DTS_active_date_int</field_name>
+      <field_name>T_DTS_active_date_int</field_name>
       <calc_type>GET_ONLY_DIGITS</calc_type>
-      <field_a>TH_DTS_active_date</field_a>
+      <field_a>T_DTS_active_date</field_a>
       <field_b/>
       <field_c/>
       <value_type>None</value_type>
@@ -755,9 +866,9 @@
       <currency_symbol/>
     </calculation>
     <calculation>
-      <field_name>TH_DTS_active_time_int</field_name>
+      <field_name>T_DTS_active_time_int</field_name>
       <calc_type>GET_ONLY_DIGITS</calc_type>
-      <field_a>TH_DTS_active_time</field_a>
+      <field_a>T_DTS_active_time</field_a>
       <field_b/>
       <field_c/>
       <value_type>None</value_type>
@@ -770,9 +881,9 @@
       <currency_symbol/>
     </calculation>
     <calculation>
-      <field_name>TH_DTS_cancel_date_int</field_name>
+      <field_name>T_DTS_cancel_date_int</field_name>
       <calc_type>GET_ONLY_DIGITS</calc_type>
-      <field_a>TH_DTS_cancel_date</field_a>
+      <field_a>T_DTS_cancel_date</field_a>
       <field_b/>
       <field_c/>
       <value_type>None</value_type>
@@ -785,9 +896,9 @@
       <currency_symbol/>
     </calculation>
     <calculation>
-      <field_name>TH_DTS_cancel_time_int</field_name>
+      <field_name>T_DTS_cancel_time_int</field_name>
       <calc_type>GET_ONLY_DIGITS</calc_type>
-      <field_a>TH_DTS_cancel_time</field_a>
+      <field_a>T_DTS_cancel_time</field_a>
       <field_b/>
       <field_c/>
       <value_type>None</value_type>
@@ -808,8 +919,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>336</yloc>
+      <xloc>464</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -872,8 +983,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>128</yloc>
+      <xloc>592</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -936,8 +1047,136 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>240</yloc>
+      <xloc>592</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIMTRADE</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <schema/>
+    <table>DIMTRADE</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>SK_BROKERID</column_name>
+        <stream_name>SK_BROKERID</stream_name>
+      </field>
+      <field>
+        <column_name>SK_CREATEDATEID</column_name>
+        <stream_name>T_DTS_active_date_int</stream_name>
+      </field>
+      <field>
+        <column_name>SK_CREATETIMEID</column_name>
+        <stream_name>T_DTS_active_time_int</stream_name>
+      </field>
+      <field>
+        <column_name>SK_CLOSEDATEID</column_name>
+        <stream_name>T_DTS_cancel_date_int</stream_name>
+      </field>
+      <field>
+        <column_name>SK_CLOSETIMEID</column_name>
+        <stream_name>T_DTS_cancel_time_int</stream_name>
+      </field>
+      <field>
+        <column_name>STATUS</column_name>
+        <stream_name>ST_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>TYPE</column_name>
+        <stream_name>TT_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>CASHFLAG</column_name>
+        <stream_name>T_IS_CASH</stream_name>
+      </field>
+      <field>
+        <column_name>SK_SECURITYID</column_name>
+        <stream_name>SK_SECURITYID</stream_name>
+      </field>
+      <field>
+        <column_name>SK_COMPANYID</column_name>
+        <stream_name>SK_COMPANYID</stream_name>
+      </field>
+      <field>
+        <column_name>QUANTITY</column_name>
+        <stream_name>T_QTY</stream_name>
+      </field>
+      <field>
+        <column_name>BIDPRICE</column_name>
+        <stream_name>T_BID_PRICE</stream_name>
+      </field>
+      <field>
+        <column_name>SK_CUSTOMERID</column_name>
+        <stream_name>SK_CUSTOMERID</stream_name>
+      </field>
+      <field>
+        <column_name>SK_ACCOUNTID</column_name>
+        <stream_name>SK_ACCOUNTID</stream_name>
+      </field>
+      <field>
+        <column_name>EXECUTEDBY</column_name>
+        <stream_name>T_EXEC_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>TRADEPRICE</column_name>
+        <stream_name>T_TRADE_PRICE</stream_name>
+      </field>
+      <field>
+        <column_name>FEE</column_name>
+        <stream_name>T_CHRG</stream_name>
+      </field>
+      <field>
+        <column_name>COMMISSION</column_name>
+        <stream_name>T_COMM</stream_name>
+      </field>
+      <field>
+        <column_name>TAX</column_name>
+        <stream_name>T_TAX</stream_name>
+      </field>
+      <field>
+        <column_name>BATCHID</column_name>
+        <stream_name>batch_id</stream_name>
+      </field>
+      <field>
+        <column_name>TRADEID</column_name>
+        <stream_name>T_ID</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2336</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -961,7 +1200,7 @@
 , effectivedate
 , enddate,iscurrent
 FROM dimaccount
---where iscurrent='1'</sql>
+-- where iscurrent='1'</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1140,8 +1379,8 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>96</yloc>
+      <xloc>1376</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1164,7 +1403,7 @@ FROM dimaccount
 , effectivedate
 , enddate
 FROM dimsecurity
---where iscurrent='1'</sql>
+-- where iscurrent='1'</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1297,136 +1536,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DimTrade</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>oracle_con</connection>
-    <schema/>
-    <table>dimtrade</table>
-    <commit>10000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-      <field>
-        <column_name>tradeid</column_name>
-        <stream_name>TRADEID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_brokerid</column_name>
-        <stream_name>SK_BROKERID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_createdateid</column_name>
-        <stream_name>SK_CREATEDDATEID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_createtimeid</column_name>
-        <stream_name>SK_CREATEDTIMEID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_closedateid</column_name>
-        <stream_name>SK_CLOSEDDATEID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_closetimeid</column_name>
-        <stream_name>SK_CLOSETIMEID</stream_name>
-      </field>
-      <field>
-        <column_name>status</column_name>
-        <stream_name>STATUS</stream_name>
-      </field>
-      <field>
-        <column_name>type</column_name>
-        <stream_name>TYPE</stream_name>
-      </field>
-      <field>
-        <column_name>cashflag</column_name>
-        <stream_name>CASHFLAG</stream_name>
-      </field>
-      <field>
-        <column_name>sk_securityid</column_name>
-        <stream_name>SK_SECURITYID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_companyid</column_name>
-        <stream_name>SK_COMPANYID</stream_name>
-      </field>
-      <field>
-        <column_name>quantity</column_name>
-        <stream_name>QUANTITY</stream_name>
-      </field>
-      <field>
-        <column_name>bidprice</column_name>
-        <stream_name>TRADEPRICE</stream_name>
-      </field>
-      <field>
-        <column_name>sk_customerid</column_name>
-        <stream_name>SK_CUSTOMERID</stream_name>
-      </field>
-      <field>
-        <column_name>sk_accountid</column_name>
-        <stream_name>SK_ACCOUNTID</stream_name>
-      </field>
-      <field>
-        <column_name>executedby</column_name>
-        <stream_name>EXECUTEDBY</stream_name>
-      </field>
-      <field>
-        <column_name>tradeprice</column_name>
-        <stream_name>TRADEPRICE</stream_name>
-      </field>
-      <field>
-        <column_name>fee</column_name>
-        <stream_name>FEE</stream_name>
-      </field>
-      <field>
-        <column_name>commission</column_name>
-        <stream_name>COMMISSION</stream_name>
-      </field>
-      <field>
-        <column_name>tax</column_name>
-        <stream_name>TAX</stream_name>
-      </field>
-      <field>
-        <column_name>batchid</column_name>
-        <stream_name>BATCHID</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2848</xloc>
-      <yloc>608</yloc>
+      <xloc>560</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1449,16 +1560,16 @@ FROM dimsecurity
         <conditions>
           <condition>
             <negated>N</negated>
-            <leftvalue>TH_DTS_active_date</leftvalue>
+            <leftvalue>T_DTS_active_date</leftvalue>
             <function>&gt;=</function>
-            <rightvalue>effectivedate</rightvalue>
+            <rightvalue>EFFECTIVEDATE</rightvalue>
           </condition>
           <condition>
             <negated>N</negated>
             <operator>AND</operator>
-            <leftvalue>TH_DTS_active_date</leftvalue>
+            <leftvalue>T_DTS_active_date</leftvalue>
             <function>&lt;</function>
-            <rightvalue>enddate</rightvalue>
+            <rightvalue>ENDDATE</rightvalue>
           </condition>
         </conditions>
       </condition>
@@ -1472,8 +1583,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>400</yloc>
+      <xloc>1584</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1488,22 +1599,22 @@ FROM dimsecurity
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort rows</send_true_to>
-    <send_false_to/>
+    <send_true_to>DIMTRADE</send_true_to>
+    <send_false_to>Block this step until steps finish</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>TH_T_ID</leftvalue>
+        <leftvalue>CDC_FLAG</leftvalue>
         <function>=</function>
         <rightvalue/>
         <value>
           <name>constant</name>
-          <type>Integer</type>
-          <text>15</text>
+          <type>String</type>
+          <text>I</text>
           <length>-1</length>
-          <precision>0</precision>
+          <precision>-1</precision>
           <isnull>N</isnull>
-          <mask>####0;-####0</mask>
+          <mask/>
         </value>
       </condition>
     </compare>
@@ -1516,8 +1627,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>576</yloc>
+      <xloc>2336</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1560,8 +1671,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>128</yloc>
+      <xloc>224</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1604,8 +1715,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>240</yloc>
+      <xloc>272</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1620,7 +1731,7 @@ FROM dimsecurity
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort rows 2</send_true_to>
+    <send_true_to>is_cancel</send_true_to>
     <send_false_to/>
     <compare>
       <condition>
@@ -1630,12 +1741,12 @@ FROM dimsecurity
         <rightvalue/>
         <value>
           <name>constant</name>
-          <type>Integer</type>
-          <text>10628</text>
+          <type>String</type>
+          <text>377919</text>
           <length>-1</length>
-          <precision>0</precision>
+          <precision>-1</precision>
           <isnull>N</isnull>
-          <mask>####0;-####0</mask>
+          <mask/>
         </value>
       </condition>
     </compare>
@@ -1648,8 +1759,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>208</yloc>
+      <xloc>112</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1672,16 +1783,16 @@ FROM dimsecurity
         <conditions>
           <condition>
             <negated>N</negated>
-            <leftvalue>TH_DTS_active_date</leftvalue>
+            <leftvalue>T_DTS_active_date</leftvalue>
             <function>&gt;=</function>
-            <rightvalue>effectivedate</rightvalue>
+            <rightvalue>EFFECTIVEDATE</rightvalue>
           </condition>
           <condition>
             <negated>N</negated>
             <operator>AND</operator>
-            <leftvalue>TH_DTS_active_date</leftvalue>
+            <leftvalue>T_DTS_active_date</leftvalue>
             <function>&lt;</function>
-            <rightvalue>enddate</rightvalue>
+            <rightvalue>ENDDATE</rightvalue>
           </condition>
         </conditions>
       </condition>
@@ -1695,8 +1806,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>512</yloc>
+      <xloc>864</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1713,26 +1824,26 @@ FROM dimsecurity
     </partitioning>
     <fields>
       <field>
-        <in_stream_name>TH_DTS_active</in_stream_name>
-        <out_stream_name>TH_DTS_active_date</out_stream_name>
+        <in_stream_name>T_DTS_active</in_stream_name>
+        <out_stream_name>T_DTS_active_date</out_stream_name>
         <cut_from>0</cut_from>
         <cut_to>10</cut_to>
       </field>
       <field>
-        <in_stream_name>TH_DTS_active</in_stream_name>
-        <out_stream_name>TH_DTS_active_time</out_stream_name>
+        <in_stream_name>T_DTS_active</in_stream_name>
+        <out_stream_name>T_DTS_active_time</out_stream_name>
         <cut_from>10</cut_from>
         <cut_to>19</cut_to>
       </field>
       <field>
-        <in_stream_name>TH_DTS_cancel</in_stream_name>
-        <out_stream_name>TH_DTS_cancel_date</out_stream_name>
+        <in_stream_name>T_DTS_cancel</in_stream_name>
+        <out_stream_name>T_DTS_cancel_date</out_stream_name>
         <cut_from>0</cut_from>
         <cut_to>10</cut_to>
       </field>
       <field>
-        <in_stream_name>TH_DTS_cancel</in_stream_name>
-        <out_stream_name>TH_DTS_cancel_time</out_stream_name>
+        <in_stream_name>T_DTS_cancel</in_stream_name>
+        <out_stream_name>T_DTS_cancel_time</out_stream_name>
         <cut_from>10</cut_from>
         <cut_to>19</cut_to>
       </field>
@@ -1746,8 +1857,268 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>336</yloc>
+      <xloc>320</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>batch_id</name>
+        <variable>${batch_id}</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables 2</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>batch_id</name>
+        <variable>${batch_id}</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables 3</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>batch_id</name>
+        <variable>${batch_id}</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2240</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <commit>10000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>DIMTRADE</table>
+      <key>
+        <name>T_ID</name>
+        <field>TRADEID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>SK_BROKERID</name>
+        <rename>SK_BROKERID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>SK_CLOSEDATEID</name>
+        <rename>T_DTS_cancel_date_int</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SK_CLOSETIMEID</name>
+        <rename>T_DTS_cancel_time_int</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>STATUS</name>
+        <rename>ST_NAME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TYPE</name>
+        <rename>TT_NAME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CASHFLAG</name>
+        <rename>T_IS_CASH</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SK_SECURITYID</name>
+        <rename>SK_SECURITYID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>SK_COMPANYID</name>
+        <rename>SK_COMPANYID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>QUANTITY</name>
+        <rename>T_QTY</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>BIDPRICE</name>
+        <rename>T_BID_PRICE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SK_CUSTOMERID</name>
+        <rename>SK_CUSTOMERID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>SK_ACCOUNTID</name>
+        <rename>SK_ACCOUNTID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>EXECUTEDBY</name>
+        <rename>T_EXEC_NAME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TRADEPRICE</name>
+        <rename>T_TRADE_PRICE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FEE</name>
+        <rename>T_CHRG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COMMISSION</name>
+        <rename>T_COMM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TAX</name>
+        <rename>T_TAX</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>BATCHID</name>
+        <rename>batch_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SK_CREATEDATEID</name>
+        <rename>T_DTS_active_date_int</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>SK_CREATETIMEID</name>
+        <rename>T_DTS_active_time_int</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TRADEID</name>
+        <rename>T_ID</rename>
+        <update>N</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2336</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1775,7 +2146,7 @@ customer_tier_alert='T_ID ='+ T_ID+', T_COMM ='+T_COMM;
 var MessageType='Alert';
 var MessageText='Invalid trade commission';
 var MessageSource='DimTrade';
-var BatchId=1;</jsScript_script>
+var BatchId=batch_id;</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
@@ -1829,8 +2200,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>128</yloc>
+      <xloc>400</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1858,7 +2229,7 @@ customer_tier_alert='T_ID ='+ T_ID+', T_CHRG ='+T_CHRG;
 var MessageType='Alert';
 var MessageText='Invalid trade fee';
 var MessageSource='DimTrade';
-var BatchId=1;</jsScript_script>
+var BatchId=batch_id;</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
@@ -1912,31 +2283,34 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>240</yloc>
+      <xloc>416</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
+    <name>Join rows (cartesian product)</name>
+    <type>JoinRows</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step1>Sort rows</step1>
-    <step2>Sort rows 2</step2>
-    <keys_1>
-      <key>TH_T_ID</key>
-    </keys_1>
-    <keys_2>
-      <key>T_ID</key>
-    </keys_2>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1946,8 +2320,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>400</yloc>
+      <xloc>224</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1962,8 +2336,8 @@ var BatchId=1;</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Sort rows 7</step1>
+    <join_type>INNER</join_type>
+    <step1>Sort rows</step1>
     <step2>Sort rows 3</step2>
     <keys_1>
       <key>T_S_SYMB</key>
@@ -1980,8 +2354,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>400</yloc>
+      <xloc>560</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1996,7 +2370,7 @@ var BatchId=1;</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>LEFT OUTER</join_type>
+    <join_type>INNER</join_type>
     <step1>Sort rows 8</step1>
     <step2>Sort rows 4</step2>
     <keys_1>
@@ -2014,8 +2388,58 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>400</yloc>
+      <xloc>1376</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var T_DTS_active_date;
+if(!T_DTS_active_date){
+T_DTS_active_date=BatchDate;
+}
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>T_DTS_active_date</name>
+        <rename>T_DTS_active_date</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2038,9 +2462,9 @@ var BatchId=1;</jsScript_script>
     </group>
     <fields>
       <field>
-        <field_name>TH_DTS</field_name>
+        <field_name>T_DTS</field_name>
         <key_value>0</key_value>
-        <target_name>TH_DTS_active</target_name>
+        <target_name>T_DTS_active</target_name>
         <target_type>String</target_type>
         <target_format/>
         <target_length>-1</target_length>
@@ -2052,9 +2476,9 @@ var BatchId=1;</jsScript_script>
         <target_aggregation_type>-</target_aggregation_type>
       </field>
       <field>
-        <field_name>TH_DTS</field_name>
+        <field_name>T_DTS</field_name>
         <key_value>1</key_value>
-        <target_name>TH_DTS_cancel</target_name>
+        <target_name>T_DTS_cancel</target_name>
         <target_type>String</target_type>
         <target_format/>
         <target_length>-1</target_length>
@@ -2075,8 +2499,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>336</yloc>
+      <xloc>176</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2094,10 +2518,10 @@ var BatchId=1;</jsScript_script>
     <fields>
       <select_unspecified>N</select_unspecified>
       <remove>
-        <name>effectivedate</name>
+        <name>EFFECTIVEDATE</name>
       </remove>
       <remove>
-        <name>enddate</name>
+        <name>ENDDATE</name>
       </remove>
     </fields>
     <attributes/>
@@ -2109,120 +2533,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>T_ID</name>
-        <rename>TRADEID</rename>
-      </field>
-      <field>
-        <name>SK_BROKERID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SK_CUSTOMERID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SK_ACCOUNTID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SK_SECURITYID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SK_COMPANYID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>BatchID</name>
-        <rename>BATCHID</rename>
-      </field>
-      <field>
-        <name>T_BID_PRICE</name>
-        <rename>BIDPRICE</rename>
-      </field>
-      <field>
-        <name>T_IS_CASH</name>
-        <rename>CASHFLAG</rename>
-      </field>
-      <field>
-        <name>T_COMM</name>
-        <rename>COMMISSION</rename>
-      </field>
-      <field>
-        <name>T_EXEC_NAME</name>
-        <rename>EXECUTEDBY</rename>
-      </field>
-      <field>
-        <name>T_CHRG</name>
-        <rename>FEE</rename>
-      </field>
-      <field>
-        <name>T_QTY</name>
-        <rename>QUANTITY</rename>
-      </field>
-      <field>
-        <name>TH_DTS_cancel_date_int</name>
-        <rename>SK_CLOSEDDATEID</rename>
-      </field>
-      <field>
-        <name>TH_DTS_cancel_time_int</name>
-        <rename>SK_CLOSETIMEID</rename>
-      </field>
-      <field>
-        <name>TH_DTS_active_date_int</name>
-        <rename>SK_CREATEDDATEID</rename>
-      </field>
-      <field>
-        <name>TH_DTS_active_time_int</name>
-        <rename>SK_CREATEDTIMEID</rename>
-      </field>
-      <field>
-        <name>st_name</name>
-        <rename>STATUS</rename>
-      </field>
-      <field>
-        <name>T_TAX</name>
-        <rename>TAX</rename>
-      </field>
-      <field>
-        <name>T_TRADE_PRICE</name>
-        <rename>TRADEPRICE</rename>
-      </field>
-      <field>
-        <name>tt_name</name>
-        <rename>TYPE</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2848</xloc>
-      <yloc>400</yloc>
+      <xloc>1088</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2246,7 +2558,7 @@ var BatchId=1;</jsScript_script>
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>TH_T_ID</name>
+        <name>T_S_SYMB</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -2263,50 +2575,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>T_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>256</yloc>
+      <xloc>240</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2347,8 +2617,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>240</yloc>
+      <xloc>560</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2389,50 +2659,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 7</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>T_S_SYMB</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>400</yloc>
+      <xloc>1376</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2473,8 +2701,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>400</yloc>
+      <xloc>1232</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2554,8 +2782,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1696</xloc>
-      <yloc>240</yloc>
+      <xloc>1856</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2578,11 +2806,11 @@ var BatchId=1;</jsScript_script>
     <lookup>
       <key>
         <name>T_ST_ID</name>
-        <field>st_id</field>
+        <field>ST_ID</field>
       </key>
       <value>
-        <name>st_name</name>
-        <rename>st_name</rename>
+        <name>ST_NAME</name>
+        <rename>ST_NAME</rename>
         <default/>
         <type>String</type>
       </value>
@@ -2596,8 +2824,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1696</xloc>
-      <yloc>400</yloc>
+      <xloc>1856</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2620,11 +2848,11 @@ var BatchId=1;</jsScript_script>
     <lookup>
       <key>
         <name>T_TT_ID</name>
-        <field>tt_id</field>
+        <field>TT_ID</field>
       </key>
       <value>
-        <name>tt_name</name>
-        <rename>tt_name</rename>
+        <name>TT_NAME</name>
+        <rename>TT_NAME</rename>
         <default/>
         <type>String</type>
       </value>
@@ -2638,8 +2866,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1872</xloc>
-      <yloc>400</yloc>
+      <xloc>2032</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2682,7 +2910,7 @@ var BatchId=1;</jsScript_script>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\Trade.txt</name>
+      <name>${input_path}\${sf}\${batch}\Trade.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>Y</file_required>
@@ -2694,13 +2922,43 @@ var BatchId=1;</jsScript_script>
     </filters>
     <fields>
       <field>
-        <name>T_ID</name>
-        <type>Integer</type>
+        <name>CDC_FLAG</name>
+        <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>T_ID</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
@@ -2712,195 +2970,195 @@ var BatchId=1;</jsScript_script>
         <name>T_DTS</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_ST_ID</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_TT_ID</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_IS_CASH</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_S_SYMB</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_QTY</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_BID_PRICE</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_CA_ID</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_EXEC_NAME</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_TRADE_PRICE</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_CHRG</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_COMM</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>T_TAX</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -2938,8 +3196,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>144</yloc>
+      <xloc>32</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3065,143 +3323,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1872</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>TradeHistory</name>
-    <type>TextFileInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
-    <separator>|</separator>
-    <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
-    <header>N</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field/>
-    <format>DOS</format>
-    <encoding/>
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${input_path}\${sf}\Batch1\TradeHistory.txt</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
-    <fields>
-      <field>
-        <name>TH_T_ID</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TH_DTS</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TH_ST_ID</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_US</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>624</yloc>
+      <xloc>2032</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3236,8 +3359,8 @@ var BatchId=1;</jsScript_script>
         <storage_type/>
       </meta>
       <meta>
-        <name>TH_DTS_active_date</name>
-        <rename>TH_DTS_active_date</rename>
+        <name>T_DTS_active_date</name>
+        <rename>T_DTS_active_date</rename>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -3253,8 +3376,8 @@ var BatchId=1;</jsScript_script>
         <storage_type/>
       </meta>
       <meta>
-        <name>effectivedate</name>
-        <rename>effectivedate</rename>
+        <name>EFFECTIVEDATE</name>
+        <rename>EFFECTIVEDATE</rename>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -3270,8 +3393,8 @@ var BatchId=1;</jsScript_script>
         <storage_type/>
       </meta>
       <meta>
-        <name>enddate</name>
-        <rename>enddate</rename>
+        <name>ENDDATE</name>
+        <rename>ENDDATE</rename>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -3296,8 +3419,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>400</yloc>
+      <xloc>704</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3321,11 +3444,11 @@ var BatchId=1;</jsScript_script>
         <jsScript_script>//Script here
 
 var is_cancel;
-if (((TH_ST_ID.trim()==='SBMT') &amp;&amp; (T_TT_ID.trim()==='TMB' || T_TT_ID.trim()==='TMS')) || (TH_ST_ID.trim()==='PNDG'))
+if (((T_ST_ID.trim()==='SBMT') &amp;&amp; (T_TT_ID.trim()==='TMB' || T_TT_ID.trim()==='TMS')) || (T_ST_ID.trim()==='PNDG'))
 {
 	is_cancel=0;
 }
-if (TH_ST_ID.trim()==='CMPT' || TH_ST_ID.trim()==='CNCL'){
+if (T_ST_ID.trim()==='CMPT' || T_ST_ID.trim()==='CNCL'){
 	is_cancel=1;
 }</jsScript_script>
       </jsScript>
@@ -3349,8 +3472,8 @@ if (TH_ST_ID.trim()==='CMPT' || TH_ST_ID.trim()==='CNCL'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>464</yloc>
+      <xloc>112</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3401,8 +3524,8 @@ is_invalid=0;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
+      <xloc>32</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3453,8 +3576,8 @@ is_invalid=0;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>240</yloc>
+      <xloc>64</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

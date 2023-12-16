@@ -427,9 +427,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/10/30 16:47:21.591</created_date>
+    <created_date>2023/11/19 13:22:37.901</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/10/30 16:47:21.591</modified_date>
+    <modified_date>2023/11/19 13:22:37.901</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -492,23 +492,113 @@
   </connection>
   <order>
     <hop>
-      <from>Add Const</from>
-      <to>FactMarketHistory</to>
+      <from>DimSecurity</from>
+      <to>Sort rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add value fields changing sequence</from>
+      <from>Sort rows</from>
       <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Compute yield and PERatio</from>
-      <to>Select values 2 3</to>
+      <from>Sort rows 2</from>
+      <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DailyMarket.txt</from>
+      <from>Merge join</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Calculator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>FactMarketHistory</from>
       <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>HoldingHistory.txt</from>
+      <to>Add sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add sequence</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Merge join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3 2</from>
+      <to>Merge join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator 2</from>
+      <to>Sort rows 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join 2</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Date/Time</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Date/Time</from>
+      <to>Calculator 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Select values 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 5</from>
+      <to>Group by 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -522,23 +612,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DimSecurity</from>
-      <to>Select values 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Financial sorted</from>
       <to>Merge join 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Financial sorted</from>
-      <to>Merge join 2</to>
+      <to>Merge join 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -552,37 +632,17 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get min and max</from>
-      <to>Add Const</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Group by</from>
-      <to>Merge join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Join 5</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Merge Join date</from>
       <to>Merge join Financial</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Merge join 1</from>
-      <to>Merge join 2</to>
+      <to>Merge join 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join 2</from>
+      <from>Merge join 2 2</from>
       <to>Merge join 3</to>
       <enabled>Y</enabled>
     </hop>
@@ -607,63 +667,98 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Get min and max</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values 2 2</from>
       <to>Sort rows 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2 3</from>
-      <to>Sort rows 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
+      <from>Sort rows 6</from>
       <to>Merge Join date</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Sort rows 2 2</from>
-      <to>Merge Join 5</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 3</from>
-      <to>Merge Join 5</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 4</from>
-      <to>Add value fields changing sequence</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 4</from>
-      <to>Group by</to>
+      <to>Merge Join date</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Standadize calendarweekid</from>
-      <to>Select values 2</to>
+      <to>Select values 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2</from>
-      <to>Sort rows 2</to>
+      <from>Compute yield and PERatio</from>
+      <to>Select values 5</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
-      <to>Merge Join date</to>
+      <from>Select values 5</from>
+      <to>Get variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
+      <to>FactMarketHistory 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 2</from>
+      <to>InsertIntoDIMessage</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>InsertIntoDIMessage</from>
+      <to>DIMESSAGES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
+      <to>Filter rows 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Filter rows 3</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>Sort rows 5</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Group by 2</from>
+      <to>Calculator 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Sort rows 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>check_amt current date</from>
+      <to>Sort rows 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator 3</from>
+      <to>Select values 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 6</from>
+      <to>Calculator 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator 4</from>
+      <to>check_amt current date</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add Const</name>
+    <name>Add constants</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -675,13 +770,13 @@
     </partitioning>
     <fields>
       <field>
-        <name>Batchid</name>
+        <name>days</name>
         <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>1</nullif>
+        <nullif>364</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -696,14 +791,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2608</xloc>
-      <yloc>400</yloc>
+      <xloc>768</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add value fields changing sequence</name>
-    <type>FieldsChangeSequence</type>
+    <name>Add sequence</name>
+    <type>Sequence</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -712,14 +807,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>sequence</resultfieldName>
-    <fields>
-      <field>
-        <name>sk_securityid</name>
-      </field>
-    </fields>
+    <valuename>row_number</valuename>
+    <use_database>N</use_database>
+    <connection/>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -729,8 +826,105 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>480</yloc>
+      <xloc>240</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>N</failIfNoFile>
+    <calculation>
+      <field_name>SK_DATEID</field_name>
+      <calc_type>GET_ONLY_DIGITS</calc_type>
+      <field_a>date_str</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>date_before_52_weeks</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>DM_DATE</field_a>
+      <field_b>days</field_b>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>896</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator 2</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>N</failIfNoFile>
+    <calculation>
+      <field_name>date_before_52_weeks_int</field_name>
+      <calc_type>GET_ONLY_DIGITS</calc_type>
+      <field_a>date_before_52_weeks_date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -749,7 +943,7 @@
     <calculation>
       <field_name>partialyield</field_name>
       <calc_type>DIVIDE</calc_type>
-      <field_a>dividend</field_a>
+      <field_a>DIVIDEND</field_a>
       <field_b>DM_CLOSE</field_b>
       <field_c/>
       <value_type>Number</value_type>
@@ -764,9 +958,9 @@
     <calculation>
       <field_name>partial</field_name>
       <calc_type>ADD3</calc_type>
-      <field_a>fi_net_earn_1</field_a>
-      <field_b>fi_net_earn_2</field_b>
-      <field_c>fi_net_earn_3</field_c>
+      <field_a>FI_NET_EARN_1</field_a>
+      <field_b>FI_NET_EARN_2</field_b>
+      <field_c>FI_NET_EARN_3</field_c>
       <value_type>BigNumber</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -780,7 +974,7 @@
       <field_name>earning</field_name>
       <calc_type>ADD</calc_type>
       <field_a>partial</field_a>
-      <field_b>fi_net_earn</field_b>
+      <field_b>FI_NET_EARN</field_b>
       <field_c/>
       <value_type>BigNumber</value_type>
       <value_length>-1</value_length>
@@ -845,14 +1039,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1664</xloc>
-      <yloc>400</yloc>
+      <xloc>3616</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>DailyMarket.txt</name>
-    <type>TextFileInput</type>
+    <name>DIMESSAGES</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -861,161 +1055,45 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
-    <separator>|</separator>
-    <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
-    <header>N</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field/>
-    <format>DOS</format>
-    <encoding/>
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${input_path}/${sf}/Batch1/DailyMarket.txt</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>Y</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
+    <connection>oracle_con</connection>
+    <schema/>
+    <table>DIMESSAGES</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
       <field>
-        <name>DM_DATE</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <column_name>BatchID</column_name>
+        <stream_name>BatchId</stream_name>
       </field>
       <field>
-        <name>DM_S_SYMB</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <column_name>MessageSource</column_name>
+        <stream_name>MessageSource</stream_name>
       </field>
       <field>
-        <name>DM_CLOSE</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <column_name>MessageType</column_name>
+        <stream_name>MessageType</stream_name>
       </field>
       <field>
-        <name>DM_HIGH</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <column_name>MessageText</column_name>
+        <stream_name>MessageText</stream_name>
       </field>
       <field>
-        <name>DM_LOW</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DM_VOL</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <column_name>MESSAGEDATA</column_name>
+        <stream_name>alert</stream_name>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_US</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1025,8 +1103,41 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>400</yloc>
+      <xloc>4448</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Date/Time</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>date_before_52_weeks</in_stream_name>
+        <out_stream_name>date_before_52_weeks_date</out_stream_name>
+        <cut_from>0</cut_from>
+        <cut_to>10</cut_to>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1136</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1207,8 +1318,8 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>64</yloc>
+      <xloc>2768</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1224,7 +1335,8 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       <schema_name/>
     </partitioning>
     <connection>oracle_con</connection>
-    <sql>SELECT * FROM dimsecurity</sql>
+    <sql>SELECT * FROM dimsecurity
+where iscurrent='1'</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1587,13 +1699,142 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>80</yloc>
+      <xloc>528</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>FactMarketHistory</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <sql>SELECT a.DAYHIGH,a.DAYLOW,b.SYMBOL,SK_DATEID AS SK_DATEID_tbl FROM FACTMARKETHISTORY a
+INNER JOIN DIMSECURITY b 
+on a.SK_SECURITYID=b.SK_SECURITYID</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>DAYHIGH</name>
+        <length>8</length>
+        <precision>2</precision>
+        <origin>FactMarketHistory</origin>
+        <comments>DAYHIGH</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>DAYLOW</name>
+        <length>8</length>
+        <precision>2</precision>
+        <origin>FactMarketHistory</origin>
+        <comments>DAYLOW</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SYMBOL</name>
+        <length>15</length>
+        <precision>-1</precision>
+        <origin>FactMarketHistory</origin>
+        <comments>SYMBOL</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>SK_DATEID_TBL</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>FactMarketHistory</origin>
+        <comments>SK_DATEID_TBL</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FactMarketHistory 2</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1622,60 +1863,60 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
     <return_field/>
     <fields>
       <field>
-        <column_name>sk_securityid</column_name>
-        <stream_name>sk_securityid</stream_name>
+        <column_name>SK_SECURITYID</column_name>
+        <stream_name>SK_SECURITYID</stream_name>
       </field>
       <field>
-        <column_name>sk_companyid</column_name>
-        <stream_name>sk_companyid</stream_name>
+        <column_name>SK_COMPANYID</column_name>
+        <stream_name>SK_COMPANYID</stream_name>
       </field>
       <field>
-        <column_name>sk_dateid</column_name>
-        <stream_name>sk_dateid</stream_name>
+        <column_name>SK_DATEID</column_name>
+        <stream_name>SK_DATEID</stream_name>
       </field>
       <field>
-        <column_name>peratio</column_name>
+        <column_name>PERATIO</column_name>
         <stream_name>PERatio</stream_name>
       </field>
       <field>
-        <column_name>yield</column_name>
+        <column_name>YIELD</column_name>
         <stream_name>yield</stream_name>
       </field>
       <field>
-        <column_name>fiftytwoweekhigh</column_name>
-        <stream_name>dayhigh_max</stream_name>
+        <column_name>FIFTYTWOWEEKHIGH</column_name>
+        <stream_name>FIFTYTWOWEEKHIGH</stream_name>
       </field>
       <field>
-        <column_name>sk_fiftytwoweek</column_name>
-        <stream_name>sk_dateid_max</stream_name>
+        <column_name>SK_FIFTYTWOWEEK</column_name>
+        <stream_name>SK_FIFTYTWOWEEK</stream_name>
       </field>
       <field>
-        <column_name>fiftytwoweeklow</column_name>
-        <stream_name>daylow_min</stream_name>
+        <column_name>FIFTYTWOWEEKLOW</column_name>
+        <stream_name>FIFTYTWOWEEKLOW</stream_name>
       </field>
       <field>
-        <column_name>sk_fiftytwoweekl</column_name>
-        <stream_name>sk_dateid_min</stream_name>
+        <column_name>SK_FIFTYTWOWEEKL</column_name>
+        <stream_name>SK_FIFTYTWOWEEKL</stream_name>
       </field>
       <field>
-        <column_name>closeprice</column_name>
-        <stream_name>closeprice</stream_name>
+        <column_name>CLOSEPRICE</column_name>
+        <stream_name>CLOSEPRICE</stream_name>
       </field>
       <field>
-        <column_name>dayhigh</column_name>
-        <stream_name>dayhigh</stream_name>
+        <column_name>DAYHIGH</column_name>
+        <stream_name>DAYHIGH</stream_name>
       </field>
       <field>
-        <column_name>daylow</column_name>
-        <stream_name>daylow</stream_name>
+        <column_name>DAYLOW</column_name>
+        <stream_name>DAYLOW</stream_name>
       </field>
       <field>
-        <column_name>volume</column_name>
-        <stream_name>volume</stream_name>
+        <column_name>VOLUME</column_name>
+        <stream_name>VOLUME</stream_name>
       </field>
       <field>
-        <column_name>batchid</column_name>
-        <stream_name>Batchid</stream_name>
+        <column_name>BATCHID</column_name>
+        <stream_name>BatchId</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1687,8 +1928,8 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2720</xloc>
-      <yloc>400</yloc>
+      <xloc>4304</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1703,7 +1944,42 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort rows</send_true_to>
+    <send_true_to>Select values 3</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>SK_DATEID_TBL</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue>date_before_52_weeks_int</rightvalue>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select values 4</send_true_to>
     <send_false_to/>
     <compare>
       <condition>
@@ -1711,16 +1987,16 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
         <conditions>
           <condition>
             <negated>N</negated>
-            <leftvalue>DM_DATE</leftvalue>
-            <function>&gt;=</function>
-            <rightvalue>effectivedate</rightvalue>
+            <leftvalue>DAYHIGH</leftvalue>
+            <function>=</function>
+            <rightvalue>FIFTYTWOWEEKHIGH</rightvalue>
           </condition>
           <condition>
             <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>DM_DATE</leftvalue>
-            <function>&lt;</function>
-            <rightvalue>enddate</rightvalue>
+            <operator>OR</operator>
+            <leftvalue>DAYLOW</leftvalue>
+            <function>=</function>
+            <rightvalue>FIFTYTWOWEEKLOW</rightvalue>
           </condition>
         </conditions>
       </condition>
@@ -1734,8 +2010,52 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>400</yloc>
+      <xloc>2016</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>InsertIntoDIMessage</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>yield</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Number</type>
+          <text>0.0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>####0.0#########;-####0.0#########</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4080</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1868,86 +2188,34 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1294</xloc>
-      <yloc>151</yloc>
+      <xloc>3248</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Get min and max</name>
-    <type>ScriptValueMod</type>
+    <name>Get variables</name>
+    <type>GetVariable</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var calendarweekid_split = calendarweekid_concat.split(";");
-var sk_dateid_split = sk_dateid_concat.split(";");
-var dayhigh_split = dayhigh_concat.split(";");
-var daylow_split = daylow_concat.split(";");
-var i=(sequence>366)?sequence-366:0;
-var dayhigh_max=-1, daylow_min=-1;
-var sk_dateid_max=0, sk_dateid_min=0;
-
-while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[i])&lt;=calendarweekid) {
-	if (sk_dateid>=str2num(sk_dateid_split[i]) &amp;&amp; calendarweekid-52&lt;str2num(calendarweekid_split[i])) {
-		if (sk_dateid_max==0 || str2num(dayhigh_split[i])>dayhigh_max) {
-			dayhigh_max=str2num(dayhigh_split[i]);
-			sk_dateid_max=str2num(sk_dateid_split[i]);
-			}
-		if (sk_dateid_min==0 || str2num(daylow_split[i])&lt;daylow_min) {
-			daylow_min=str2num(daylow_split[i]);
-			sk_dateid_min=str2num(sk_dateid_split[i]);
-			}
-		}
-	i++;
-	}
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
     <fields>
       <field>
-        <name>dayhigh_max</name>
-        <rename>dayhigh_max</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>daylow_min</name>
-        <rename>daylow_min</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>sk_dateid_max</name>
-        <rename>sk_dateid_max</rename>
+        <name>BatchId</name>
+        <variable>${batch_id}</variable>
         <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>sk_dateid_min</name>
-        <rename>sk_dateid_min</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
+        <trim_type>none</trim_type>
       </field>
     </fields>
     <attributes/>
@@ -1959,13 +2227,65 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2480</xloc>
-      <yloc>400</yloc>
+      <xloc>4080</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Group by</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>Y</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>row_number</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>FIFTYTWOWEEKHIGH</aggregate>
+        <subject>DAYHIGH</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>FIFTYTWOWEEKLOW</aggregate>
+        <subject>DAYLOW</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1904</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Group by 2</name>
     <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1985,33 +2305,105 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
     <give_back_row>N</give_back_row>
     <group>
       <field>
-        <name>sk_securityid</name>
+        <name>row_number</name>
       </field>
     </group>
     <fields>
       <field>
-        <aggregate>sk_dateid_concat</aggregate>
-        <subject>sk_dateid</subject>
-        <type>CONCAT_STRING</type>
-        <valuefield>;</valuefield>
+        <aggregate>CDC_FLAG</aggregate>
+        <subject>CDC_FLAG</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
       </field>
       <field>
-        <aggregate>calendarweekid_concat</aggregate>
-        <subject>calendarweekid</subject>
-        <type>CONCAT_STRING</type>
-        <valuefield>;</valuefield>
+        <aggregate>CDC_DSN</aggregate>
+        <subject>CDC_DSN</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
       </field>
       <field>
-        <aggregate>dayhigh_concat</aggregate>
-        <subject>dayhigh</subject>
-        <type>CONCAT_STRING</type>
-        <valuefield>;</valuefield>
+        <aggregate>DM_DATE</aggregate>
+        <subject>DM_DATE</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
       </field>
       <field>
-        <aggregate>daylow_concat</aggregate>
-        <subject>daylow</subject>
-        <type>CONCAT_STRING</type>
-        <valuefield>;</valuefield>
+        <aggregate>DM_S_SYMB</aggregate>
+        <subject>DM_S_SYMB</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>DM_CLOSE</aggregate>
+        <subject>DM_CLOSE</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>DM_HIGH</aggregate>
+        <subject>DM_HIGH</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>DM_LOW</aggregate>
+        <subject>DM_LOW</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>DM_VOL</aggregate>
+        <subject>DM_VOL</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>SK_SECURITYID</aggregate>
+        <subject>SK_SECURITYID</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>SK_COMPANYID</aggregate>
+        <subject>SK_COMPANYID</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>SK_FIFTYTWOWEEK</aggregate>
+        <subject>SK_DATEID_TBL</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>SK_FIFTYTWOWEEKL</aggregate>
+        <subject>SK_DATEID_TBL</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>FIFTYTWOWEEKHIGH</aggregate>
+        <subject>FIFTYTWOWEEKHIGH</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>FIFTYTWOWEEKLOW</aggregate>
+        <subject>FIFTYTWOWEEKLOW</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>SK_DATEID</aggregate>
+        <subject>SK_DATEID</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
+      </field>
+      <field>
+        <aggregate>DIVIDEND</aggregate>
+        <subject>DIVIDEND</subject>
+        <type>FIRST_INCL_NULL</type>
+        <valuefield/>
       </field>
     </fields>
     <attributes/>
@@ -2023,14 +2415,14 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>320</yloc>
+      <xloc>2256</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join 5</name>
-    <type>MergeJoin</type>
+    <name>HoldingHistory.txt</name>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2039,15 +2431,191 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step1>Sort rows 3</step1>
-    <step2>Sort rows 2 2</step2>
-    <keys_1>
-      <key>DM_S_SYMB</key>
-    </keys_1>
-    <keys_2>
-      <key>symbol</key>
-    </keys_2>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>|</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>N</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${input_path}\${sf}\${batch}\DailyMarket.txt</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>CDC_FLAG</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DM_DATE</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DM_S_SYMB</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DM_CLOSE</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DM_HIGH</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DM_LOW</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DM_VOL</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2057,8 +2625,90 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>400</yloc>
+      <xloc>96</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>InsertIntoDIMessage</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var alert='DM_S_SYMB = '+ DM_S_SYMB;
+var MessageType='Alert';
+var MessageText='No earnings for company';
+var MessageSource='FactMarketHistory';
+var BatchId=BatchId;</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>alert</name>
+        <rename>alert</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>MessageType</name>
+        <rename>MessageType</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>MessageText</name>
+        <rename>MessageText</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>MessageSource</name>
+        <rename>MessageSource</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>BatchId</name>
+        <rename>BatchId</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4256</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2074,8 +2724,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows</step1>
-    <step2>Sort rows 2</step2>
+    <step1>Sort rows 6</step1>
+    <step2>Sort rows 2 2</step2>
     <keys_1>
       <key>DM_DATE</key>
     </keys_1>
@@ -2091,8 +2741,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>400</yloc>
+      <xloc>2768</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2108,13 +2758,13 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Add value fields changing sequence</step1>
-    <step2>Group by</step2>
+    <step1>Sort rows</step1>
+    <step2>Sort rows 2</step2>
     <keys_1>
-      <key>sk_securityid</key>
+      <key>DM_S_SYMB</key>
     </keys_1>
     <keys_2>
-      <key>sk_securityid</key>
+      <key>SYMBOL</key>
     </keys_2>
     <attributes/>
     <cluster_schema/>
@@ -2125,8 +2775,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2240</xloc>
-      <yloc>400</yloc>
+      <xloc>528</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2161,13 +2811,47 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1118</xloc>
-      <yloc>311</yloc>
+      <xloc>3072</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Merge join 2</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows 3 2</step1>
+    <step2>Sort rows 3</step2>
+    <keys_1>
+      <key>DM_S_SYMB</key>
+    </keys_1>
+    <keys_2>
+      <key>SYMBOL</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 2 2</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -2199,8 +2883,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1230</xloc>
-      <yloc>311</yloc>
+      <xloc>3184</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2216,7 +2900,7 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Merge join 2</step1>
+    <step1>Merge join 2 2</step1>
     <step2>Financial sorted</step2>
     <keys_1>
       <key>y_minus3</key>
@@ -2237,8 +2921,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1342</xloc>
-      <yloc>311</yloc>
+      <xloc>3296</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2275,8 +2959,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1454</xloc>
-      <yloc>311</yloc>
+      <xloc>3408</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2311,8 +2995,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1454</xloc>
-      <yloc>407</yloc>
+      <xloc>3408</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2432,8 +3116,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>974</xloc>
-      <yloc>311</yloc>
+      <xloc>2928</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2449,17 +3133,54 @@ switch(FISCALQTRID%10) {
       <schema_name/>
     </partitioning>
     <fields>
+      <field>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+      </field>
+      <field>
+        <name>DM_DATE</name>
+      </field>
+      <field>
+        <name>DM_S_SYMB</name>
+      </field>
+      <field>
+        <name>DM_CLOSE</name>
+      </field>
+      <field>
+        <name>DM_HIGH</name>
+      </field>
+      <field>
+        <name>DM_LOW</name>
+      </field>
+      <field>
+        <name>DM_VOL</name>
+      </field>
+      <field>
+        <name>SK_SECURITYID</name>
+      </field>
+      <field>
+        <name>SK_COMPANYID</name>
+      </field>
+      <field>
+        <name>DM_DATE</name>
+        <rename>date_str</rename>
+      </field>
+      <field>
+        <name>row_number</name>
+      </field>
+      <field>
+        <name>DIVIDEND</name>
+      </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>sk_securityid_1</name>
-      </remove>
       <meta>
-        <name>CALENDARWEEKID</name>
-        <rename>calendarweekid</rename>
-        <type>None</type>
+        <name>DM_DATE</name>
+        <rename>DM_DATE</rename>
+        <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -2470,10 +3191,38 @@ switch(FISCALQTRID%10) {
         <currency_symbol/>
         <storage_type/>
       </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
       <meta>
-        <name>SK_DATEID</name>
-        <rename>sk_dateid</rename>
-        <type>None</type>
+        <name>date_before_52_weeks</name>
+        <rename>date_before_52_weeks</rename>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -2497,13 +3246,13 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2352</xloc>
-      <yloc>400</yloc>
+      <xloc>1024</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values 2</name>
+    <name>Select values 2 2</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2534,13 +3283,13 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>240</yloc>
+      <xloc>2768</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values 2 2</name>
+    <name>Select values 3</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2552,41 +3301,67 @@ switch(FISCALQTRID%10) {
     </partitioning>
     <fields>
       <field>
-        <name>sk_securityid</name>
+        <name>CDC_FLAG</name>
       </field>
       <field>
-        <name>symbol</name>
+        <name>CDC_DSN</name>
       </field>
       <field>
-        <name>effectivedate</name>
+        <name>DM_DATE</name>
       </field>
       <field>
-        <name>enddate</name>
+        <name>DM_S_SYMB</name>
       </field>
       <field>
-        <name>sk_companyid</name>
+        <name>DM_CLOSE</name>
       </field>
       <field>
-        <name>dividend</name>
+        <name>DM_HIGH</name>
+      </field>
+      <field>
+        <name>DM_LOW</name>
+      </field>
+      <field>
+        <name>DM_VOL</name>
+      </field>
+      <field>
+        <name>SK_SECURITYID</name>
+      </field>
+      <field>
+        <name>SK_COMPANYID</name>
+      </field>
+      <field>
+        <name>date_str</name>
+      </field>
+      <field>
+        <name>days</name>
+      </field>
+      <field>
+        <name>SK_DATEID</name>
+      </field>
+      <field>
+        <name>date_before_52_weeks_int</name>
+        <rename>date_before_52_weeks</rename>
+      </field>
+      <field>
+        <name>DAYHIGH</name>
+      </field>
+      <field>
+        <name>SYMBOL</name>
+      </field>
+      <field>
+        <name>SK_DATEID_TBL</name>
+      </field>
+      <field>
+        <name>row_number</name>
+      </field>
+      <field>
+        <name>DAYLOW</name>
+      </field>
+      <field>
+        <name>DIVIDEND</name>
       </field>
       <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>dividend</name>
-        <rename>dividend</rename>
-        <type>Number</type>
-        <length>3</length>
-        <precision>1</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2597,13 +3372,129 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>176</yloc>
+      <xloc>1632</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values 2 3</name>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>CDC_FLAG</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DM_DATE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DM_S_SYMB</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DM_CLOSE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DM_HIGH</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DM_LOW</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DM_VOL</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SK_SECURITYID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SK_COMPANYID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>date_str</name>
+        <rename/>
+      </field>
+      <field>
+        <name>days</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SK_DATEID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>date_before_52_weeks</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DAYHIGH</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SYMBOL</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SK_DATEID_TBL</name>
+        <rename/>
+      </field>
+      <field>
+        <name>row_number</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DAYLOW</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FIFTYTWOWEEKHIGH</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FIFTYTWOWEEKLOW</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DIVIDEND</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2144</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 5</name>
     <type>SelectValues</type>
     <description/>
     <distribute>N</distribute>
@@ -2615,38 +3506,50 @@ switch(FISCALQTRID%10) {
     </partitioning>
     <fields>
       <field>
-        <name>sk_securityid</name>
+        <name>SK_SECURITYID</name>
       </field>
       <field>
-        <name>calendarweekid</name>
+        <name>SK_COMPANYID</name>
       </field>
       <field>
-        <name>sk_companyid</name>
+        <name>SK_DATEID</name>
       </field>
       <field>
-        <name>DM_CLOSE</name>
-        <rename>closeprice</rename>
-      </field>
-      <field>
-        <name>DM_HIGH</name>
-        <rename>dayhigh</rename>
-      </field>
-      <field>
-        <name>DM_LOW</name>
-        <rename>daylow</rename>
-      </field>
-      <field>
-        <name>DM_VOL</name>
-        <rename>volume</rename>
+        <name>PERatio</name>
       </field>
       <field>
         <name>yield</name>
       </field>
       <field>
-        <name>sk_dateid</name>
+        <name>FIFTYTWOWEEKHIGH</name>
       </field>
       <field>
-        <name>PERatio</name>
+        <name>SK_FIFTYTWOWEEK</name>
+      </field>
+      <field>
+        <name>FIFTYTWOWEEKLOW</name>
+      </field>
+      <field>
+        <name>SK_FIFTYTWOWEEKL</name>
+      </field>
+      <field>
+        <name>DM_CLOSE</name>
+        <rename>CLOSEPRICE</rename>
+      </field>
+      <field>
+        <name>DM_HIGH</name>
+        <rename>DAYHIGH</rename>
+      </field>
+      <field>
+        <name>DM_LOW</name>
+        <rename>DAYLOW</rename>
+      </field>
+      <field>
+        <name>DM_VOL</name>
+        <rename>VOLUME</rename>
+      </field>
+      <field>
+        <name>DM_S_SYMB</name>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2659,139 +3562,13 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
-      <yloc>400</yloc>
+      <xloc>3856</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>DM_DATE</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>DATEVALUE</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>symbol</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 3</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2827,16 +3604,16 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>400</yloc>
+      <xloc>368</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort rows 4</name>
+    <name>Sort rows 2</name>
     <type>SortRows</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2852,15 +3629,7 @@ switch(FISCALQTRID%10) {
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>sk_securityid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>sk_dateid</name>
+        <name>SYMBOL</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -2877,8 +3646,260 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2000</xloc>
-      <yloc>400</yloc>
+      <xloc>528</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>DATEVALUE</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2768</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>SYMBOL</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>DM_S_SYMB</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>row_number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 5</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>row_number</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2144</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 6</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>DM_DATE</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2544</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2930,8 +3951,260 @@ if (CALENDARWEEKID.length==5) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>160</yloc>
+      <xloc>2768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>check_amt current date</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var FIFTYTWOWEEKHIGH;
+var FIFTYTWOWEEKLOW;
+var SK_FIFTYTWOWEEKL;
+var SK_FIFTYTWOWEEK;
+if (DM_LOW*1&lt;FIFTYTWOWEEKLOW*1){
+	FIFTYTWOWEEKLOW=DM_LOW;
+	SK_FIFTYTWOWEEKL=date_int;
+}
+if (DM_HIGH*1>FIFTYTWOWEEKHIGH*1){
+	FIFTYTWOWEEKHIGH=DM_HIGH;
+	SK_FIFTYTWOWEEK=date_int;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>FIFTYTWOWEEKHIGH</name>
+        <rename>FIFTYTWOWEEKHIGH</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>FIFTYTWOWEEKLOW</name>
+        <rename>FIFTYTWOWEEKLOW</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>SK_FIFTYTWOWEEKL</name>
+        <rename>SK_FIFTYTWOWEEKL</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>SK_FIFTYTWOWEEK</name>
+        <rename>SK_FIFTYTWOWEEK</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2544</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 3</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort rows 5</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>SK_SECURITYID</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1444</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2080</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator 3</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>copy_date</field_name>
+      <calc_type>COPY_FIELD</calc_type>
+      <field_a>DM_DATE</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>yyyy-MM-dd</conversion_mask>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2256</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 6</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>copy_date</name>
+        <rename>copy_date</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2384</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator 4</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>date_int</field_name>
+      <calc_type>GET_ONLY_DIGITS</calc_type>
+      <field_a>copy_date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2544</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

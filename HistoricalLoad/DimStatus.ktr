@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TradeType</name>
+    <name>DimStatus</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/10/28 20:07:33.051</created_date>
+    <created_date>2023/11/05 14:19:19.739</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/10/28 20:07:33.051</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2023/11/05 14:19:19.739</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,13 +492,13 @@
   </connection>
   <order>
     <hop>
-      <from>TradeType.txt</from>
-      <to>TradeType</to>
+      <from>Status.txt</from>
+      <to>Industry</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>TradeType</name>
+    <name>Industry</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -510,8 +510,8 @@
     </partitioning>
     <connection>oracle_con</connection>
     <schema/>
-    <table>tradetype</table>
-    <commit>1000</commit>
+    <table>industry</table>
+    <commit>10000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
@@ -527,20 +527,16 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>tt_id</column_name>
-        <stream_name>TT_ID</stream_name>
+        <column_name>in_id</column_name>
+        <stream_name>IN_ID</stream_name>
       </field>
       <field>
-        <column_name>tt_name</column_name>
-        <stream_name>TT_NAME</stream_name>
+        <column_name>in_name</column_name>
+        <stream_name>IN_NAME</stream_name>
       </field>
       <field>
-        <column_name>tt_is_sell</column_name>
-        <stream_name>TT_IS_SELL</stream_name>
-      </field>
-      <field>
-        <column_name>tt_is_mrkt</column_name>
-        <stream_name>TT_IS_MRKT</stream_name>
+        <column_name>in_sc_id</column_name>
+        <stream_name>IN_SC_ID</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -552,13 +548,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>465</xloc>
-      <yloc>117</yloc>
+      <xloc>557</xloc>
+      <yloc>199</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>TradeType.txt</name>
+    <name>Status.txt</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -596,7 +592,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\${batch}\TradeType.txt</name>
+      <name>${input_path}\${sf}\Batch1\Status.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -608,38 +604,8 @@
     </filters>
     <fields>
       <field>
-        <name>TT_ID</name>
+        <name>IN_ID</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TT_NAME</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TT_IS_SELL</name>
-        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
@@ -653,8 +619,23 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>TT_IS_MRKT</name>
-        <type>Integer</type>
+        <name>IN_NAME</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>IN_SC_ID</name>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -702,8 +683,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>299</xloc>
-      <yloc>117</yloc>
+      <xloc>349</xloc>
+      <yloc>199</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

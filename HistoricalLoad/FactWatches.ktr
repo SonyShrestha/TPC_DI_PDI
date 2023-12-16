@@ -430,7 +430,7 @@
     <created_date>2023/10/29 23:17:49.029</created_date>
     <modified_user>-</modified_user>
     <modified_date>2023/10/29 23:17:49.029</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,67 +492,12 @@
   </connection>
   <order>
     <hop>
-      <from>ACTV</from>
-      <to>Merge join 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add Batchid</from>
-      <to>FactWatches</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>CNCL</from>
-      <to>Merge join 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DailyMarket.txt</from>
-      <to>Remove Time</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Sort Rows 5</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge join</from>
-      <to>Sort Rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge join 2</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge join 3</from>
-      <to>Add Batchid</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Merge join 4</from>
       <to>Sort by W_C_ID</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Remove Time</from>
-      <to>Sort by date</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort Rows 5</from>
-      <to>Switch W_ACTION</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort by W_C_ID</from>
-      <to>Merge join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort Rows 3</from>
+      <from>Sort by W_S_SYM</from>
       <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -562,13 +507,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch W_ACTION</from>
-      <to>ACTV</to>
+      <from>Remove Time</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch W_ACTION</from>
-      <to>CNCL</to>
+      <from>DimDate</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -577,8 +527,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DimCustomer</from>
-      <to>Sort rows 2</to>
+      <from>Select values 3</from>
+      <to>Sort by W_S_SYM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
+      <to>Filter rows date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows date</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows date 2</from>
+      <to>Select values 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join 2</from>
+      <to>Filter rows date 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -587,59 +557,63 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DimSecurity</from>
-      <to>Sort rows 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 4</from>
+      <from>Sort rows 2 2</from>
       <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DimDate</from>
-      <to>Sort rows</to>
+      <from>Add Batchid 1</from>
+      <to>FactWatches</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Sort by date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DailyMarket.txt</from>
+      <to>Remove Time</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort by W_C_ID</from>
+      <to>Row denormaliser</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Row denormaliser</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3 2</from>
+      <to>Add Batchid 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DimSecurity</from>
+      <to>Select values 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Sort rows 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DimCustomer</from>
+      <to>Select values 4 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4 2</from>
+      <to>Sort rows 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>ACTV</name>
-    <type>FieldsChangeSequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>sequence</resultfieldName>
-    <fields>
-      <field>
-        <name>SK_SECURITYID</name>
-      </field>
-      <field>
-        <name>SK_CUSTOMERID</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1360</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add Batchid</name>
+    <name>Add Batchid 1</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -672,44 +646,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CNCL</name>
-    <type>FieldsChangeSequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>sequence</resultfieldName>
-    <fields>
-      <field>
-        <name>SK_SECURITYID</name>
-      </field>
-      <field>
-        <name>SK_CUSTOMERID</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1360</xloc>
-      <yloc>576</yloc>
+      <xloc>1888</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -752,7 +690,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\WatchHistory.txt</name>
+      <name>${input_path}\${sf}\${batch}\WatchHistory.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>Y</file_required>
@@ -766,7 +704,7 @@
       <field>
         <name>W_C_ID</name>
         <type>Integer</type>
-        <format/>
+        <format>#</format>
         <currency/>
         <decimal/>
         <group/>
@@ -788,15 +726,15 @@
         <nullif/>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>W_DTS</name>
         <type>Date</type>
-        <format>yyyy-MM-dd</format>
+        <format>yyyy-MM-dd HH:mm:ss</format>
         <currency/>
         <decimal/>
         <group/>
@@ -818,9 +756,9 @@
         <nullif/>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>4</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -858,8 +796,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>704</yloc>
+      <xloc>224</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -878,9 +816,9 @@
     <sql>SELECT
   sk_customerid
 , customerid
-FROM dimcustomer
-order by customerid
-</sql>
+, effectivedate
+, enddate
+FROM dimcustomer</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -894,7 +832,7 @@ order by customerid
         <name>SK_CUSTOMERID</name>
         <length>38</length>
         <precision>0</precision>
-        <origin>DimCustomer sorted</origin>
+        <origin>DimCustomer</origin>
         <comments>SK_CUSTOMERID</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -917,9 +855,55 @@ order by customerid
         <name>CUSTOMERID</name>
         <length>38</length>
         <precision>0</precision>
-        <origin>DimCustomer sorted</origin>
+        <origin>DimCustomer</origin>
         <comments>CUSTOMERID</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>EFFECTIVEDATE</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>EFFECTIVEDATE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>ENDDATE</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>ENDDATE</comments>
+        <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
@@ -944,8 +928,8 @@ order by customerid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>128</yloc>
+      <xloc>960</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -963,7 +947,7 @@ order by customerid
     <connection>oracle_con</connection>
     <sql>SELECT
   sk_dateid
-, cast(datevalue as date) as datevalue
+, datevalue
 FROM dimdate
 </sql>
     <limit>0</limit>
@@ -1029,8 +1013,8 @@ FROM dimdate
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>80</yloc>
+      <xloc>288</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1049,10 +1033,9 @@ FROM dimdate
     <sql>SELECT
   sk_securityid
 , symbol
-, effectivedate
-, enddate
-FROM dimsecurity
-</sql>
+, effectivedate as effectivedate_sec
+, enddate as enddate_sec
+FROM dimsecurity</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1066,7 +1049,7 @@ FROM dimsecurity
         <name>SK_SECURITYID</name>
         <length>38</length>
         <precision>0</precision>
-        <origin>DimSecurity ordered</origin>
+        <origin>DimSecurity</origin>
         <comments>SK_SECURITYID</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -1089,7 +1072,7 @@ FROM dimsecurity
         <name>SYMBOL</name>
         <length>15</length>
         <precision>-1</precision>
-        <origin>DimSecurity ordered</origin>
+        <origin>DimSecurity</origin>
         <comments>SYMBOL</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
@@ -1109,11 +1092,11 @@ FROM dimsecurity
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>EFFECTIVEDATE</name>
+        <name>EFFECTIVEDATE_SEC</name>
         <length>0</length>
         <precision>-1</precision>
-        <origin>DimSecurity ordered</origin>
-        <comments>EFFECTIVEDATE</comments>
+        <origin>DimSecurity</origin>
+        <comments>EFFECTIVEDATE_SEC</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1132,11 +1115,11 @@ FROM dimsecurity
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>ENDDATE</name>
+        <name>ENDDATE_SEC</name>
         <length>0</length>
         <precision>-1</precision>
-        <origin>DimSecurity ordered</origin>
-        <comments>ENDDATE</comments>
+        <origin>DimSecurity</origin>
+        <comments>ENDDATE_SEC</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1162,8 +1145,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>112</yloc>
+      <xloc>1328</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1206,11 +1189,11 @@ FROM dimsecurity
       </field>
       <field>
         <column_name>sk_dateid_dateplaced</column_name>
-        <stream_name>sk_dateid</stream_name>
+        <stream_name>active_date</stream_name>
       </field>
       <field>
         <column_name>sk_dateid_dateremoved</column_name>
-        <stream_name>sk_dateid_1</stream_name>
+        <stream_name>cancel_date</stream_name>
       </field>
       <field>
         <column_name>batchid</column_name>
@@ -1226,13 +1209,13 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1600</xloc>
-      <yloc>432</yloc>
+      <xloc>2192</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
+    <name>Filter rows date</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1242,7 +1225,7 @@ FROM dimsecurity
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort Rows 5</send_true_to>
+    <send_true_to>Select values 3</send_true_to>
     <send_false_to/>
     <compare>
       <condition>
@@ -1250,14 +1233,14 @@ FROM dimsecurity
         <conditions>
           <condition>
             <negated>N</negated>
-            <leftvalue>date</leftvalue>
+            <leftvalue>active_dt</leftvalue>
             <function>&gt;=</function>
             <rightvalue>effectivedate</rightvalue>
           </condition>
           <condition>
             <negated>N</negated>
             <operator>AND</operator>
-            <leftvalue>date</leftvalue>
+            <leftvalue>active_dt</leftvalue>
             <function>&lt;</function>
             <rightvalue>enddate</rightvalue>
           </condition>
@@ -1273,8 +1256,55 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>288</yloc>
+      <xloc>1088</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows date 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select values 3 2</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>active_dt</leftvalue>
+            <function>&gt;=</function>
+            <rightvalue>EFFECTIVEDATE_SEC</rightvalue>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>active_dt</leftvalue>
+            <function>&lt;</function>
+            <rightvalue>ENDDATE_SEC</rightvalue>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1290,7 +1320,7 @@ FROM dimsecurity
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort by W_C_ID</step1>
+    <step1>Row denormaliser</step1>
     <step2>Sort rows 2</step2>
     <keys_1>
       <key>W_C_ID</key>
@@ -1307,8 +1337,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>352</yloc>
+      <xloc>960</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1324,8 +1354,8 @@ FROM dimsecurity
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort Rows 3</step1>
-    <step2>Sort rows 4</step2>
+    <step1>Sort by W_S_SYM</step1>
+    <step2>Sort rows 2 2</step2>
     <keys_1>
       <key>W_S_SYM</key>
     </keys_1>
@@ -1341,46 +1371,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge join 3</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>ACTV</step1>
-    <step2>CNCL</step2>
-    <keys_1>
-      <key>sk_securityid</key>
-      <key>sk_customerid</key>
-      <key>sequence</key>
-    </keys_1>
-    <keys_2>
-      <key>sk_securityid</key>
-      <key>sk_customerid</key>
-      <key>sequence</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1360</xloc>
-      <yloc>432</yloc>
+      <xloc>1328</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1402,7 +1394,7 @@ FROM dimsecurity
       <key>date</key>
     </keys_1>
     <keys_2>
-      <key>datevalue</key>
+      <key>DATEVALUE</key>
     </keys_2>
     <attributes/>
     <cluster_schema/>
@@ -1413,8 +1405,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>352</yloc>
+      <xloc>720</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1454,53 +1446,87 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>560</yloc>
+      <xloc>368</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort Rows 5</name>
-    <type>SortRows</type>
+    <name>Row denormaliser</name>
+    <type>Denormaliser</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
+    <key_field>W_ACTION</key_field>
+    <group>
+      <field>
+        <name>W_C_ID</name>
+      </field>
+      <field>
+        <name>W_S_SYM</name>
+      </field>
+    </group>
     <fields>
       <field>
-        <name>sk_securityid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <field_name>sk_dateid</field_name>
+        <key_value>ACTV</key_value>
+        <target_name>active_date</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>-</target_aggregation_type>
       </field>
       <field>
-        <name>sk_customerid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <field_name>sk_dateid</field_name>
+        <key_value>CNCL</key_value>
+        <target_name>cancel_date</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>-</target_aggregation_type>
       </field>
       <field>
-        <name>date</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <field_name>date</field_name>
+        <key_value>ACTV</key_value>
+        <target_name>active_dt</target_name>
+        <target_type>Date</target_type>
+        <target_format>yyyy-MM-dd</target_format>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>-</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>date</field_name>
+        <key_value>CNCL</key_value>
+        <target_name>cancel_dt</target_name>
+        <target_type>Date</target_type>
+        <target_format>yyyy-MM-dd</target_format>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>-</target_aggregation_type>
       </field>
     </fields>
     <attributes/>
@@ -1512,8 +1538,313 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>432</yloc>
+      <xloc>848</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>date</name>
+        <rename>date</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>DATEVALUE</name>
+        <rename>DATEVALUE</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>CUSTOMERID</name>
+      </remove>
+      <remove>
+        <name>EFFECTIVEDATE</name>
+      </remove>
+      <remove>
+        <name>ENDDATE</name>
+      </remove>
+      <meta>
+        <name>active_dt</name>
+        <rename>active_dt</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>EFFECTIVEDATE_SEC</name>
+      </remove>
+      <remove>
+        <name>ENDDATE_SEC</name>
+      </remove>
+      <remove>
+        <name>SYMBOL</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>EFFECTIVEDATE_SEC</name>
+        <rename>EFFECTIVEDATE_SEC</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>ENDDATE_SEC</name>
+        <rename>ENDDATE_SEC</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 4 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>EFFECTIVEDATE</name>
+        <rename>EFFECTIVEDATE</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>ENDDATE</name>
+        <rename>ENDDATE</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1544,6 +1875,14 @@ FROM dimsecurity
         <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
+      <field>
+        <name>W_S_SYM</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1554,13 +1893,13 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>352</yloc>
+      <xloc>816</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort Rows 3</name>
+    <name>Sort by W_S_SYM</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1586,22 +1925,6 @@ FROM dimsecurity
         <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
-      <field>
-        <name>W_C_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>W_DTS</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1612,8 +1935,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>352</yloc>
+      <xloc>1200</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1654,50 +1977,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
+      <xloc>672</xloc>
       <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Switch W_ACTION</name>
-    <type>SwitchCase</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fieldname>W_ACTION</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>None</case_value_type>
-    <case_value_format/>
-    <case_value_decimal/>
-    <case_value_group/>
-    <default_target_step/>
-    <cases>
-      <case>
-        <value>ACTV</value>
-        <target_step>ACTV</target_step>
-      </case>
-      <case>
-        <value>CNCL</value>
-        <target_step>CNCL</target_step>
-      </case>
-    </cases>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
-      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1721,7 +2002,7 @@ FROM dimsecurity
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>datevalue</name>
+        <name>DATEVALUE</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1738,8 +2019,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>224</yloc>
+      <xloc>592</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1780,13 +2061,13 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>240</yloc>
+      <xloc>960</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort rows 4</name>
+    <name>Sort rows 2 2</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1805,15 +2086,7 @@ FROM dimsecurity
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>symbol</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>effectivedate</name>
+        <name>SYMBOL</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1830,8 +2103,8 @@ FROM dimsecurity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>224</yloc>
+      <xloc>1328</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

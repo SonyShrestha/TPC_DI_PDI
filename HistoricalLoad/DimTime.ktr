@@ -493,6 +493,11 @@
   <order>
     <hop>
       <from>Time.txt</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
       <to>DimTable</to>
       <enabled>Y</enabled>
     </hop>
@@ -576,8 +581,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>502</xloc>
-      <yloc>150</yloc>
+      <xloc>624</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -620,7 +625,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\Time.txt</name>
+      <name>${input_path}\${sf}\${batch}\Time.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -633,7 +638,7 @@
     <fields>
       <field>
         <name>SK_TimeID</name>
-        <type>Integer</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -643,13 +648,13 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>TimeValue</name>
-        <type>Timestamp</type>
-        <format>HH:mm:ss</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -663,8 +668,8 @@
       </field>
       <field>
         <name>HourID</name>
-        <type>Number</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -673,7 +678,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -693,8 +698,8 @@
       </field>
       <field>
         <name>MinuteID</name>
-        <type>Number</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -703,7 +708,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -723,8 +728,8 @@
       </field>
       <field>
         <name>SecondID</name>
-        <type>Number</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -733,7 +738,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -816,8 +821,53 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>339</xloc>
-      <yloc>150</yloc>
+      <xloc>336</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>TimeValue</name>
+        <rename>TimeValue</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -430,7 +430,7 @@
     <created_date>2023/10/28 20:20:09.141</created_date>
     <modified_user>-</modified_user>
     <modified_date>2023/10/28 20:20:09.141</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -527,21 +527,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Prospect.csv</from>
-      <to>Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Join</from>
-      <to>UpperCase</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>UpperCase</from>
       <to>Remove spaces</to>
       <enabled>Y</enabled>
@@ -586,109 +571,22 @@
       <to>Change type</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prospect.csv</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join rows (cartesian product)</from>
+      <to>UpperCase</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>isCustomer=False</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>BatchID</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>iscustomer</name>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>FALSE</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1520</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>isCustomer=True</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>BatchID</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>iscustomer</name>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>TRUE</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1536</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>BatchDate.txt</name>
     <type>TextFileInput</type>
@@ -728,7 +626,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\BatchDate.txt</name>
+      <name>${input_path}\${sf}\${batch}\BatchDate.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -847,6 +745,120 @@
       <schema_name/>
     </partitioning>
     <fields>
+      <field>
+        <name>BatchDate</name>
+      </field>
+      <field>
+        <name>AgencyID</name>
+      </field>
+      <field>
+        <name>LastName</name>
+      </field>
+      <field>
+        <name>FirstName</name>
+      </field>
+      <field>
+        <name>MiddleInitial</name>
+      </field>
+      <field>
+        <name>Gender</name>
+      </field>
+      <field>
+        <name>AddressLine1</name>
+      </field>
+      <field>
+        <name>AddressLine2</name>
+      </field>
+      <field>
+        <name>PostalCode</name>
+      </field>
+      <field>
+        <name>City</name>
+      </field>
+      <field>
+        <name>State</name>
+      </field>
+      <field>
+        <name>Country</name>
+      </field>
+      <field>
+        <name>Phone</name>
+      </field>
+      <field>
+        <name>Income</name>
+      </field>
+      <field>
+        <name>NumberCars</name>
+      </field>
+      <field>
+        <name>NumberChildren</name>
+      </field>
+      <field>
+        <name>MaritalStatus</name>
+      </field>
+      <field>
+        <name>Age</name>
+      </field>
+      <field>
+        <name>CreditRating</name>
+      </field>
+      <field>
+        <name>OwnOrRentFlag</name>
+      </field>
+      <field>
+        <name>Employer</name>
+      </field>
+      <field>
+        <name>NumberCreditCards</name>
+      </field>
+      <field>
+        <name>NetWorth</name>
+      </field>
+      <field>
+        <name>FN</name>
+      </field>
+      <field>
+        <name>LN</name>
+      </field>
+      <field>
+        <name>Addr1</name>
+      </field>
+      <field>
+        <name>Addr2</name>
+      </field>
+      <field>
+        <name>PostCode</name>
+      </field>
+      <field>
+        <name>CUSTOMERID</name>
+      </field>
+      <field>
+        <name>LN_1</name>
+      </field>
+      <field>
+        <name>FN_1</name>
+      </field>
+      <field>
+        <name>A1</name>
+      </field>
+      <field>
+        <name>A2</name>
+      </field>
+      <field>
+        <name>PC</name>
+      </field>
+      <field>
+        <name>BatchID</name>
+      </field>
+      <field>
+        <name>iscustomer</name>
+      </field>
+      <field>
+        <name>marketingnameplate</name>
+      </field>
+      <field>
+        <name>updatedate</name>
+      </field>
       <select_unspecified>N</select_unspecified>
       <meta>
         <name>BatchDate</name>
@@ -898,6 +910,188 @@
     </GUI>
   </step>
   <step>
+    <name>DimCustomer</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <sql>SELECT
+ customerid
+, upper(lastname) as LN
+, upper(firstname) as FN
+, upper(addressline1) as A1
+, upper(addressline2) as A2
+, upper(postalcode) as PC
+FROM dimcustomer
+WHERE iscurrent='1' AND status='ACTIVE'
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>CUSTOMERID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimCustomer</origin>
+        <comments>CUSTOMERID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>LN</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>LN</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>FN</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>FN</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>A1</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>A1</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>A2</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>A2</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PC</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>DimCustomer</origin>
+        <comments>PC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
@@ -923,8 +1117,8 @@
     </GUI>
   </step>
   <step>
-    <name>is_active_customer</name>
-    <type>FilterRows</type>
+    <name>Join rows (cartesian product)</name>
+    <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -933,13 +1127,15 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>isCustomer=False</send_true_to>
-    <send_false_to>isCustomer=True</send_false_to>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>customerid</leftvalue>
-        <function>IS NULL</function>
+        <leftvalue/>
+        <function>=</function>
         <rightvalue/>
       </condition>
     </compare>
@@ -952,13 +1148,121 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1264</xloc>
+      <xloc>496</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join</name>
+    <name>MarketingNameplate</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var marketingnameplate;
+var updatedate;
+
+updatedate = BatchDate;
+
+marketingnameplate='';
+
+if ((NetWorth*1 > 1000000) || (Income*1 > 200000)) {
+	marketingnameplate = 'HighValue';
+}
+
+if ((NumberChildren > 3) || (NumberCreditCards > 5)) {
+	if (marketingnameplate.trim()===''){
+		marketingnameplate = marketingnameplate+'Expenses';
+	} 
+	else{
+		marketingnameplate = marketingnameplate+'+ Expenses';
+	}
+}
+
+if (Age > 45){
+	if (marketingnameplate.trim()===''){
+		marketingnameplate = marketingnameplate+'Boomer';
+	} 
+	else{
+		marketingnameplate = marketingnameplate+'+ Boomer';
+	}
+}
+
+ if ((Income &lt; 50000) || (CreditRating &lt; 600) || (NetWorth &lt; 100000)) {
+	if (marketingnameplate.trim()===''){
+		marketingnameplate = marketingnameplate+'MoneyAlert';
+	} 
+	else{
+		marketingnameplate = marketingnameplate + '+ MoneyAlert';
+	}
+}
+
+ if ((NumberCars > 3) || (NumberCreditCards > 7)) {
+	if (marketingnameplate.trim()===''){
+		marketingnameplate = marketingnameplate+'Spender';
+	} 
+	else{
+		marketingnameplate = marketingnameplate + '+ Spender';
+	}
+}
+
+ if ((Age &lt; 25) &amp;&amp; (NetWorth > 1000000)) {
+	if (marketingnameplate.trim()===''){
+		marketingnameplate = marketingnameplate+'Inherited';
+	} 
+	else{
+	marketingnameplate = marketingnameplate + '+ Inherited';
+}
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>marketingnameplate</name>
+        <rename>marketingnameplate</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>updatedate</name>
+        <rename>updatedate</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1840</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge Join 2</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -968,12 +1272,22 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>FULL OUTER</join_type>
-    <step1>Select values</step1>
-    <step2>Prospect.csv</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort FN, LN, Address</step1>
+    <step2>Sort rows LN, FN, Address 2</step2>
     <keys_1>
+      <key>LN</key>
+      <key>FN</key>
+      <key>Addr1</key>
+      <key>Addr2</key>
+      <key>PostCode</key>
     </keys_1>
     <keys_2>
+      <key>LN</key>
+      <key>FN</key>
+      <key>A1</key>
+      <key>A2</key>
+      <key>PC</key>
     </keys_2>
     <attributes/>
     <cluster_schema/>
@@ -984,7 +1298,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
+      <xloc>1104</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1071,7 +1385,7 @@
         <stream_name>MiddleInitial</stream_name>
       </field>
       <field>
-        <column_name>numericbercars</column_name>
+        <column_name>NUMBERCARS</column_name>
         <stream_name>NumberCars</stream_name>
       </field>
       <field>
@@ -1103,11 +1417,11 @@
         <stream_name>BatchID</stream_name>
       </field>
       <field>
-        <column_name>numericberchildren</column_name>
+        <column_name>NumberChildren</column_name>
         <stream_name>NumberChildren</stream_name>
       </field>
       <field>
-        <column_name>numericbercreditcards</column_name>
+        <column_name>NumberCreditCards</column_name>
         <stream_name>NumberCreditCards</stream_name>
       </field>
       <field>
@@ -1160,7 +1474,7 @@
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
-    <header>Y</header>
+    <header>N</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
     <nr_footerlines>1</nr_footerlines>
@@ -1180,7 +1494,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\Batch1\Prospect.csv</name>
+      <name>${input_path}\${sf}\${batch}\Prospect.csv</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1373,7 +1687,7 @@
       </field>
       <field>
         <name>Income</name>
-        <type>Integer</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1388,7 +1702,7 @@
       </field>
       <field>
         <name>NumberCars</name>
-        <type>Integer</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1403,7 +1717,7 @@
       </field>
       <field>
         <name>NumberChildren</name>
-        <type>Integer</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1493,7 +1807,7 @@
       </field>
       <field>
         <name>NumberCreditCards</name>
-        <type>Integer</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1508,7 +1822,7 @@
       </field>
       <field>
         <name>NetWorth</name>
-        <type>Integer</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1558,372 +1872,6 @@
     <GUI>
       <xloc>240</xloc>
       <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>BatchDate_1</name>
-        <rename>BatchDate</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>UpperCase</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>N</failIfNoFile>
-    <calculation>
-      <field_name>FN</field_name>
-      <calc_type>UPPER_CASE</calc_type>
-      <field_a>FirstName</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>LN</field_name>
-      <calc_type>UPPER_CASE</calc_type>
-      <field_a>LastName</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>Addr1</field_name>
-      <calc_type>UPPER_CASE</calc_type>
-      <field_a>AddressLine1</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>Addr2</field_name>
-      <calc_type>UPPER_CASE</calc_type>
-      <field_a>AddressLine2</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>PostCode</field_name>
-      <calc_type>UPPER_CASE</calc_type>
-      <field_a>PostalCode</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DimCustomer</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>oracle_con</connection>
-    <sql>SELECT
- customerid
-, upper(lastname) as lastname
-, upper(firstname) as firstname
-, upper(addressline1) as addressline1
-, upper(addressline2) as addressline2
-, upper(postalcode) as postalcode
-FROM dimcustomer
-WHERE iscurrent AND status='ACTIVE';
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>720</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge Join 2</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Remove spaces</step1>
-    <step2>Remove spaces </step2>
-    <keys_1>
-      <key>LN</key>
-      <key>FN</key>
-      <key>Addr1</key>
-      <key>Addr2</key>
-      <key>PostCode</key>
-    </keys_1>
-    <keys_2>
-      <key>LN</key>
-      <key>FN</key>
-      <key>A1</key>
-      <key>A2</key>
-      <key>PC</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1104</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort FN, LN, Address</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>LN</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>FN</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>Addr1</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>Addr2</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>PostCode</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>960</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows LN, FN, Address 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>LN</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>FN</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>A1</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>A2</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>PC</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1104</xloc>
-      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2112,8 +2060,8 @@ WHERE iscurrent AND status='ACTIVE';
     </GUI>
   </step>
   <step>
-    <name>MarketingNameplate</name>
-    <type>ScriptValueMod</type>
+    <name>Select values</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2122,78 +2070,85 @@ WHERE iscurrent AND status='ACTIVE';
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var marketingnameplate;
-var updatedate;
-
-updatedate = BatchDate;
-
-marketingnameplate='';
-
-if ((NetWorth*1 > 1000000) || (Income*1 > 200000)) {
-	marketingnameplate = 'HighValue';
-}
-
-if ((NumberChildren > 3) || (NumberCreditCards > 5) &amp;&amp; (marketingnameplate == '')) {
-	marketingnameplate = 'Expenses';
-}
-else if ((NumberChildren > 3) || (NumberCreditCards > 5) &amp;&amp; (marketingnameplate != '')) {	
-	marketingnameplate = tag + '+ Expenses';
-}
-
-if ((Age > 45) &amp;&amp; (marketingnameplate == '')) {
-	marketingnameplate = 'Boomer';
-}
-else if ((Age > 45) &amp;&amp; (marketingnameplate != '')) {
-	marketingnameplate = marketingnameplate + '+ Boomer';
-}
-
-if ((Income &lt; 50000) || (CreditRating &lt; 600) || (NetWorth &lt; 100000) &amp;&amp; (marketingnameplate == '')) {
-	marketingnameplate = 'MoneyAlert';
-}
-else if ((Income &lt; 50000) || (CreditRating &lt; 600) || (NetWorth &lt; 100000) &amp;&amp; (marketingnameplate != '')) {
-	marketingnameplate = marketingnameplate + '+ MoneyAlert';
-}
-
-if ((NumberCars > 3) || (NumberCreditCards > 7) &amp;&amp; (marketingnameplate == '')) {
-	marketingnameplate = 'Spender';
-}
-else if ((NumberCars > 3) || (NumberCreditCards > 7) &amp;&amp; (marketingnameplate != '')) {
-	marketingnameplate = marketingnameplate + '+ Spender';
-}
-
-
-if ((Age &lt; 25) &amp;&amp; (NetWorth > 1000000) &amp;&amp; (marketingnameplate == '')) {
-	marketingnameplate = 'Inherited';
-}
-else if ((Age &lt; 25) &amp;&amp; (NetWorth > 1000000) &amp;&amp; (marketingnameplate != '')) {
-	marketingnameplate = marketingnameplate + '+ Inherited';
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
     <fields>
       <field>
-        <name>tag</name>
-        <rename>tag</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
+        <name>BatchDate_1</name>
+        <rename>BatchDate</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort FN, LN, Address</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>LN</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
       </field>
       <field>
-        <name>updatedate</name>
-        <rename>updatedate</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
+        <name>FN</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Addr1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Addr2</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>PostCode</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
     <attributes/>
@@ -2205,7 +2160,319 @@ else if ((Age &lt; 25) &amp;&amp; (NetWorth > 1000000) &amp;&amp; (marketingname
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1840</xloc>
+      <xloc>960</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows LN, FN, Address 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>LN</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>FN</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>A1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>A2</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>PC</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1104</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>UpperCase</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>N</failIfNoFile>
+    <calculation>
+      <field_name>FN</field_name>
+      <calc_type>UPPER_CASE</calc_type>
+      <field_a>FirstName</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>LN</field_name>
+      <calc_type>UPPER_CASE</calc_type>
+      <field_a>LastName</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>Addr1</field_name>
+      <calc_type>UPPER_CASE</calc_type>
+      <field_a>AddressLine1</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>Addr2</field_name>
+      <calc_type>UPPER_CASE</calc_type>
+      <field_a>AddressLine2</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>PostCode</field_name>
+      <calc_type>UPPER_CASE</calc_type>
+      <field_a>PostalCode</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>isCustomer=False</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>BatchID</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>iscustomer</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>FALSE</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1520</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>isCustomer=True</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>BatchID</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>iscustomer</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>TRUE</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1536</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>is_active_customer</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>isCustomer=False</send_true_to>
+    <send_false_to>isCustomer=True</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>customerid</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1264</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>DimSecurity</name>
+    <name>FactHoldings</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,9 +427,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/11/20 09:18:33.443</created_date>
+    <created_date>2023/11/19 13:17:28.716</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/11/20 09:18:33.443</modified_date>
+    <modified_date>2023/11/19 13:17:28.716</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -493,267 +492,48 @@
   </connection>
   <order>
     <hop>
-      <from>DIMCOMPANY 2</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DIMCOMPANY</from>
-      <to>Dummy (do nothing)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>Dummy (do nothing)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>FINWIRE</from>
-      <to>Filter (RecType = SEC)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter (RecType = SEC)</from>
-      <to>PTS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort Status</from>
-      <to>Merge status</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort Status 2</from>
-      <to>Merge status</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Status Type</from>
-      <to>Sort Status 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>PTS</from>
-      <to>Sort Status</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 4 2</from>
-      <to>Analytic query</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge status</from>
-      <to>Sort rows 4 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Analytic query</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Dummy (do nothing)</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Merge join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Merge join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge join</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Select values 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Formula</from>
-      <to>Filter rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 4</from>
-      <to>Add constants</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add constants</from>
-      <to>Formula</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
-      <to>Formula 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Formula 2</from>
-      <to>Add surrogate key</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>If field value is null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>If field value is null</from>
+      <from>DimTrade</from>
       <to>Sort rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add surrogate key</from>
-      <to>Select values 5</to>
+      <from>Select values</from>
+      <to>FactHoldings</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 5</from>
-      <to>DimSecurity</to>
+      <from>Sort rows</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join</from>
+      <to>Get variables 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables 3</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>HoldingHistory.txt</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>BatchId</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>last_date</name>
-        <type>Timestamp</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>9999-12-31 00:00:00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1488</xloc>
-      <yloc>928</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add surrogate key</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>sk_sec_id</valuename>
-    <use_database>N</use_database>
-    <connection>oracle_con</connection>
-    <schema/>
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1472</xloc>
-      <yloc>1216</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Analytic query</name>
-    <type>AnalyticQuery</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <group>
-      <field>
-        <name>Symbol</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>EndDate</aggregate>
-        <subject>PTS</subject>
-        <type>LEAD</type>
-        <valuefield>1</valuefield>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>944</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DIMCOMPANY</name>
+    <name>DimTrade</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -764,12 +544,19 @@
       <schema_name/>
     </partitioning>
     <connection>oracle_con</connection>
-    <sql>SELECT 
-      sk_companyid,
-      name conameorcik_tbl,
-      EffectiveDate as EffectiveDate_tbl,
-      EndDate as EndDate_tbl
-    FROM DimCompany</sql>
+    <sql>SELECT
+  tradeid
+, sk_closedateid
+, sk_closetimeid
+, sk_securityid
+, sk_companyid
+, sk_customerid
+, sk_accountid
+, tradeprice
+FROM dimtrade
+-- WHERE sk_closedateid IS NOT NULL
+  -- AND sk_closetimeid IS NOT NULL
+   -- AND tradeprice>0</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -780,10 +567,102 @@
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
+        <name>TRADEID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimTrade</origin>
+        <comments>TRADEID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>SK_CLOSEDATEID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimTrade</origin>
+        <comments>SK_CLOSEDATEID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>SK_CLOSETIMEID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimTrade</origin>
+        <comments>SK_CLOSETIMEID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>SK_SECURITYID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimTrade</origin>
+        <comments>SK_SECURITYID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
         <name>SK_COMPANYID</name>
         <length>38</length>
         <precision>0</precision>
-        <origin>DIMCOMPANY</origin>
+        <origin>DimTrade</origin>
         <comments>SK_COMPANYID</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -801,14 +680,14 @@
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>CONAMEORCIK_TBL</name>
-        <length>256</length>
-        <precision>-1</precision>
-        <origin>DIMCOMPANY</origin>
-        <comments>CONAMEORCIK_TBL</comments>
-        <conversion_Mask/>
+        <name>SK_CUSTOMERID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimTrade</origin>
+        <comments>SK_CUSTOMERID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
@@ -824,14 +703,14 @@
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Timestamp</type>
+        <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>EFFECTIVEDATE_TBL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>DIMCOMPANY</origin>
-        <comments>EFFECTIVEDATE_TBL</comments>
-        <conversion_Mask/>
+        <name>SK_ACCOUNTID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DimTrade</origin>
+        <comments>SK_ACCOUNTID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
@@ -847,14 +726,14 @@
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Timestamp</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>ENDDATE_TBL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>DIMCOMPANY</origin>
-        <comments>ENDDATE_TBL</comments>
-        <conversion_Mask/>
+        <name>TRADEPRICE</name>
+        <length>8</length>
+        <precision>2</precision>
+        <origin>DimTrade</origin>
+        <comments>TRADEPRICE</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
@@ -879,145 +758,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>752</yloc>
+      <xloc>640</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>DIMCOMPANY 2</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>oracle_con</connection>
-    <sql>SELECT 
-      sk_companyid,
-      lpad(companyid,10,'0') conameorcik_tbl,
-      EffectiveDate as EffectiveDate_tbl,
-      EndDate as EndDate_tbl
-    FROM DimCompany</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>SK_COMPANYID</name>
-        <length>38</length>
-        <precision>0</precision>
-        <origin>DIMCOMPANY 2</origin>
-        <comments>SK_COMPANYID</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>CONAMEORCIK_TBL</name>
-        <length>10</length>
-        <precision>-1</precision>
-        <origin>DIMCOMPANY 2</origin>
-        <comments>CONAMEORCIK_TBL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>EFFECTIVEDATE_TBL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>DIMCOMPANY 2</origin>
-        <comments>EFFECTIVEDATE_TBL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>ENDDATE_TBL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>DIMCOMPANY 2</origin>
-        <comments>ENDDATE_TBL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>880</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DimSecurity</name>
+    <name>FactHoldings</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1029,8 +776,8 @@
     </partitioning>
     <connection>oracle_con</connection>
     <schema/>
-    <table>dimsecurity</table>
-    <commit>1000</commit>
+    <table>factholdings</table>
+    <commit>10000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
@@ -1046,64 +793,48 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>SK_SECURITYID</column_name>
-        <stream_name>sk_sec_id</stream_name>
+        <column_name>tradeid</column_name>
+        <stream_name>HH_H_T_ID</stream_name>
       </field>
       <field>
-        <column_name>SYMBOL</column_name>
-        <stream_name>Symbol</stream_name>
+        <column_name>currenttradeid</column_name>
+        <stream_name>HH_T_ID</stream_name>
       </field>
       <field>
-        <column_name>ISSUE</column_name>
-        <stream_name>IssueType</stream_name>
+        <column_name>sk_customerid</column_name>
+        <stream_name>sk_customerid</stream_name>
       </field>
       <field>
-        <column_name>STATUS</column_name>
-        <stream_name>ST_NAME</stream_name>
+        <column_name>sk_accountid</column_name>
+        <stream_name>sk_accountid</stream_name>
       </field>
       <field>
-        <column_name>NAME</column_name>
-        <stream_name>Name</stream_name>
+        <column_name>sk_securityid</column_name>
+        <stream_name>sk_securityid</stream_name>
       </field>
       <field>
-        <column_name>EXCHANGEID</column_name>
-        <stream_name>EX_ID</stream_name>
+        <column_name>sk_companyid</column_name>
+        <stream_name>sk_companyid</stream_name>
       </field>
       <field>
-        <column_name>SK_COMPANYID</column_name>
-        <stream_name>SK_COMPANYID</stream_name>
+        <column_name>sk_dateid</column_name>
+        <stream_name>sk_closedateid</stream_name>
       </field>
       <field>
-        <column_name>SHARESOUTSTANDING</column_name>
-        <stream_name>ShOut</stream_name>
+        <column_name>sk_timeid</column_name>
+        <stream_name>sk_closetimeid</stream_name>
       </field>
       <field>
-        <column_name>FIRSTTRADE</column_name>
-        <stream_name>FirstTradeDate</stream_name>
+        <column_name>currentprice</column_name>
+        <stream_name>tradeprice</stream_name>
       </field>
       <field>
-        <column_name>FIRSTTRADEONEXCHANGE</column_name>
-        <stream_name>FirstTradeEx</stream_name>
-      </field>
-      <field>
-        <column_name>DIVIDEND</column_name>
-        <stream_name>Dividend</stream_name>
-      </field>
-      <field>
-        <column_name>ISCURRENT</column_name>
-        <stream_name>is_current</stream_name>
+        <column_name>currentholding</column_name>
+        <stream_name>HH_AFTER_QTY</stream_name>
       </field>
       <field>
         <column_name>BATCHID</column_name>
-        <stream_name>BatchId</stream_name>
-      </field>
-      <field>
-        <column_name>EFFECTIVEDATE</column_name>
-        <stream_name>effective_date_new</stream_name>
-      </field>
-      <field>
-        <column_name>ENDDATE</column_name>
-        <stream_name>end_date_new</stream_name>
+        <stream_name>batch_id</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1115,14 +846,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1744</xloc>
-      <yloc>1216</yloc>
+      <xloc>1088</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
+    <name>Get variables 3</name>
+    <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1131,6 +862,20 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <fields>
+      <field>
+        <name>batch_id</name>
+        <variable>${batch_id}</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1140,13 +885,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>752</yloc>
+      <xloc>768</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>FINWIRE</name>
+    <name>HoldingHistory.txt</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1160,11 +905,11 @@
     <passing_through_fields>N</passing_through_fields>
     <accept_field/>
     <accept_stepname/>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
+    <separator>|</separator>
+    <enclosure/>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
-    <header>Y</header>
+    <header>N</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
     <nr_footerlines>1</nr_footerlines>
@@ -1179,209 +924,119 @@
     <rownum>N</rownum>
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
-    <format>Unix</format>
+    <format>DOS</format>
     <encoding/>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\${batch}\</name>
-      <filemask>FINWIRE.*</filemask>
-      <exclude_filemask>FINWIRE.*_audit.csv</exclude_filemask>
+      <name>${input_path}\${sf}\${batch}\HoldingHistory.txt</name>
+      <filemask/>
+      <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
-      <type>Fixed</type>
+      <type>CSV</type>
       <compression>None</compression>
     </file>
     <filters>
     </filters>
     <fields>
       <field>
-        <name>PTS</name>
+        <name>CDC_FLAG</name>
         <type>String</type>
         <format/>
         <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
-        <position>0</position>
-        <length>15</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>RecType</name>
+        <name>CDC_DSN</name>
         <type>String</type>
         <format/>
         <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
-        <position>15</position>
-        <length>3</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Symbol</name>
+        <name>HH_H_T_ID</name>
         <type>String</type>
         <format/>
         <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
-        <position>18</position>
-        <length>15</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IssueType</name>
+        <name>HH_T_ID</name>
         <type>String</type>
         <format/>
         <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
-        <position>33</position>
-        <length>6</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Status</name>
+        <name>HH_BEFORE_QTY</name>
         <type>String</type>
         <format/>
         <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
-        <position>39</position>
-        <length>4</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Name</name>
+        <name>HH_AFTER_QTY</name>
         <type>String</type>
         <format/>
         <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
         <ifnull/>
-        <position>43</position>
-        <length>70</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>EX_ID</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>113</position>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ShOut</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>119</position>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>FirstTradeDate</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>132</position>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>FirstTradeEx</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>140</position>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Dividend</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>148</position>
-        <length>12</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CoNameOrCIK</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>160</position>
-        <length>60</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
     <limit>0</limit>
-    <error_ignored>Y</error_ignored>
+    <error_ignored>N</error_ignored>
     <skip_bad_files>N</skip_bad_files>
     <file_error_field/>
     <file_error_message_field/>
-    <error_line_skipped>Y</error_line_skipped>
+    <error_line_skipped>N</error_line_skipped>
     <error_count_field/>
     <error_fields_field/>
     <error_text_field/>
@@ -1410,258 +1065,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>304</yloc>
+      <xloc>256</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter (RecType = SEC)</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>PTS</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>RecType</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>SEC</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Select values 4</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>PTS</leftvalue>
-            <function>&lt;</function>
-            <rightvalue>ENDDATE_TBL</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>EndDate</leftvalue>
-            <function>&gt;</function>
-            <rightvalue>EFFECTIVEDATE_TBL</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1696</xloc>
-      <yloc>752</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Formula 2</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>effective_date_new</leftvalue>
-        <function>&lt;></function>
-        <rightvalue>end_date_new</rightvalue>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>1040</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Formula</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formula>
-      <field_name>effective_date_new</field_name>
-      <formula_string>if ([PTS] &lt; [EFFECTIVEDATE_TBL]; [EFFECTIVEDATE_TBL]; [PTS])</formula_string>
-      <value_type>Timestamp</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <formula>
-      <field_name>end_date_new</field_name>
-      <formula_string>if([ENDDATE] > [ENDDATE_TBL]; [ENDDATE_TBL]; [ENDDATE])</formula_string>
-      <value_type>Timestamp</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>928</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Formula 2</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formula>
-      <field_name>is_current</field_name>
-      <formula_string>if ([end_date_new] = [last_date];"1";"0")</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>1216</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>EndDate</name>
-        <value>9999-12-31 00:00:00</value>
-        <mask>yyyy-MM-dd HH:mm:ss</mask>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1200</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge join</name>
+    <name>Merge Join</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -1675,10 +1085,10 @@
     <step1>Sort rows 2</step1>
     <step2>Sort rows</step2>
     <keys_1>
-      <key>CoNameOrCIK</key>
+      <key>tradeid</key>
     </keys_1>
     <keys_2>
-      <key>CONAMEORCIK_TBL</key>
+      <key>HH_T_ID</key>
     </keys_2>
     <attributes/>
     <cluster_schema/>
@@ -1689,99 +1099,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>752</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge status</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step1>Sort Status 2</step1>
-    <step2>Sort Status</step2>
-    <keys_1>
-      <key>st_id</key>
-    </keys_1>
-    <keys_2>
-      <key>Status</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PTS</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-
-
-// Extract date and time components
-var datePart = PTS.substring(0, 8);
-var timePart = PTS.substring(9);
-
-// Format the date and time strings
-var formattedDate = datePart.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
-var formattedTime = timePart.replace(/(\d{2})(\d{2})(\d{2})/, '$1:$2:$3');
-
-// Concatenate date and time strings
-var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>PTS</name>
-        <rename>PTS</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>592</yloc>
+      <xloc>640</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1797,11 +1116,260 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       <schema_name/>
     </partitioning>
     <fields>
+      <field>
+        <name>TRADEID</name>
+      </field>
+      <field>
+        <name>SK_CLOSEDATEID</name>
+      </field>
+      <field>
+        <name>SK_CLOSETIMEID</name>
+      </field>
+      <field>
+        <name>SK_SECURITYID</name>
+      </field>
+      <field>
+        <name>SK_COMPANYID</name>
+      </field>
+      <field>
+        <name>SK_CUSTOMERID</name>
+      </field>
+      <field>
+        <name>SK_ACCOUNTID</name>
+      </field>
+      <field>
+        <name>TRADEPRICE</name>
+      </field>
+      <field>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+      </field>
+      <field>
+        <name>HH_H_T_ID</name>
+      </field>
+      <field>
+        <name>HH_T_ID</name>
+      </field>
+      <field>
+        <name>HH_BEFORE_QTY</name>
+      </field>
+      <field>
+        <name>HH_AFTER_QTY</name>
+      </field>
+      <field>
+        <name>batch_id</name>
+      </field>
       <select_unspecified>N</select_unspecified>
       <meta>
-        <name>CONAMEORCIK_TBL</name>
-        <rename>CONAMEORCIK_TBL</rename>
-        <type>String</type>
+        <name>TRADEID</name>
+        <rename>TRADEID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SK_CLOSEDATEID</name>
+        <rename>SK_CLOSEDATEID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SK_CLOSETIMEID</name>
+        <rename>SK_CLOSETIMEID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SK_SECURITYID</name>
+        <rename>SK_SECURITYID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SK_COMPANYID</name>
+        <rename>SK_COMPANYID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SK_CUSTOMERID</name>
+        <rename>SK_CUSTOMERID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SK_ACCOUNTID</name>
+        <rename>SK_ACCOUNTID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TRADEPRICE</name>
+        <rename>TRADEPRICE</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HH_H_T_ID</name>
+        <rename>HH_H_T_ID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HH_T_ID</name>
+        <rename>HH_T_ID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HH_BEFORE_QTY</name>
+        <rename>HH_BEFORE_QTY</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HH_AFTER_QTY</name>
+        <rename>HH_AFTER_QTY</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>batch_id</name>
+        <rename>batch_id</rename>
+        <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -1825,447 +1393,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>880</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>PTS</name>
-      </field>
-      <field>
-        <name>Symbol</name>
-      </field>
-      <field>
-        <name>IssueType</name>
-      </field>
-      <field>
-        <name>ST_NAME</name>
-      </field>
-      <field>
-        <name>Name</name>
-      </field>
-      <field>
-        <name>EX_ID</name>
-      </field>
-      <field>
-        <name>ShOut</name>
-      </field>
-      <field>
-        <name>FirstTradeEx</name>
-      </field>
-      <field>
-        <name>FirstTradeDate</name>
-      </field>
-      <field>
-        <name>Dividend</name>
-      </field>
-      <field>
-        <name>CoNameOrCIK</name>
-      </field>
-      <field>
-        <name>EndDate</name>
-      </field>
-      <field>
-        <name>ST_ID</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>EndDate</name>
-        <rename>EndDate</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1072</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>EFFECTIVEDATE_TBL</name>
-        <rename>EFFECTIVEDATE_TBL</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ENDDATE_TBL</name>
-        <rename>ENDDATE_TBL</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>EndDate</name>
-        <rename>EndDate</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>PTS</name>
-        <rename>PTS</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1520</xloc>
-      <yloc>752</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 4</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>PTS</name>
-      </field>
-      <field>
-        <name>Symbol</name>
-      </field>
-      <field>
-        <name>IssueType</name>
-      </field>
-      <field>
-        <name>ST_NAME</name>
-      </field>
-      <field>
-        <name>Name</name>
-      </field>
-      <field>
-        <name>EX_ID</name>
-      </field>
-      <field>
-        <name>ShOut</name>
-      </field>
-      <field>
-        <name>FirstTradeEx</name>
-      </field>
-      <field>
-        <name>FirstTradeDate</name>
-      </field>
-      <field>
-        <name>Dividend</name>
-      </field>
-      <field>
-        <name>CoNameOrCIK</name>
-      </field>
-      <field>
-        <name>EndDate</name>
-      </field>
-      <field>
-        <name>ST_ID</name>
-      </field>
-      <field>
-        <name>SK_COMPANYID</name>
-      </field>
-      <field>
-        <name>CONAMEORCIK_TBL</name>
-      </field>
-      <field>
-        <name>EFFECTIVEDATE_TBL</name>
-      </field>
-      <field>
-        <name>ENDDATE_TBL</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1696</xloc>
-      <yloc>928</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 5</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>effective_date_new</name>
-        <rename>effective_date_new</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>end_date_new</name>
-        <rename>end_date_new</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>FirstTradeDate</name>
-        <rename>FirstTradeDate</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>FirstTradeEx</name>
-        <rename>FirstTradeEx</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1616</xloc>
-      <yloc>1216</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort Status</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>Status</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort Status 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>st_id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>464</yloc>
+      <xloc>928</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2289,7 +1418,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>CONAMEORCIK_TBL</name>
+        <name>HH_T_ID</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -2306,8 +1435,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>752</yloc>
+      <xloc>496</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2331,7 +1460,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>CoNameOrCIK</name>
+        <name>tradeid</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -2348,14 +1477,14 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>592</yloc>
+      <xloc>640</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort rows 4 2</name>
-    <type>SortRows</type>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2364,30 +1493,42 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
     <fields>
-      <field>
-        <name>Symbol</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>PTS</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>HH_H_T_ID</name>
+        <rename>HH_H_T_ID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HH_T_ID</name>
+        <rename>HH_T_ID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2398,88 +1539,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Status Type</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>oracle_con</connection>
-    <sql>SELECT * FROM statustype</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ST_ID</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>Status Type</origin>
-        <comments>ST_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ST_NAME</name>
-        <length>10</length>
-        <precision>-1</precision>
-        <origin>Status Type</origin>
-        <comments>ST_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
+      <xloc>400</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>

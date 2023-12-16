@@ -6,7 +6,6 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,9 +427,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/11/04 17:44:32.484</created_date>
+    <created_date>2023/11/17 13:40:22.126</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/11/04 17:44:32.484</modified_date>
+    <modified_date>2023/11/17 13:40:22.126</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -493,13 +492,83 @@
   </connection>
   <order>
     <hop>
+      <from>Analytic query</from>
+      <to>IsCurrent 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator 2 2</from>
+      <to>Sort rows (LN, FN, ..) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>InsertIntoDIMessage</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>InsertIntoDIMessage 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>InsertIntoDIMessage</from>
+      <to>DIMESSAGES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>InsertIntoDIMessage 2</from>
+      <to>DIMESSAGES 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IsCurrent 2</from>
+      <to>If field value is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Merge Join Local tx_id</from>
       <to>Sort rows C_NAT_TX_ID</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Rename tx_id</from>
-      <to>Sort rows tx_id 2</to>
+      <from>Merge Join Prospect 2</from>
+      <to>PhoneNumbern</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join national</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>MinMaxValidDOB</from>
+      <to>Select and Rename</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>MinMaxValidDOB</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value</from>
+      <to>Select values</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Null if</from>
+      <to>Modified JavaScript value</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>PhoneNumbern</from>
+      <to>Select values 21</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -513,17 +582,62 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>TaxRate</from>
-      <to>Remove spaces from tx_id</to>
+      <from>Rename tx_id</from>
+      <to>Sort rows tx_id 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows tx_id 2</from>
-      <to>Merge Join national</to>
+      <from>Select and Rename</from>
+      <to>Filter rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows tx_id</from>
+      <from>Select prospect values 2</from>
+      <to>Sort rows (LN, FN, ..) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Update Gender</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 21</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Filter rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Analytic query</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows (LN, FN, ..) 2 2</from>
+      <to>Merge Join Prospect 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows (LN, FN, ..) 3</from>
+      <to>Merge Join Prospect 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Null if</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows C_LCL_TX_ID</from>
       <to>Merge Join Local tx_id</to>
       <enabled>Y</enabled>
     </hop>
@@ -533,8 +647,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows C_LCL_TX_ID</from>
+      <from>Sort rows tx_id</from>
       <to>Merge Join Local tx_id</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows tx_id 2</from>
+      <to>Merge Join national</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>TaxRate</from>
+      <to>Remove spaces from tx_id</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -543,178 +667,108 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants</from>
-      <to>Add surrogate key </to>
+      <from>BatchDate</from>
+      <to>Join rows (cartesian product) 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort by date</from>
-      <to>Add constants</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>PhoneNumbern</from>
-      <to>Select values 21</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 21</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Null if</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Null if</from>
-      <to>Modified JavaScript value</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>Update Gender</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Analytic query</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Analytic query</from>
-      <to>IsCurrent 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Calculator 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Modified JavaScript value</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select prospect values 2</from>
-      <to>Sort rows (LN, FN, ..) 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows (LN, FN, ..) 3</from>
-      <to>Merge Join Prospect 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Replace in string</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows (LN, FN, ..) 2 2</from>
-      <to>Merge Join Prospect 2</to>
+      <from>Customer.txt</from>
+      <to>Join rows (cartesian product) 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Select values 2</from>
-      <to>Filter rows</to>
+      <to>Calculator 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join national</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Join Prospect 2</from>
-      <to>PhoneNumbern</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>IsCurrent 2</from>
-      <to>If field value is null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>If field value is null</from>
-      <to>Sort by date</to>
+      <from>Null if</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Select and Rename</from>
-      <to>Filter rows 2</to>
+      <to>Sort rows 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows 2</from>
-      <to>InsertIntoDIMessage</to>
+      <from>Sort rows 4</from>
+      <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>InsertIntoDIMessage</from>
-      <to>DIMESSAGES</to>
+      <from>Sort rows 4 2</from>
+      <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CustomerMgmt.xml</from>
-      <to>Replace in string</to>
+      <from>Select values 5</from>
+      <to>Execute SQL script</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>BatchDate.txt</from>
-      <to>Join rows (cartesian product)</to>
+      <from>DIMCUSTOMER 2</from>
+      <to>Sort rows 4 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add surrogate key </from>
-      <to>Join rows (cartesian product)</to>
+      <from>Merge join</from>
+      <to>Group by 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>MinMaxValidDOB</from>
-      <to>Select and Rename</to>
+      <from>Join rows (cartesian product) 2</from>
+      <to>Get variables</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows 3</from>
-      <to>Sort rows 3</to>
+      <from>Get variables</from>
+      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 3</from>
-      <to>Group by</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>InsertIntoDIMessage 2</from>
-      <to>DIMESSAGES 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Group by</from>
-      <to>InsertIntoDIMessage 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>MinMaxValidDOB</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3</from>
-      <to>Filter rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join rows (cartesian product)</from>
+      <from>If field value is null</from>
       <to>MinMaxValidDOB</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Calculator</from>
+      <to>Select values 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 6</from>
+      <to>DimCustomer</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Block this step until steps finish</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until steps finish</from>
+      <to>Calculator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Select values 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Prospect.csv</from>
-      <to>Calculator To UpperCase 2</to>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prospect.csv 2</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prospect.csv 3</from>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -728,95 +782,26 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculator 2 2</from>
-      <to>Sort rows (LN, FN, ..) 2 2</to>
+      <from>Dummy (do nothing)</from>
+      <to>Sort rows 5</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select and Rename</from>
+      <from>Sort rows 5</from>
+      <to>Calculator To UpperCase 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by 2</from>
       <to>String operations</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>String operations</from>
-      <to>DimCustomer</to>
+      <to>Select values 4</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>BatchID</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>4816</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add surrogate key </name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>sk_customerid</valuename>
-    <use_database>N</use_database>
-    <connection>oracle_con</connection>
-    <schema/>
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>4960</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Analytic query</name>
     <type>AnalyticQuery</type>
@@ -850,13 +835,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4224</xloc>
-      <yloc>784</yloc>
+      <xloc>4288</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>BatchDate.txt</name>
+    <name>BatchDate</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -906,18 +891,18 @@
     </filters>
     <fields>
       <field>
-        <name>BatchDate</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
+        <name>PTS</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -955,8 +940,80 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5040</xloc>
-      <yloc>544</yloc>
+      <xloc>112</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until steps finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Execute SQL script</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>6608</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>sk_customerid</field_name>
+      <calc_type>ADD</calc_type>
+      <field_a>row_number</field_a>
+      <field_b>SK_COUNTER_1</field_b>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>6816</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1056,8 +1113,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>592</yloc>
+      <xloc>736</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1157,14 +1214,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
-      <yloc>336</yloc>
+      <xloc>768</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>CustomerMgmt.xml</name>
-    <type>getXMLData</type>
+    <name>Customer.txt</name>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1173,604 +1230,558 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>|</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>N</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
     <include>N</include>
     <include_field/>
     <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <namespaceaware>N</namespaceaware>
-    <ignorecomments>N</ignorecomments>
-    <readurl>N</readurl>
-    <validating>N</validating>
-    <usetoken>N</usetoken>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <rownumByFile>N</rownumByFile>
     <rownum_field/>
-    <encoding>UTF-8</encoding>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\${batch}\CustomerMgmt.xml</name>
+      <name>${input_path}\${sf}\${batch}\Customer.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
     </file>
+    <filters>
+    </filters>
     <fields>
       <field>
-        <name>ActionType</name>
-        <xpath>ActionType</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
+        <name>CDC_FLAG</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>ActionTS</name>
-        <xpath>ActionTS</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>CDC_DSN</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_ID</name>
-        <xpath>Customer/C_ID</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_TAX_ID</name>
-        <xpath>Customer/C_TAX_ID</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>11</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_GNDR</name>
-        <xpath>Customer/C_GNDR</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
+        <name>C_ST_ID</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>4</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>C_TIER</name>
-        <xpath>Customer/C_TIER</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>C_DOB</name>
-        <xpath>Customer/C_DOB</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_L_NAME</name>
-        <xpath>Customer/Name/C_L_NAME</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>10</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_F_NAME</name>
-        <xpath>Customer/Name/C_F_NAME</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>7</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_M_NAME</name>
-        <xpath>Customer/Name/C_M_NAME</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>C_TIER</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>C_DOB</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_ADLINE1</name>
-        <xpath>Customer/Address/C_ADLINE1</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>24</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_ADLINE2</name>
-        <xpath>Customer/Address/C_ADLINE2</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>8</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_ZIPCODE</name>
-        <xpath>Customer/Address/C_ZIPCODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>7</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_CITY</name>
-        <xpath>Customer/Address/C_CITY</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>13</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_STATE_PROV</name>
-        <xpath>Customer/Address/C_STATE_PROV</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_STATE_PRO</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>12</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_CTRY</name>
-        <xpath>Customer/Address/C_CTRY</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>24</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_PRIM_EMAIL</name>
-        <xpath>Customer/ContactInfo/C_PRIM_EMAIL</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_CTRY_1</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_ALT_EMAIL</name>
-        <xpath>Customer/ContactInfo/C_ALT_EMAIL</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_AREA_1</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_CTRY_CODE</name>
-        <xpath>Customer/ContactInfo/C_PHONE_1/C_CTRY_CODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_LOCAL_1</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>8</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_AREA_CODE</name>
-        <xpath>Customer/ContactInfo/C_PHONE_1/C_AREA_CODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_EXT_1</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_LOCAL</name>
-        <xpath>Customer/ContactInfo/C_PHONE_1/C_LOCAL</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_CTRY_2</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_EXT</name>
-        <xpath>Customer/ContactInfo/C_PHONE_1/C_EXT</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_AREA_2</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_CTRY_CODE</name>
-        <xpath>Customer/ContactInfo/C_PHONE_2/C_CTRY_CODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_LOCAL_2</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>8</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_AREA_CODE</name>
-        <xpath>Customer/ContactInfo/C_PHONE_2/C_AREA_CODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_EXT_2</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_LOCAL</name>
-        <xpath>Customer/ContactInfo/C_PHONE_2/C_LOCAL</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_CTRY_3</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_EXT</name>
-        <xpath>Customer/ContactInfo/C_PHONE_2/C_EXT</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <name>C_AREA_3</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_CTRY_CODE</name>
-        <xpath>Customer/ContactInfo/C_PHONE_3/C_CTRY_CODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_LOCAL_3</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>8</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_AREA_CODE</name>
-        <xpath>Customer/ContactInfo/C_PHONE_3/C_AREA_CODE</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_EXT_3</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>0</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_LOCAL</name>
-        <xpath>Customer/ContactInfo/C_PHONE_3/C_LOCAL</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_EMAIL_1</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>35</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>C_EXT</name>
-        <xpath>Customer/ContactInfo/C_PHONE_3/C_EXT</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <name>C_EMAIL_2</name>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>30</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_LCL_TX_ID</name>
-        <xpath>Customer/TaxInfo/C_LCL_TX_ID</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>3</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>C_NAT_TX_ID</name>
-        <xpath>Customer/TaxInfo/C_NAT_TX_ID</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
         <type>String</type>
         <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>4</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CA_B_ID</name>
-        <xpath>Customer/Account/CA_B_ID</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CA_NAME</name>
-        <xpath>Customer/Account/CA_NAME</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Customer</name>
-        <xpath>Customer</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Account</name>
-        <xpath>Customer/Account</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CA_ID</name>
-        <xpath>Customer/Account/CA_ID</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CA_TAX_ST</name>
-        <xpath>Customer/Account/CA_TAX_ST</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>/TPCDI:Actions/TPCDI:Action</loopxpath>
-    <IsInFields>N</IsInFields>
-    <IsAFile>N</IsAFile>
-    <XmlField/>
-    <prunePath/>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
     <shortFileFieldName/>
     <pathFieldName/>
     <hiddenFieldName/>
@@ -1788,8 +1799,164 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>736</yloc>
+      <xloc>112</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIMCUSTOMER 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <sql>SELECT 
+CUSTOMERID,
+SK_CUSTOMERID AS SK_CUSTOMERID_tbl,
+EFFECTIVEDATE AS EFFECTIVEDATE_tbl,
+ENDDATE AS ENDDATE_tbl,
+(SELECT MAX(SK_CUSTOMERID) FROM DIMCUSTOMER) AS sk_counter
+ FROM DIMCUSTOMER where iscurrent='1'</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>CUSTOMERID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DIMCUSTOMER 2</origin>
+        <comments>CUSTOMERID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>SK_CUSTOMERID_TBL</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>DIMCUSTOMER 2</origin>
+        <comments>SK_CUSTOMERID_TBL</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>EFFECTIVEDATE_TBL</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>DIMCUSTOMER 2</origin>
+        <comments>EFFECTIVEDATE_TBL</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>ENDDATE_TBL</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>DIMCUSTOMER 2</origin>
+        <comments>ENDDATE_TBL</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>SK_COUNTER</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>DIMCUSTOMER 2</origin>
+        <comments>SK_COUNTER</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5440</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1807,7 +1974,7 @@
     <connection>oracle_con</connection>
     <schema/>
     <table>DIMESSAGES</table>
-    <commit>1000</commit>
+    <commit>10000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
@@ -1824,7 +1991,7 @@
     <fields>
       <field>
         <column_name>BatchID</column_name>
-        <stream_name>BatchID</stream_name>
+        <stream_name>batch_id</stream_name>
       </field>
       <field>
         <column_name>MessageSource</column_name>
@@ -1840,7 +2007,7 @@
       </field>
       <field>
         <column_name>MESSAGEDATA</column_name>
-        <stream_name>alert</stream_name>
+        <stream_name>customer_tier_alert</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1852,8 +2019,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6192</xloc>
-      <yloc>880</yloc>
+      <xloc>5856</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1888,7 +2055,7 @@
     <fields>
       <field>
         <column_name>BatchID</column_name>
-        <stream_name>BatchId</stream_name>
+        <stream_name>batch_id</stream_name>
       </field>
       <field>
         <column_name>MessageSource</column_name>
@@ -1904,7 +2071,7 @@
       </field>
       <field>
         <column_name>MESSAGEDATA</column_name>
-        <stream_name>alert</stream_name>
+        <stream_name>customer_dob_alert</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1916,8 +2083,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5904</xloc>
-      <yloc>1008</yloc>
+      <xloc>6336</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1969,10 +2136,6 @@
       <field>
         <column_name>PHONE3</column_name>
         <stream_name>phone3</stream_name>
-      </field>
-      <field>
-        <column_name>batchid</column_name>
-        <stream_name>BatchID</stream_name>
       </field>
       <field>
         <column_name>ENDDATE</column_name>
@@ -2082,6 +2245,10 @@
         <column_name>creditrating</column_name>
         <stream_name>CreditRating</stream_name>
       </field>
+      <field>
+        <column_name>BATCHID</column_name>
+        <stream_name>batch_id</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2092,14 +2259,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6096</xloc>
-      <yloc>784</yloc>
+      <xloc>7152</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2108,30 +2275,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Calculator 2 2</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>ActionType</leftvalue>
-            <function>IN LIST</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>NEW;UPDCUST;INACT</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2141,8 +2284,52 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>736</yloc>
+      <xloc>560</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>update DIMCUSTOMER SET ENDDATE=to_date('?','YYYY-MM-DD'),ISCURRENT='0' WHERE CUSTOMERID=? AND ISCURRENT='1'</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+      <argument>
+        <name>ActionTS</name>
+      </argument>
+      <argument>
+        <name>C_ID</name>
+      </argument>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>6688</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2178,22 +2365,6 @@
               <mask/>
             </value>
           </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>ActionType</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>NEW</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
         </conditions>
       </condition>
     </compare>
@@ -2206,8 +2377,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5888</xloc>
-      <yloc>880</yloc>
+      <xloc>5376</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2239,7 +2410,7 @@
             <operator>OR</operator>
             <leftvalue>C_DOB</leftvalue>
             <function>&gt;</function>
-            <rightvalue>BatchDate</rightvalue>
+            <rightvalue>ActionTS</rightvalue>
           </condition>
         </conditions>
       </condition>
@@ -2253,8 +2424,47 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5360</xloc>
-      <yloc>1008</yloc>
+      <xloc>5200</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>batch_id</name>
+        <variable>${batch_id}</variable>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2289,6 +2499,12 @@
         <type>CONCAT_COMMA</type>
         <valuefield/>
       </field>
+      <field>
+        <aggregate>batch_id</aggregate>
+        <subject>batch_id</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2299,8 +2515,51 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5600</xloc>
-      <yloc>1008</yloc>
+      <xloc>5792</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Group by 2</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>Y</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>Y</add_linenr>
+    <linenr_fieldname>row_number</linenr_fieldname>
+    <give_back_row>N</give_back_row>
+    <group>
+      </group>
+    <fields>
+      <field>
+        <aggregate>SK_COUNTER</aggregate>
+        <subject>SK_COUNTER</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>6144</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2339,8 +2598,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4480</xloc>
-      <yloc>784</yloc>
+      <xloc>4672</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2363,7 +2622,8 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var alert ='C_ID ='+ sk_customerid+', C_TIER ='+C_TIER;
+var customer_tier_alert;
+customer_tier_alert='C_ID ='+ C_ID+', C_TIER ='+C_TIER;
 var MessageType='Alert';
 var MessageText='Invalid customer tier';
 var MessageSource='DimCustomer';</jsScript_script>
@@ -2371,8 +2631,8 @@ var MessageSource='DimCustomer';</jsScript_script>
     </jsScripts>
     <fields>
       <field>
-        <name>alert</name>
-        <rename>alert</rename>
+        <name>customer_tier_alert</name>
+        <rename>customer_tier_alert</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2412,8 +2672,8 @@ var MessageSource='DimCustomer';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6048</xloc>
-      <yloc>880</yloc>
+      <xloc>5600</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2436,17 +2696,17 @@ var MessageSource='DimCustomer';</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var alert='C_ID ='+ incorrect_acc+', C_DOB ='+C_DOB;
+var customer_dob_alert;
+customer_dob_alert='C_ID ='+ incorrect_acc+', C_DOB ='+C_DOB;
 var MessageType='Alert';
 var MessageText='DOB out of range';
-var MessageSource='DimCustomer';
-var BatchId=1;</jsScript_script>
+var MessageSource='DimCustomer';</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>alert</name>
-        <rename>alert</rename>
+        <name>customer_dob_alert</name>
+        <rename>customer_dob_alert</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2476,14 +2736,6 @@ var BatchId=1;</jsScript_script>
         <precision>-1</precision>
         <replace>N</replace>
       </field>
-      <field>
-        <name>BatchId</name>
-        <rename>BatchId</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2494,8 +2746,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5744</xloc>
-      <yloc>1008</yloc>
+      <xloc>6064</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2524,7 +2776,7 @@ var Status='Active'
 if (!EndDate){
 	IsCurrent='1';
 }
-if (ActionType.trim()==='INACT'){
+if (ActionType.trim()==='INAC'){
 	Status='Inactive';
 }</jsScript_script>
       </jsScript>
@@ -2556,13 +2808,13 @@ if (ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4368</xloc>
-      <yloc>784</yloc>
+      <xloc>4496</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Join rows (cartesian product)</name>
+    <name>Join rows (cartesian product) 2</name>
     <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2593,8 +2845,8 @@ if (ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5152</xloc>
-      <yloc>784</yloc>
+      <xloc>384</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2691,8 +2943,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>336</yloc>
+      <xloc>880</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2725,8 +2977,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3520</xloc>
-      <yloc>784</yloc>
+      <xloc>3584</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2767,8 +3019,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>592</yloc>
+      <xloc>1312</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2801,8 +3053,42 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3872</xloc>
-      <yloc>784</yloc>
+      <xloc>3936</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort rows 4</step1>
+    <step2>Sort rows 4 2</step2>
+    <keys_1>
+      <key>C_ID</key>
+    </keys_1>
+    <keys_2>
+      <key>CUSTOMERID</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5904</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2825,7 +3111,7 @@ if (Age > 45){
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var minValidDOB = dateAdd(BatchDate,"y",-100);</jsScript_script>
+var minValidDOB = dateAdd(ActionTS,"y",-100);</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
@@ -2847,8 +3133,8 @@ var minValidDOB = dateAdd(BatchDate,"y",-100);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5360</xloc>
-      <yloc>784</yloc>
+      <xloc>4896</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2884,11 +3170,6 @@ var PHONE2;
 var PHONE3;
 var C_LCL_TX_ID;
 var C_NAT_TX_ID;
-var CA_ID;
-var CA_TAX_ST;
-var CA_B_ID;
-var CA_NAME;
-
 if (!C_TAX_ID){
 	if(C_ID.trim()==lag_C_ID.trim()){
 		C_TAX_ID=C_TAX_ID1;
@@ -3120,67 +3401,7 @@ else{
 }
 
 
-if (!CA_ID){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		CA_ID=CA_ID1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
 
-}
-else{
-	CA_ID1=CA_ID;
-
-}
-
-
-
-
-if (!CA_TAX_ST){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		CA_TAX_ST=CA_TAX_ST1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	CA_TAX_ST1=CA_TAX_ST;
-
-}
-
-
-if (!CA_B_ID){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		CA_B_ID=CA_B_ID1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	CA_B_ID1=CA_B_ID;
-
-}
-
-
-
-if (!CA_NAME){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		CA_NAME=CA_NAME1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	CA_NAME1=CA_NAME;
-
-}
 
 
 </jsScript_script>
@@ -3203,10 +3424,6 @@ var PHONE21=PHONE2;
 var PHONE31=PHONE3;
 var C_LCL_TX_ID1=C_LCL_TX_ID;
 var C_NAT_TX_ID1=C_NAT_TX_ID;
-var CA_ID1=CA_ID;
-var CA_TAX_ST1=CA_TAX_ST;
-var CA_B_ID1=CA_B_ID;
-var CA_NAME1=CA_NAME;
 var lag_C_ID=C_ID;</jsScript_script>
       </jsScript>
     </jsScripts>
@@ -3323,38 +3540,6 @@ var lag_C_ID=C_ID;</jsScript_script>
         <precision>-1</precision>
         <replace>Y</replace>
       </field>
-      <field>
-        <name>CA_ID</name>
-        <rename>CA_ID</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>CA_TAX_ST</name>
-        <rename>CA_TAX_ST</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>CA_B_ID</name>
-        <rename>CA_B_ID</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>CA_NAME</name>
-        <rename>CA_NAME</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3365,8 +3550,8 @@ var lag_C_ID=C_ID;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2704</xloc>
-      <yloc>592</yloc>
+      <xloc>2784</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3383,11 +3568,15 @@ var lag_C_ID=C_ID;</jsScript_script>
     </partitioning>
     <fields>
       <field>
-        <name>ActionType</name>
+        <name>ActionTS</name>
         <value/>
       </field>
       <field>
-        <name>ActionTS</name>
+        <name>CDC_FLAG</name>
+        <value/>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
         <value/>
       </field>
       <field>
@@ -3399,15 +3588,7 @@ var lag_C_ID=C_ID;</jsScript_script>
         <value/>
       </field>
       <field>
-        <name>C_GNDR</name>
-        <value/>
-      </field>
-      <field>
-        <name>C_TIER</name>
-        <value/>
-      </field>
-      <field>
-        <name>C_DOB</name>
+        <name>ActionType</name>
         <value/>
       </field>
       <field>
@@ -3420,6 +3601,18 @@ var lag_C_ID=C_ID;</jsScript_script>
       </field>
       <field>
         <name>C_M_NAME</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_TIER</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_DOB</name>
         <value/>
       </field>
       <field>
@@ -3447,11 +3640,123 @@ var lag_C_ID=C_ID;</jsScript_script>
         <value/>
       </field>
       <field>
+        <name>C_CTRY_CODE</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_AREA_CODE</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_LOCAL</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_EXT</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_AREA_CODE_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_LOCAL_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_EXT_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_2</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_AREA_CODE_2</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_LOCAL_2</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_EXT_2</name>
+        <value/>
+      </field>
+      <field>
         <name>C_PRIM_EMAIL</name>
         <value/>
       </field>
       <field>
         <name>C_ALT_EMAIL</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_LCL_TX_ID</name>
+        <value/>
+      </field>
+      <field>
+        <name>C_NAT_TX_ID</name>
+        <value/>
+      </field>
+      <field>
+        <name>FIrstName</name>
+        <value/>
+      </field>
+      <field>
+        <name>LastName</name>
+        <value/>
+      </field>
+      <field>
+        <name>Addr1</name>
+        <value/>
+      </field>
+      <field>
+        <name>Addr2</name>
+        <value/>
+      </field>
+      <field>
+        <name>PostCode</name>
+        <value/>
+      </field>
+      <field>
+        <name>FirstName_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>LasName</name>
+        <value/>
+      </field>
+      <field>
+        <name>Addr1_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>Addr2_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>PostCode_1</name>
+        <value/>
+      </field>
+      <field>
+        <name>AGENCYID</name>
+        <value/>
+      </field>
+      <field>
+        <name>CREDITRATING</name>
+        <value/>
+      </field>
+      <field>
+        <name>NETWORTH</name>
+        <value/>
+      </field>
+      <field>
+        <name>tag</name>
         <value/>
       </field>
       <field>
@@ -3466,30 +3771,6 @@ var lag_C_ID=C_ID;</jsScript_script>
         <name>PHONE3</name>
         <value/>
       </field>
-      <field>
-        <name>C_LCL_TX_ID</name>
-        <value/>
-      </field>
-      <field>
-        <name>C_NAT_TX_ID</name>
-        <value/>
-      </field>
-      <field>
-        <name>CA_ID</name>
-        <value/>
-      </field>
-      <field>
-        <name>CA_TAX_ST</name>
-        <value/>
-      </field>
-      <field>
-        <name>CA_B_ID</name>
-        <value/>
-      </field>
-      <field>
-        <name>CA_NAME</name>
-        <value/>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3500,8 +3781,8 @@ var lag_C_ID=C_ID;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2400</xloc>
-      <yloc>592</yloc>
+      <xloc>2464</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3524,20 +3805,20 @@ var lag_C_ID=C_ID;</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var phone1;
+var PHONE1;
 var country_code1='';
 var area_code1='';
 var local1='';
 var ext1='';
 
-var phone2;
+var PHONE2;
 var country_code2='';
 var area_code2='';
 var local2='';
 var ext2='';
 
 
-var phone3;
+var PHONE3;
 var country_code3='';
 var area_code3='';
 var local3='';
@@ -3571,7 +3852,7 @@ else{
 	ext1='';
 }
 	
-phone1=country_code1+area_code1+local1+ext1;
+PHONE1=country_code1+area_code1+local1+ext1;
 
 
 if (C_CTRY_CODE_1){
@@ -3602,7 +3883,7 @@ else{
 	ext2='';
 }
 	
-phone2=country_code2+area_code2+local2+ext2;
+PHONE2=country_code2+area_code2+local2+ext2;
 
 
 
@@ -3635,29 +3916,29 @@ else{
 	ext3='';
 }
 	
-phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
+PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>phone1</name>
-        <rename>phone1</rename>
+        <name>PHONE1</name>
+        <rename>PHONE1</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>
       <field>
-        <name>phone2</name>
-        <rename>phone2</rename>
+        <name>PHONE2</name>
+        <rename>PHONE2</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>
       <field>
-        <name>phone3</name>
-        <rename>phone3</rename>
+        <name>PHONE3</name>
+        <rename>PHONE3</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -3673,8 +3954,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1600</xloc>
-      <yloc>592</yloc>
+      <xloc>1712</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3717,7 +3998,7 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${input_path}\${sf}\${batch}\Prospect.csv</name>
+      <name>${input_path}\${sf}\Batch1\Prospect.csv</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -4093,8 +4374,848 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>336</yloc>
+      <xloc>368</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prospect.csv 2</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${input_path}\${sf}\Batch2\Prospect.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>AgencyID</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>LastName</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FirstName</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>MiddleInitial</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Gender</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>AddressLine1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>AddressLine2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>PostalCode</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>City</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>State</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Country</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Phone</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Income</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NumberCars</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NumberChildren</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>MaritalStatus</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Age</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CreditRating</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>OwnOrRentFlag</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Employer</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NumberCreditCards</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NetWorth</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prospect.csv 3</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${input_path}\${sf}\Batch3\Prospect.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>AgencyID</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>LastName</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FirstName</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>MiddleInitial</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Gender</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>AddressLine1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>AddressLine2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>PostalCode</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>City</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>State</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Country</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Phone</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Income</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NumberCars</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NumberChildren</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>MaritalStatus</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Age</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CreditRating</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>OwnOrRentFlag</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Employer</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NumberCreditCards</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NetWorth</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4133,8 +5254,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3696</xloc>
-      <yloc>512</yloc>
+      <xloc>3760</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4171,47 +5292,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3872</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Replace in string</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>ActionTS</in_stream_name>
-        <out_stream_name>TS</out_stream_name>
-        <use_regex>no</use_regex>
-        <replace_string>T</replace_string>
-        <replace_by_string> </replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>512</xloc>
-      <yloc>736</yloc>
+      <xloc>3936</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4228,32 +5310,40 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
     </partitioning>
     <fields>
       <field>
-        <name>tx_name</name>
-        <rename>NationalTaxRateDesc</rename>
+        <name>TX_ID_NAT</name>
       </field>
       <field>
-        <name>tx_rate</name>
-        <rename>NationalTaxRate</rename>
+        <name>TX_NAME</name>
       </field>
       <field>
-        <name>tx_name_1</name>
-        <rename>LocalTaxRateDesc</rename>
+        <name>TX_RATE</name>
       </field>
       <field>
-        <name>tx_rate_1</name>
-        <rename>LocalTaxRate</rename>
+        <name>TX_ID</name>
+      </field>
+      <field>
+        <name>TX_NAME_1</name>
+      </field>
+      <field>
+        <name>TX_RATE_1</name>
+      </field>
+      <field>
+        <name>ActionTS</name>
+      </field>
+      <field>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+      </field>
+      <field>
+        <name>C_ID</name>
       </field>
       <field>
         <name>C_TAX_ID</name>
       </field>
       <field>
-        <name>C_GNDR</name>
-      </field>
-      <field>
-        <name>C_TIER</name>
-      </field>
-      <field>
-        <name>C_DOB</name>
+        <name>ActionType</name>
       </field>
       <field>
         <name>C_L_NAME</name>
@@ -4263,6 +5353,15 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </field>
       <field>
         <name>C_M_NAME</name>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+      </field>
+      <field>
+        <name>C_TIER</name>
+      </field>
+      <field>
+        <name>C_DOB</name>
       </field>
       <field>
         <name>C_ADLINE1</name>
@@ -4283,7 +5382,94 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>C_CTRY</name>
       </field>
       <field>
+        <name>C_CTRY_CODE</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE</name>
+      </field>
+      <field>
+        <name>C_LOCAL</name>
+      </field>
+      <field>
+        <name>C_EXT</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_1</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_1</name>
+      </field>
+      <field>
+        <name>C_LOCAL_1</name>
+      </field>
+      <field>
+        <name>C_EXT_1</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_2</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_2</name>
+      </field>
+      <field>
+        <name>C_LOCAL_2</name>
+      </field>
+      <field>
+        <name>C_EXT_2</name>
+      </field>
+      <field>
         <name>C_PRIM_EMAIL</name>
+      </field>
+      <field>
+        <name>C_ALT_EMAIL</name>
+      </field>
+      <field>
+        <name>C_LCL_TX_ID</name>
+      </field>
+      <field>
+        <name>C_NAT_TX_ID</name>
+      </field>
+      <field>
+        <name>FIrstName</name>
+      </field>
+      <field>
+        <name>LastName</name>
+      </field>
+      <field>
+        <name>Addr1</name>
+      </field>
+      <field>
+        <name>Addr2</name>
+      </field>
+      <field>
+        <name>PostCode</name>
+      </field>
+      <field>
+        <name>FirstName_1</name>
+      </field>
+      <field>
+        <name>LasName</name>
+      </field>
+      <field>
+        <name>Addr1_1</name>
+      </field>
+      <field>
+        <name>Addr2_1</name>
+      </field>
+      <field>
+        <name>PostCode_1</name>
+      </field>
+      <field>
+        <name>AGENCYID</name>
+      </field>
+      <field>
+        <name>CREDITRATING</name>
+      </field>
+      <field>
+        <name>NETWORTH</name>
+      </field>
+      <field>
+        <name>tag</name>
       </field>
       <field>
         <name>PHONE1</name>
@@ -4295,40 +5481,7 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>PHONE3</name>
       </field>
       <field>
-        <name>CA_B_ID</name>
-      </field>
-      <field>
-        <name>CA_NAME</name>
-      </field>
-      <field>
-        <name>CA_ID</name>
-      </field>
-      <field>
-        <name>CA_TAX_ST</name>
-      </field>
-      <field>
-        <name>ActionType</name>
-      </field>
-      <field>
-        <name>ActionTS</name>
-      </field>
-      <field>
-        <name>AgencyID</name>
-      </field>
-      <field>
-        <name>NetWorth</name>
-      </field>
-      <field>
-        <name>tag</name>
-      </field>
-      <field>
-        <name>CreditRating</name>
-      </field>
-      <field>
-        <name>C_ID</name>
-      </field>
-      <field>
-        <name>C_ALT_EMAIL</name>
+        <name>EndDate</name>
       </field>
       <field>
         <name>IsCurrent</name>
@@ -4337,593 +5490,12 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>Status</name>
       </field>
       <field>
-        <name>EndDate</name>
+        <name>batch_id</name>
       </field>
       <field>
-        <name>BatchID</name>
-      </field>
-      <field>
-        <name>sk_customerid</name>
+        <name>minValidDOB</name>
       </field>
       <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>ActionType</name>
-        <rename>ActionType</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ActionTS</name>
-        <rename>ActionTS</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_ID</name>
-        <rename>C_ID</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_TAX_ID</name>
-        <rename>C_TAX_ID</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_GNDR</name>
-        <rename>C_GNDR</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_TIER</name>
-        <rename>C_TIER</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_DOB</name>
-        <rename>C_DOB</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_L_NAME</name>
-        <rename>C_L_NAME</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_F_NAME</name>
-        <rename>C_F_NAME</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_M_NAME</name>
-        <rename>C_M_NAME</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_ADLINE1</name>
-        <rename>C_ADLINE1</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_ADLINE2</name>
-        <rename>C_ADLINE2</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_ZIPCODE</name>
-        <rename>C_ZIPCODE</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_CITY</name>
-        <rename>C_CITY</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_STATE_PROV</name>
-        <rename>C_STATE_PROV</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_CTRY</name>
-        <rename>C_CTRY</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_PRIM_EMAIL</name>
-        <rename>C_PRIM_EMAIL</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>C_ALT_EMAIL</name>
-        <rename>C_ALT_EMAIL</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>PHONE1</name>
-        <rename>PHONE1</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>PHONE2</name>
-        <rename>PHONE2</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>PHONE3</name>
-        <rename>PHONE3</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>CA_ID</name>
-        <rename>CA_ID</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>CA_TAX_ST</name>
-        <rename>CA_TAX_ST</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>CA_B_ID</name>
-        <rename>CA_B_ID</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>CA_NAME</name>
-        <rename>CA_NAME</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>AgencyID</name>
-        <rename>AgencyID</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>CreditRating</name>
-        <rename>CreditRating</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>NetWorth</name>
-        <rename>NetWorth</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>tag</name>
-        <rename>tag</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>EndDate</name>
-        <rename>EndDate</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>IsCurrent</name>
-        <rename>IsCurrent</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Status</name>
-        <rename>Status</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>BatchID</name>
-        <rename>BatchID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>sk_customerid</name>
-        <rename>sk_customerid</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -4934,8 +5506,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5792</xloc>
-      <yloc>784</yloc>
+      <xloc>5376</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5007,8 +5579,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
-      <yloc>336</yloc>
+      <xloc>1024</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5025,10 +5597,13 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
     </partitioning>
     <fields>
       <field>
-        <name>ActionType</name>
+        <name>ActionTS</name>
       </field>
       <field>
-        <name>ActionTS</name>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
       </field>
       <field>
         <name>C_ID</name>
@@ -5037,13 +5612,7 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>C_TAX_ID</name>
       </field>
       <field>
-        <name>C_GNDR</name>
-      </field>
-      <field>
-        <name>C_TIER</name>
-      </field>
-      <field>
-        <name>C_DOB</name>
+        <name>ActionType</name>
       </field>
       <field>
         <name>C_L_NAME</name>
@@ -5053,6 +5622,15 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </field>
       <field>
         <name>C_M_NAME</name>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+      </field>
+      <field>
+        <name>C_TIER</name>
+      </field>
+      <field>
+        <name>C_DOB</name>
       </field>
       <field>
         <name>C_ADLINE1</name>
@@ -5073,10 +5651,94 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>C_CTRY</name>
       </field>
       <field>
+        <name>C_CTRY_CODE</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE</name>
+      </field>
+      <field>
+        <name>C_LOCAL</name>
+      </field>
+      <field>
+        <name>C_EXT</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_1</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_1</name>
+      </field>
+      <field>
+        <name>C_LOCAL_1</name>
+      </field>
+      <field>
+        <name>C_EXT_1</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_2</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_2</name>
+      </field>
+      <field>
+        <name>C_LOCAL_2</name>
+      </field>
+      <field>
+        <name>C_EXT_2</name>
+      </field>
+      <field>
         <name>C_PRIM_EMAIL</name>
       </field>
       <field>
         <name>C_ALT_EMAIL</name>
+      </field>
+      <field>
+        <name>C_LCL_TX_ID</name>
+      </field>
+      <field>
+        <name>C_NAT_TX_ID</name>
+      </field>
+      <field>
+        <name>FIrstName</name>
+      </field>
+      <field>
+        <name>LastName</name>
+      </field>
+      <field>
+        <name>Addr1</name>
+      </field>
+      <field>
+        <name>Addr2</name>
+      </field>
+      <field>
+        <name>PostCode</name>
+      </field>
+      <field>
+        <name>FirstName_1</name>
+      </field>
+      <field>
+        <name>LasName</name>
+      </field>
+      <field>
+        <name>Addr1_1</name>
+      </field>
+      <field>
+        <name>Addr2_1</name>
+      </field>
+      <field>
+        <name>PostCode_1</name>
+      </field>
+      <field>
+        <name>AGENCYID</name>
+      </field>
+      <field>
+        <name>CREDITRATING</name>
+      </field>
+      <field>
+        <name>NETWORTH</name>
+      </field>
+      <field>
+        <name>tag</name>
       </field>
       <field>
         <name>PHONE1</name>
@@ -5088,34 +5750,7 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>PHONE3</name>
       </field>
       <field>
-        <name>C_LCL_TX_ID</name>
-      </field>
-      <field>
-        <name>C_NAT_TX_ID</name>
-      </field>
-      <field>
-        <name>CA_ID</name>
-      </field>
-      <field>
-        <name>CA_TAX_ST</name>
-      </field>
-      <field>
-        <name>CA_B_ID</name>
-      </field>
-      <field>
-        <name>CA_NAME</name>
-      </field>
-      <field>
-        <name>AgencyID</name>
-      </field>
-      <field>
-        <name>CreditRating</name>
-      </field>
-      <field>
-        <name>NetWorth</name>
-      </field>
-      <field>
-        <name>tag</name>
+        <name>batch_id</name>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -5128,8 +5763,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3184</xloc>
-      <yloc>592</yloc>
+      <xloc>3152</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5145,17 +5780,135 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       <schema_name/>
     </partitioning>
     <fields>
+      <field>
+        <name>PTS</name>
+      </field>
+      <field>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+      </field>
+      <field>
+        <name>C_ID</name>
+      </field>
+      <field>
+        <name>C_TAX_ID</name>
+      </field>
+      <field>
+        <name>C_ST_ID</name>
+        <rename>ActionType</rename>
+      </field>
+      <field>
+        <name>C_L_NAME</name>
+      </field>
+      <field>
+        <name>C_F_NAME</name>
+      </field>
+      <field>
+        <name>C_M_NAME</name>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+      </field>
+      <field>
+        <name>C_TIER</name>
+      </field>
+      <field>
+        <name>C_DOB</name>
+      </field>
+      <field>
+        <name>C_ADLINE1</name>
+      </field>
+      <field>
+        <name>C_ADLINE2</name>
+      </field>
+      <field>
+        <name>C_ZIPCODE</name>
+      </field>
+      <field>
+        <name>C_CITY</name>
+      </field>
+      <field>
+        <name>C_STATE_PRO</name>
+        <rename>C_STATE_PROV</rename>
+      </field>
+      <field>
+        <name>C_CTRY</name>
+      </field>
+      <field>
+        <name>C_CTRY_1</name>
+        <rename>C_CTRY_CODE</rename>
+      </field>
+      <field>
+        <name>C_AREA_1</name>
+        <rename>C_AREA_CODE</rename>
+      </field>
+      <field>
+        <name>C_LOCAL_1</name>
+        <rename>C_LOCAL</rename>
+      </field>
+      <field>
+        <name>C_EXT_1</name>
+        <rename>C_EXT</rename>
+      </field>
+      <field>
+        <name>C_CTRY_2</name>
+        <rename>C_CTRY_CODE_1</rename>
+      </field>
+      <field>
+        <name>C_AREA_2</name>
+        <rename>C_AREA_CODE_1</rename>
+      </field>
+      <field>
+        <name>C_LOCAL_2</name>
+        <rename>C_LOCAL_1</rename>
+      </field>
+      <field>
+        <name>C_EXT_2</name>
+        <rename>C_EXT_1</rename>
+      </field>
+      <field>
+        <name>C_CTRY_3</name>
+        <rename>C_CTRY_CODE_2</rename>
+      </field>
+      <field>
+        <name>C_AREA_3</name>
+        <rename>C_AREA_CODE_2</rename>
+      </field>
+      <field>
+        <name>C_LOCAL_3</name>
+        <rename>C_LOCAL_2</rename>
+      </field>
+      <field>
+        <name>C_EXT_3</name>
+        <rename>C_EXT_2</rename>
+      </field>
+      <field>
+        <name>C_EMAIL_1</name>
+        <rename>C_PRIM_EMAIL</rename>
+      </field>
+      <field>
+        <name>C_EMAIL_2</name>
+        <rename>C_ALT_EMAIL</rename>
+      </field>
+      <field>
+        <name>C_LCL_TX_ID</name>
+      </field>
+      <field>
+        <name>C_NAT_TX_ID</name>
+      </field>
+      <field>
+        <name>batch_id</name>
+      </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>ActionTS</name>
-      </remove>
       <meta>
-        <name>TS</name>
+        <name>PTS</name>
         <rename>ActionTS</rename>
-        <type>Timestamp</type>
+        <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -5176,8 +5929,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>736</yloc>
+      <xloc>576</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5194,10 +5947,13 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
     </partitioning>
     <fields>
       <field>
-        <name>ActionType</name>
+        <name>ActionTS</name>
       </field>
       <field>
-        <name>ActionTS</name>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
       </field>
       <field>
         <name>C_ID</name>
@@ -5206,13 +5962,7 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>C_TAX_ID</name>
       </field>
       <field>
-        <name>C_GNDR</name>
-      </field>
-      <field>
-        <name>C_TIER</name>
-      </field>
-      <field>
-        <name>C_DOB</name>
+        <name>ActionType</name>
       </field>
       <field>
         <name>C_L_NAME</name>
@@ -5222,6 +5972,15 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </field>
       <field>
         <name>C_M_NAME</name>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+      </field>
+      <field>
+        <name>C_TIER</name>
+      </field>
+      <field>
+        <name>C_DOB</name>
       </field>
       <field>
         <name>C_ADLINE1</name>
@@ -5242,22 +6001,46 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>C_CTRY</name>
       </field>
       <field>
+        <name>C_CTRY_CODE</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE</name>
+      </field>
+      <field>
+        <name>C_LOCAL</name>
+      </field>
+      <field>
+        <name>C_EXT</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_1</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_1</name>
+      </field>
+      <field>
+        <name>C_LOCAL_1</name>
+      </field>
+      <field>
+        <name>C_EXT_1</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_2</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_2</name>
+      </field>
+      <field>
+        <name>C_LOCAL_2</name>
+      </field>
+      <field>
+        <name>C_EXT_2</name>
+      </field>
+      <field>
         <name>C_PRIM_EMAIL</name>
       </field>
       <field>
         <name>C_ALT_EMAIL</name>
-      </field>
-      <field>
-        <name>phone1</name>
-        <rename>PHONE1</rename>
-      </field>
-      <field>
-        <name>phone2</name>
-        <rename>PHONE2</rename>
-      </field>
-      <field>
-        <name>phone3</name>
-        <rename>PHONE3</rename>
       </field>
       <field>
         <name>C_LCL_TX_ID</name>
@@ -5266,28 +6049,58 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
         <name>C_NAT_TX_ID</name>
       </field>
       <field>
-        <name>CA_ID</name>
+        <name>FIrstName</name>
       </field>
       <field>
-        <name>CA_TAX_ST</name>
+        <name>LastName</name>
       </field>
       <field>
-        <name>CA_B_ID</name>
+        <name>Addr1</name>
       </field>
       <field>
-        <name>CA_NAME</name>
+        <name>Addr2</name>
+      </field>
+      <field>
+        <name>PostCode</name>
+      </field>
+      <field>
+        <name>FirstName_1</name>
+      </field>
+      <field>
+        <name>LasName</name>
+      </field>
+      <field>
+        <name>Addr1_1</name>
+      </field>
+      <field>
+        <name>Addr2_1</name>
+      </field>
+      <field>
+        <name>PostCode_1</name>
+      </field>
+      <field>
+        <name>AGENCYID</name>
+      </field>
+      <field>
+        <name>CREDITRATING</name>
+      </field>
+      <field>
+        <name>NETWORTH</name>
       </field>
       <field>
         <name>tag</name>
       </field>
       <field>
-        <name>AgencyID</name>
+        <name>PHONE1</name>
       </field>
       <field>
-        <name>CreditRating</name>
+        <name>PHONE2</name>
       </field>
       <field>
-        <name>NetWorth</name>
+        <name>PHONE3</name>
+      </field>
+      <field>
+        <name>batch_id</name>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -5300,8 +6113,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1904</xloc>
-      <yloc>592</yloc>
+      <xloc>1968</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5345,38 +6158,232 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5360</xloc>
-      <yloc>880</yloc>
+      <xloc>4896</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort by date</name>
-    <type>SortRows</type>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>ActionTS</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
+        <name>TX_ID_NAT</name>
       </field>
+      <field>
+        <name>TX_NAME</name>
+        <rename>NationalTaxRateDesc</rename>
+      </field>
+      <field>
+        <name>TX_RATE</name>
+        <rename>NationalTaxRate</rename>
+      </field>
+      <field>
+        <name>TX_ID</name>
+      </field>
+      <field>
+        <name>TX_NAME_1</name>
+        <rename>LocalTaxRateDesc</rename>
+      </field>
+      <field>
+        <name>TX_RATE_1</name>
+        <rename>LocalTaxRate</rename>
+      </field>
+      <field>
+        <name>ActionTS</name>
+      </field>
+      <field>
+        <name>CDC_FLAG</name>
+      </field>
+      <field>
+        <name>CDC_DSN</name>
+      </field>
+      <field>
+        <name>C_ID</name>
+      </field>
+      <field>
+        <name>C_TAX_ID</name>
+      </field>
+      <field>
+        <name>ActionType</name>
+      </field>
+      <field>
+        <name>C_L_NAME</name>
+      </field>
+      <field>
+        <name>C_F_NAME</name>
+      </field>
+      <field>
+        <name>C_M_NAME</name>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+      </field>
+      <field>
+        <name>C_TIER</name>
+      </field>
+      <field>
+        <name>C_DOB</name>
+      </field>
+      <field>
+        <name>C_ADLINE1</name>
+      </field>
+      <field>
+        <name>C_ADLINE2</name>
+      </field>
+      <field>
+        <name>C_ZIPCODE</name>
+      </field>
+      <field>
+        <name>C_CITY</name>
+      </field>
+      <field>
+        <name>C_STATE_PROV</name>
+      </field>
+      <field>
+        <name>C_CTRY</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE</name>
+      </field>
+      <field>
+        <name>C_LOCAL</name>
+      </field>
+      <field>
+        <name>C_EXT</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_1</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_1</name>
+      </field>
+      <field>
+        <name>C_LOCAL_1</name>
+      </field>
+      <field>
+        <name>C_EXT_1</name>
+      </field>
+      <field>
+        <name>C_CTRY_CODE_2</name>
+      </field>
+      <field>
+        <name>C_AREA_CODE_2</name>
+      </field>
+      <field>
+        <name>C_LOCAL_2</name>
+      </field>
+      <field>
+        <name>C_EXT_2</name>
+      </field>
+      <field>
+        <name>C_PRIM_EMAIL</name>
+      </field>
+      <field>
+        <name>C_ALT_EMAIL</name>
+      </field>
+      <field>
+        <name>C_LCL_TX_ID</name>
+      </field>
+      <field>
+        <name>C_NAT_TX_ID</name>
+      </field>
+      <field>
+        <name>FIrstName</name>
+      </field>
+      <field>
+        <name>LastName</name>
+      </field>
+      <field>
+        <name>Addr1</name>
+      </field>
+      <field>
+        <name>Addr2</name>
+      </field>
+      <field>
+        <name>PostCode</name>
+      </field>
+      <field>
+        <name>FirstName_1</name>
+      </field>
+      <field>
+        <name>LasName</name>
+      </field>
+      <field>
+        <name>Addr1_1</name>
+      </field>
+      <field>
+        <name>Addr2_1</name>
+      </field>
+      <field>
+        <name>PostCode_1</name>
+      </field>
+      <field>
+        <name>AGENCYID</name>
+      </field>
+      <field>
+        <name>CREDITRATING</name>
+      </field>
+      <field>
+        <name>NETWORTH</name>
+      </field>
+      <field>
+        <name>tag</name>
+      </field>
+      <field>
+        <name>PHONE1</name>
+      </field>
+      <field>
+        <name>PHONE2</name>
+      </field>
+      <field>
+        <name>PHONE3</name>
+      </field>
+      <field>
+        <name>EndDate</name>
+      </field>
+      <field>
+        <name>IsCurrent</name>
+      </field>
+      <field>
+        <name>Status</name>
+      </field>
+      <field>
+        <name>minValidDOB</name>
+      </field>
+      <field>
+        <name>CUSTOMERID</name>
+      </field>
+      <field>
+        <name>SK_CUSTOMERID_TBL</name>
+      </field>
+      <field>
+        <name>EFFECTIVEDATE_TBL</name>
+      </field>
+      <field>
+        <name>ENDDATE_TBL</name>
+      </field>
+      <field>
+        <name>SK_COUNTER_1</name>
+      </field>
+      <field>
+        <name>row_number</name>
+      </field>
+      <field>
+        <name>batch_id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -5387,8 +6394,209 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4624</xloc>
-      <yloc>784</yloc>
+      <xloc>6384</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>C_ID</name>
+      </field>
+      <field>
+        <name>batch_id</name>
+      </field>
+      <field>
+        <name>ActionTS</name>
+      </field>
+      <field>
+        <name>Status</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>6384</xloc>
+      <yloc>640</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 6</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>C_ID</name>
+      </field>
+      <field>
+        <name>sk_customerid</name>
+      </field>
+      <field>
+        <name>phone1</name>
+      </field>
+      <field>
+        <name>phone2</name>
+      </field>
+      <field>
+        <name>phone3</name>
+      </field>
+      <field>
+        <name>EndDate</name>
+      </field>
+      <field>
+        <name>ActionTS</name>
+      </field>
+      <field>
+        <name>Status</name>
+      </field>
+      <field>
+        <name>IsCurrent</name>
+      </field>
+      <field>
+        <name>C_TAX_ID</name>
+      </field>
+      <field>
+        <name>C_L_NAME</name>
+      </field>
+      <field>
+        <name>C_F_NAME</name>
+      </field>
+      <field>
+        <name>C_M_NAME</name>
+      </field>
+      <field>
+        <name>C_TIER</name>
+      </field>
+      <field>
+        <name>C_DOB</name>
+      </field>
+      <field>
+        <name>C_ADLINE1</name>
+      </field>
+      <field>
+        <name>C_ADLINE2</name>
+      </field>
+      <field>
+        <name>C_GNDR</name>
+      </field>
+      <field>
+        <name>C_ZIPCODE</name>
+      </field>
+      <field>
+        <name>C_CITY</name>
+      </field>
+      <field>
+        <name>C_STATE_PROV</name>
+      </field>
+      <field>
+        <name>C_CTRY</name>
+      </field>
+      <field>
+        <name>C_PRIM_EMAIL</name>
+      </field>
+      <field>
+        <name>C_ALT_EMAIL</name>
+      </field>
+      <field>
+        <name>LocalTaxRateDesc</name>
+      </field>
+      <field>
+        <name>LocalTaxRate</name>
+      </field>
+      <field>
+        <name>NationalTaxRateDesc</name>
+      </field>
+      <field>
+        <name>NationalTaxRate</name>
+      </field>
+      <field>
+        <name>AgencyID</name>
+      </field>
+      <field>
+        <name>NetWorth</name>
+      </field>
+      <field>
+        <name>tag</name>
+      </field>
+      <field>
+        <name>CreditRating</name>
+      </field>
+      <field>
+        <name>batch_id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>EndDate</name>
+        <rename>EndDate</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>ActionTS</name>
+        <rename>ActionTS</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>6976</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5437,8 +6645,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4112</xloc>
-      <yloc>784</yloc>
+      <xloc>4128</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5511,8 +6719,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>592</yloc>
+      <xloc>1008</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5585,8 +6793,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>448</yloc>
+      <xloc>1312</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5635,8 +6843,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2160</xloc>
-      <yloc>592</yloc>
+      <xloc>2208</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5678,7 +6886,91 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>5488</xloc>
-      <yloc>1008</yloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>C_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5904</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CUSTOMERID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5712</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5719,8 +7011,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3344</xloc>
-      <yloc>784</yloc>
+      <xloc>3376</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5761,8 +7053,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3696</xloc>
-      <yloc>784</yloc>
+      <xloc>3760</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5803,8 +7095,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3520</xloc>
-      <yloc>576</yloc>
+      <xloc>3584</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5845,8 +7137,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3872</xloc>
-      <yloc>672</yloc>
+      <xloc>3936</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5949,8 +7241,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3696</xloc>
-      <yloc>384</yloc>
+      <xloc>3760</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6001,8 +7293,218 @@ else{
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3184</xloc>
-      <yloc>784</yloc>
+      <xloc>3152</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 5</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>AgencyID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>LastName</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>FirstName</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>MiddleInitial</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Gender</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>AddressLine1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>AddressLine2</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>PostalCode</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>City</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>State</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Country</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Phone</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Income</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>NumberCars</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>NumberChildren</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>MaritalStatus</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Age</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>CreditRating</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>OwnOrRentFlag</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Employer</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>NumberCreditCards</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>NetWorth</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6093,36 +7595,12 @@ else{
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5984</xloc>
-      <yloc>784</yloc>
+      <xloc>6240</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
-    <error>
-      <source_step>DimCustomer</source_step>
-      <target_step/>
-      <is_enabled>Y</is_enabled>
-      <nr_valuename/>
-      <descriptions_valuename/>
-      <fields_valuename/>
-      <codes_valuename/>
-      <max_errors/>
-      <max_pct_errors/>
-      <min_pct_rows/>
-    </error>
-    <error>
-      <source_step>Select and Rename</source_step>
-      <target_step/>
-      <is_enabled>Y</is_enabled>
-      <nr_valuename/>
-      <descriptions_valuename/>
-      <fields_valuename/>
-      <codes_valuename/>
-      <max_errors/>
-      <max_pct_errors/>
-      <min_pct_rows/>
-    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
