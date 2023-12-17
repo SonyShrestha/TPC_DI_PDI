@@ -557,16 +557,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Modified JavaScript value</from>
-      <to>Select values</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Null if</from>
-      <to>Modified JavaScript value</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>PhoneNumbern</from>
       <to>Select values 21</to>
       <enabled>Y</enabled>
@@ -835,8 +825,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4288</xloc>
-      <yloc>656</yloc>
+      <xloc>1920</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -940,8 +930,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>496</yloc>
+      <xloc>96</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -971,8 +961,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6608</xloc>
-      <yloc>832</yloc>
+      <xloc>1472</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1012,8 +1002,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6816</xloc>
-      <yloc>832</yloc>
+      <xloc>1632</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1113,8 +1103,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>480</yloc>
+      <xloc>560</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1214,8 +1204,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>224</yloc>
+      <xloc>432</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1799,8 +1789,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>624</yloc>
+      <xloc>96</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1955,8 +1945,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5440</xloc>
-      <yloc>832</yloc>
+      <xloc>304</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2019,8 +2009,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5856</xloc>
-      <yloc>464</yloc>
+      <xloc>1568</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2083,8 +2073,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6336</xloc>
-      <yloc>272</yloc>
+      <xloc>1920</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2259,8 +2249,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>7152</xloc>
-      <yloc>832</yloc>
+      <xloc>1904</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2284,8 +2274,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>224</yloc>
+      <xloc>272</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2328,8 +2318,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6688</xloc>
-      <yloc>640</yloc>
+      <xloc>1552</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2377,8 +2367,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5376</xloc>
-      <yloc>464</yloc>
+      <xloc>1280</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2424,8 +2414,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5200</xloc>
-      <yloc>272</yloc>
+      <xloc>1696</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2463,8 +2453,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>480</yloc>
+      <xloc>368</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2515,8 +2505,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5792</xloc>
-      <yloc>272</yloc>
+      <xloc>1808</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2558,8 +2548,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6144</xloc>
-      <yloc>832</yloc>
+      <xloc>912</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2598,8 +2588,8 @@ ENDDATE AS ENDDATE_tbl,
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4672</xloc>
-      <yloc>656</yloc>
+      <xloc>1920</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2672,8 +2662,8 @@ var MessageSource='DimCustomer';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5600</xloc>
-      <yloc>464</yloc>
+      <xloc>1424</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2746,8 +2736,8 @@ var MessageSource='DimCustomer';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6064</xloc>
-      <yloc>272</yloc>
+      <xloc>1920</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2808,8 +2798,8 @@ if (ActionType.trim()==='INAC'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4496</xloc>
-      <yloc>656</yloc>
+      <xloc>1920</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2845,8 +2835,8 @@ if (ActionType.trim()==='INAC'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>624</yloc>
+      <xloc>368</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2943,8 +2933,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>224</yloc>
+      <xloc>432</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2977,8 +2967,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3584</xloc>
-      <yloc>656</yloc>
+      <xloc>1264</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3019,8 +3009,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1312</xloc>
-      <yloc>480</yloc>
+      <xloc>896</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3053,8 +3043,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3936</xloc>
-      <yloc>656</yloc>
+      <xloc>1616</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3087,8 +3077,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5904</xloc>
-      <yloc>832</yloc>
+      <xloc>768</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3133,425 +3123,8 @@ var minValidDOB = dateAdd(ActionTS,"y",-100);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4896</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Modified JavaScript value</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-var C_TAX_ID;
-var C_GNDR;
-var C_DOB;
-var C_M_NAME;
-var C_CITY;
-var C_STATE_PROV;
-var C_CTRY;
-var C_PRIM_EMAIL;
-var C_ALT_EMAIL;
-var PHONE1;
-var PHONE2;
-var PHONE3;
-var C_LCL_TX_ID;
-var C_NAT_TX_ID;
-if (!C_TAX_ID){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_TAX_ID=C_TAX_ID1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_TAX_ID1=C_TAX_ID;
-
-}
-
-
-if (!C_GNDR){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_GNDR=C_GNDR1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_GNDR1=C_GNDR;
-
-}
-
-
-
-
-
-
-if (!C_DOB){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_DOB=C_DOB1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_DOB1=C_DOB;
-
-}
-
-
-
-if (!C_M_NAME){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_M_NAME=C_M_NAME1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_M_NAME1=C_M_NAME;
-
-}
-
-
-
-
-
-
-
-if (!C_CITY){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_CITY=C_CITY1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_CITY1=C_CITY;
-
-}
-
-
-
-if (!C_STATE_PROV){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_STATE_PROV=C_STATE_PROV1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_STATE_PROV1=C_STATE_PROV;
-
-}
-
-
-
-if (!C_CTRY){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_CTRY=C_CTRY1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_CTRY1=C_CTRY;
-
-}
-
-
-
-
-if (!C_PRIM_EMAIL){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_PRIM_EMAIL=C_PRIM_EMAIL1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_PRIM_EMAIL1=C_PRIM_EMAIL;
-
-}
-
-
-
-if (!C_ALT_EMAIL){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_ALT_EMAIL=C_ALT_EMAIL1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_ALT_EMAIL1=C_ALT_EMAIL;
-
-}
-
-
-
-
-if (!PHONE1){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		PHONE1=PHONE11;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	PHONE11=PHONE1;
-
-}
-
-
-
-if (!PHONE2){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		PHONE2=PHONE21;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	PHONE21=PHONE2;
-
-}
-
-
-
-
-if (!PHONE3){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		PHONE3=PHONE31;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	PHONE31=PHONE3;
-
-}
-
-
-if (!C_LCL_TX_ID){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_LCL_TX_ID=C_LCL_TX_ID1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_LCL_TX_ID1=C_LCL_TX_ID;
-
-}
-
-
-
-if (!C_NAT_TX_ID){
-	if(C_ID.trim()==lag_C_ID.trim()){
-		C_NAT_TX_ID=C_NAT_TX_ID1;
-	}
-	else	{
-		lag_C_ID=C_ID;
-	}
-
-}
-else{
-	C_NAT_TX_ID1=C_NAT_TX_ID;
-
-}
-
-
-
-
-
-</jsScript_script>
-      </jsScript>
-      <jsScript>
-        <jsScript_type>1</jsScript_type>
-        <jsScript_name>Item_0</jsScript_name>
-        <jsScript_script>//Script here
-var C_TAX_ID1=C_TAX_ID;
-var C_GNDR1=C_GNDR;
-var C_DOB1=C_DOB;
-var C_M_NAME1=C_M_NAME;
-var C_CITY1=C_CITY;
-var C_STATE_PROV1=C_STATE_PROV;
-var C_CTRY1=C_CTRY;
-var C_PRIM_EMAIL1=C_PRIM_EMAIL;
-var C_ALT_EMAIL1=C_ALT_EMAIL;
-var PHONE11=PHONE1;
-var PHONE21=PHONE2;
-var PHONE31=PHONE3;
-var C_LCL_TX_ID1=C_LCL_TX_ID;
-var C_NAT_TX_ID1=C_NAT_TX_ID;
-var lag_C_ID=C_ID;</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>C_TAX_ID</name>
-        <rename>C_TAX_ID</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_GNDR</name>
-        <rename>C_GNDR</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_DOB</name>
-        <rename>C_DOB</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_M_NAME</name>
-        <rename>C_M_NAME</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_CITY</name>
-        <rename>C_CITY</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_STATE_PROV</name>
-        <rename>C_STATE_PROV</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_CTRY</name>
-        <rename>C_CTRY</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_PRIM_EMAIL</name>
-        <rename>C_PRIM_EMAIL</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_ALT_EMAIL</name>
-        <rename>C_ALT_EMAIL</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>PHONE1</name>
-        <rename>PHONE1</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>PHONE2</name>
-        <rename>PHONE2</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>PHONE3</name>
-        <rename>PHONE3</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_LCL_TX_ID</name>
-        <rename>C_LCL_TX_ID</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-      <field>
-        <name>C_NAT_TX_ID</name>
-        <rename>C_NAT_TX_ID</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2784</xloc>
-      <yloc>576</yloc>
+      <xloc>1696</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3781,8 +3354,8 @@ var lag_C_ID=C_ID;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2464</xloc>
-      <yloc>480</yloc>
+      <xloc>896</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3954,8 +3527,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
-      <yloc>480</yloc>
+      <xloc>896</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4374,8 +3947,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>144</yloc>
+      <xloc>80</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4794,8 +4367,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>224</yloc>
+      <xloc>80</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5214,8 +4787,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>304</yloc>
+      <xloc>80</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5254,8 +4827,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3760</xloc>
-      <yloc>384</yloc>
+      <xloc>1440</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5292,8 +4865,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3936</xloc>
-      <yloc>448</yloc>
+      <xloc>1616</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5506,8 +5079,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5376</xloc>
-      <yloc>656</yloc>
+      <xloc>1456</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5579,8 +5152,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
-      <yloc>224</yloc>
+      <xloc>624</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5763,8 +5336,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3152</xloc>
-      <yloc>480</yloc>
+      <xloc>1056</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5929,8 +5502,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>480</yloc>
+      <xloc>560</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6113,8 +5686,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1968</xloc>
-      <yloc>480</yloc>
+      <xloc>896</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6158,8 +5731,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4896</xloc>
-      <yloc>272</yloc>
+      <xloc>1696</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6394,8 +5967,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6384</xloc>
-      <yloc>832</yloc>
+      <xloc>1248</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6434,8 +6007,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6384</xloc>
-      <yloc>640</yloc>
+      <xloc>1248</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6595,8 +6168,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6976</xloc>
-      <yloc>832</yloc>
+      <xloc>1760</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6645,8 +6218,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4128</xloc>
-      <yloc>656</yloc>
+      <xloc>1760</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6719,8 +6292,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>480</yloc>
+      <xloc>720</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6793,8 +6366,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1312</xloc>
-      <yloc>224</yloc>
+      <xloc>800</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6843,8 +6416,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2208</xloc>
-      <yloc>480</yloc>
+      <xloc>896</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6885,8 +6458,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5488</xloc>
-      <yloc>272</yloc>
+      <xloc>1808</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6927,8 +6500,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5904</xloc>
-      <yloc>656</yloc>
+      <xloc>1072</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6969,332 +6542,8 @@ PHONE3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5712</xloc>
-      <yloc>832</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows C_LCL_TX_ID</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>C_LCL_TX_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>3376</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows C_NAT_TX_ID</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>C_NAT_TX_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>3760</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows tx_id</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>TX_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>3584</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows tx_id 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>TX_ID_NAT</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>3936</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>TaxRate</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>oracle_con</connection>
-    <sql>SELECT * FROM taxrate</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>TX_ID</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>TaxRate</origin>
-        <comments>TX_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>TX_NAME</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>TaxRate</origin>
-        <comments>TX_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>TX_RATE</name>
-        <length>6</length>
-        <precision>5</precision>
-        <origin>TaxRate</origin>
-        <comments>TX_RATE</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>3760</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Update Gender</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var C_GNDR;
-if ((upper(trim(C_GNDR))==='M') || (upper(trim(C_GNDR))==='F')){
-	C_GNDR=upper(C_GNDR);
-}
-else{
-	C_GNDR='U';;
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>C_GNDR</name>
-        <rename>C_GNDR</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>3152</xloc>
-      <yloc>656</yloc>
+      <xloc>576</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -7503,8 +6752,176 @@ else{
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>224</yloc>
+      <xloc>272</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows C_LCL_TX_ID</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>C_LCL_TX_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows C_NAT_TX_ID</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>C_NAT_TX_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows tx_id</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>TX_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1264</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows tx_id 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>TX_ID_NAT</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1760</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -7595,8 +7012,164 @@ else{
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6240</xloc>
-      <yloc>832</yloc>
+      <xloc>1088</xloc>
+      <yloc>1024</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>TaxRate</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>oracle_con</connection>
+    <sql>SELECT * FROM taxrate</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TX_ID</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>TaxRate</origin>
+        <comments>TX_ID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TX_NAME</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>TaxRate</origin>
+        <comments>TX_NAME</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>TX_RATE</name>
+        <length>6</length>
+        <precision>5</precision>
+        <origin>TaxRate</origin>
+        <comments>TX_RATE</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update Gender</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var C_GNDR;
+if ((upper(trim(C_GNDR))==='M') || (upper(trim(C_GNDR))==='F')){
+	C_GNDR=upper(C_GNDR);
+}
+else{
+	C_GNDR='U';;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>C_GNDR</name>
+        <rename>C_GNDR</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

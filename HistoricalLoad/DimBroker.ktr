@@ -585,7 +585,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>544</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -620,7 +620,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
+      <xloc>896</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -716,7 +716,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
+      <xloc>1168</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -775,8 +775,8 @@ from dimdate</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>128</yloc>
+      <xloc>720</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -819,7 +819,7 @@ from dimdate</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>352</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -959,7 +959,7 @@ from dimdate</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
+      <xloc>192</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -996,7 +996,7 @@ from dimdate</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>720</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1058,7 +1058,7 @@ from dimdate</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
+      <xloc>1040</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>

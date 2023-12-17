@@ -897,8 +897,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
-      <yloc>448</yloc>
+      <xloc>1008</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1053,8 +1053,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>384</yloc>
+      <xloc>480</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1100,8 +1100,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>240</yloc>
+      <xloc>880</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1147,8 +1147,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>656</yloc>
+      <xloc>880</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1492,8 +1492,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>464</yloc>
+      <xloc>160</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1536,8 +1536,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>464</yloc>
+      <xloc>160</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1636,8 +1636,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1728</xloc>
-      <yloc>448</yloc>
+      <xloc>1152</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1670,8 +1670,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>240</yloc>
+      <xloc>688</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1704,8 +1704,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>656</yloc>
+      <xloc>720</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1748,8 +1748,8 @@ FROM dimcompany</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>464</yloc>
+      <xloc>336</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1805,7 +1805,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
+      <xloc>160</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1845,8 +1845,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>464</yloc>
+      <xloc>160</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1890,8 +1890,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>304</yloc>
+      <xloc>160</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1932,8 +1932,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>384</yloc>
+      <xloc>688</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1974,8 +1974,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>240</yloc>
+      <xloc>528</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2016,8 +2016,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>656</yloc>
+      <xloc>576</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2058,8 +2058,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>512</yloc>
+      <xloc>592</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2098,8 +2098,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>656</yloc>
+      <xloc>432</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2123,8 +2123,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>656</yloc>
+      <xloc>336</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2148,8 +2148,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>448</yloc>
+      <xloc>880</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2173,8 +2173,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>240</yloc>
+      <xloc>336</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -493,11 +493,6 @@
   </connection>
   <order>
     <hop>
-      <from>Filter rows</from>
-      <to>Select values</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Select values</from>
       <to>Sort rows</to>
       <enabled>Y</enabled>
@@ -538,19 +533,9 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join 2</from>
-      <to>Select values 3</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>BatchDate</from>
       <to>Join rows (cartesian product)</to>
       <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join rows (cartesian product)</from>
-      <to>Filter rows</to>
-      <enabled>N</enabled>
     </hop>
     <hop>
       <from>DIMACCOUNT</from>
@@ -636,36 +621,6 @@
       <from>Add constants</from>
       <to>Sort rows 3</to>
       <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
-      <to>Add constants 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3</from>
-      <to>Filter rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2 2</from>
-      <to>Formula 2</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Formula</from>
-      <to>Filter rows 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add constants 3</from>
-      <to>Formula</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Formula 2</from>
-      <to>Sort rows 5</to>
-      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Customer.txt</from>
@@ -923,8 +878,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>512</yloc>
+      <xloc>576</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -986,8 +941,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
-      <yloc>544</yloc>
+      <xloc>1072</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1037,47 +992,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>720</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add constants 3</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>last_date</name>
-        <type>Timestamp</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>9999-12-31 00:00:00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2336</xloc>
-      <yloc>448</yloc>
+      <xloc>448</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1111,8 +1027,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2528</xloc>
-      <yloc>928</yloc>
+      <xloc>1552</xloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1216,8 +1132,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>416</yloc>
+      <xloc>752</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1247,8 +1163,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2384</xloc>
-      <yloc>816</yloc>
+      <xloc>1552</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1288,8 +1204,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2816</xloc>
-      <yloc>928</yloc>
+      <xloc>1808</xloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1873,8 +1789,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>0</xloc>
-      <yloc>672</yloc>
+      <xloc>576</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2187,8 +2103,8 @@ where iscurrent='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1744</xloc>
-      <yloc>832</yloc>
+      <xloc>1168</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2269,8 +2185,8 @@ WHERE ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>272</yloc>
+      <xloc>928</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2398,8 +2314,8 @@ WHERE ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
-      <yloc>304</yloc>
+      <xloc>1184</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2735,8 +2651,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>0</xloc>
-      <yloc>784</yloc>
+      <xloc>448</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2823,8 +2739,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2944</xloc>
-      <yloc>752</yloc>
+      <xloc>1808</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2848,8 +2764,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>544</yloc>
+      <xloc>576</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2892,208 +2808,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2768</xloc>
-      <yloc>720</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Select values</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>CDC_FLAG</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>U</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Add constants 3</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>EffectiveDate</leftvalue>
-            <function>&lt;</function>
-            <rightvalue>ENDDATE_TBL</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>EndDate</leftvalue>
-            <function>&gt;</function>
-            <rightvalue>EFFECTIVEDATE_TBL</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2176</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Formula 2</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>effective_date_new</leftvalue>
-        <function>&lt;></function>
-        <rightvalue>end_date_new</rightvalue>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2656</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Formula</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formula>
-      <field_name>effective_date_new</field_name>
-      <formula_string>if ([EffectiveDate] &lt; [EFFECTIVEDATE_TBL]; [EFFECTIVEDATE_TBL]; [EffectiveDate])</formula_string>
-      <value_type>Timestamp</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <formula>
-      <field_name>end_date_new</field_name>
-      <formula_string>if([ENDDATE] > [ENDDATE_TBL]; [ENDDATE_TBL]; [ENDDATE])</formula_string>
-      <value_type>Timestamp</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2528</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Formula 2</name>
-    <type>Formula</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <formula>
-      <field_name>is_current</field_name>
-      <formula_string>if ([end_date_new] = [last_date];"1";"0")</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2800</xloc>
-      <yloc>496</yloc>
+      <xloc>1712</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3131,8 +2847,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>544</yloc>
+      <xloc>464</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3174,8 +2890,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2384</xloc>
-      <yloc>720</yloc>
+      <xloc>1552</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3211,8 +2927,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>544</yloc>
+      <xloc>752</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3245,8 +2961,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>544</yloc>
+      <xloc>928</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3279,8 +2995,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
-      <yloc>544</yloc>
+      <xloc>1184</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3313,8 +3029,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2256</xloc>
-      <yloc>720</yloc>
+      <xloc>1424</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3347,8 +3063,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>720</yloc>
+      <xloc>448</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3410,8 +3126,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>544</yloc>
+      <xloc>656</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3471,158 +3187,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>CUSTOMERID</name>
-      </field>
-      <field>
-        <name>SK_CUSTOMERID</name>
-      </field>
-      <field>
-        <name>ACCOUNTID</name>
-      </field>
-      <field>
-        <name>SK_BROKERID</name>
-      </field>
-      <field>
-        <name>ACCOUNTDESC</name>
-      </field>
-      <field>
-        <name>TAXSTATUS</name>
-      </field>
-      <field>
-        <name>BROKERID</name>
-      </field>
-      <field>
-        <name>CDC_FLAG</name>
-      </field>
-      <field>
-        <name>CDC_DSN</name>
-      </field>
-      <field>
-        <name>CA_B_ID</name>
-      </field>
-      <field>
-        <name>CA_C_ID</name>
-      </field>
-      <field>
-        <name>EffectiveDate</name>
-      </field>
-      <field>
-        <name>batch_id</name>
-      </field>
-      <field>
-        <name>EFFECTIVEDATE_TBL</name>
-      </field>
-      <field>
-        <name>ENDDATE_TBL</name>
-      </field>
-      <field>
-        <name>EndDate</name>
-      </field>
-      <field>
-        <name>IsCurrent</name>
-      </field>
-      <field>
-        <name>Status</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>EFFECTIVEDATE_TBL</name>
-        <rename>EFFECTIVEDATE_TBL</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ENDDATE_TBL</name>
-        <rename>ENDDATE_TBL</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>EffectiveDate</name>
-        <rename>EffectiveDate</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>EndDate</name>
-        <rename>EndDate</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2032</xloc>
-      <yloc>464</yloc>
+      <xloc>1072</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3696,8 +3262,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1920</xloc>
-      <yloc>832</yloc>
+      <xloc>1296</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3828,8 +3394,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2544</xloc>
-      <yloc>720</yloc>
+      <xloc>1552</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3890,8 +3456,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2688</xloc>
-      <yloc>928</yloc>
+      <xloc>1680</xloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3949,8 +3515,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>608</yloc>
+      <xloc>448</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3991,8 +3557,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>544</yloc>
+      <xloc>784</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4033,8 +3599,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>384</yloc>
+      <xloc>928</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4075,8 +3641,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>784</yloc>
+      <xloc>448</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4117,8 +3683,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
-      <yloc>544</yloc>
+      <xloc>1072</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4159,8 +3725,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
-      <yloc>416</yloc>
+      <xloc>1184</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4201,8 +3767,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2128</xloc>
-      <yloc>720</yloc>
+      <xloc>1296</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4243,8 +3809,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>832</yloc>
+      <xloc>1424</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4285,8 +3851,8 @@ WHERE c.ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>672</yloc>
+      <xloc>576</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4389,8 +3955,8 @@ if(TAXSTATUS){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2384</xloc>
-      <yloc>928</yloc>
+      <xloc>1552</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

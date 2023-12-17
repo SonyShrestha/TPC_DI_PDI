@@ -802,8 +802,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>304</yloc>
+      <xloc>272</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -843,8 +843,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>384</yloc>
+      <xloc>272</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -998,8 +998,8 @@ WHERE STATUS='Active'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>448</yloc>
+      <xloc>448</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1062,8 +1062,8 @@ WHERE STATUS='Active'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>192</yloc>
+      <xloc>64</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1126,8 +1126,8 @@ WHERE STATUS='Active'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1968</xloc>
-      <yloc>96</yloc>
+      <xloc>1280</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1190,8 +1190,8 @@ WHERE STATUS='Active'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>640</yloc>
+      <xloc>1408</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1258,8 +1258,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2192</xloc>
-      <yloc>560</yloc>
+      <xloc>1392</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1302,7 +1302,7 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
+      <xloc>832</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1346,8 +1346,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
-      <yloc>640</yloc>
+      <xloc>832</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1390,8 +1390,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1728</xloc>
-      <yloc>480</yloc>
+      <xloc>1072</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1429,8 +1429,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
-      <yloc>288</yloc>
+      <xloc>736</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1468,8 +1468,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>192</yloc>
+      <xloc>64</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1507,8 +1507,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1968</xloc>
-      <yloc>640</yloc>
+      <xloc>1264</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1550,8 +1550,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>320</yloc>
+      <xloc>64</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1599,8 +1599,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>96</yloc>
+      <xloc>992</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1642,8 +1642,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
-      <yloc>640</yloc>
+      <xloc>960</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1694,8 +1694,8 @@ AND ISCURRENT='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
-      <yloc>384</yloc>
+      <xloc>832</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1768,8 +1768,8 @@ var MessageSource='Prospect';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>192</yloc>
+      <xloc>64</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1842,8 +1842,8 @@ var MessageSource='Prospect';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1792</xloc>
-      <yloc>96</yloc>
+      <xloc>1136</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1916,8 +1916,8 @@ var MessageSource='Prospect';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1792</xloc>
-      <yloc>640</yloc>
+      <xloc>1104</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1954,7 +1954,7 @@ var MessageSource='Prospect';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>544</yloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2050,8 +2050,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
-      <yloc>528</yloc>
+      <xloc>592</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2092,8 +2092,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>528</yloc>
+      <xloc>448</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2126,8 +2126,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>288</yloc>
+      <xloc>592</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2217,8 +2217,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1632</xloc>
-      <yloc>480</yloc>
+      <xloc>960</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2881,8 +2881,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>288</yloc>
+      <xloc>464</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3302,7 +3302,7 @@ if (Age > 45){
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>544</yloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3334,7 +3334,7 @@ if (Age > 45){
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>384</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3440,8 +3440,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>528</yloc>
+      <xloc>592</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3633,7 +3633,7 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
+      <xloc>992</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3829,7 +3829,7 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1872</xloc>
+      <xloc>1216</xloc>
       <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3903,7 +3903,7 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>448</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3977,8 +3977,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>656</yloc>
+      <xloc>448</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4019,8 +4019,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>288</yloc>
+      <xloc>464</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4061,8 +4061,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>416</yloc>
+      <xloc>592</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4154,7 +4154,7 @@ if (Age > 45){
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>656</yloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4245,8 +4245,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1936</xloc>
-      <yloc>560</yloc>
+      <xloc>1216</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4397,7 +4397,7 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
+      <xloc>1152</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4538,7 +4538,7 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2032</xloc>
+      <xloc>1376</xloc>
       <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4583,8 +4583,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2000</xloc>
-      <yloc>400</yloc>
+      <xloc>1072</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4648,8 +4648,8 @@ else{
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
-      <yloc>480</yloc>
+      <xloc>832</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4697,8 +4697,8 @@ if (FIRSTNAME_1){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>528</yloc>
+      <xloc>592</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4746,7 +4746,7 @@ is_new=1;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
+      <xloc>736</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>

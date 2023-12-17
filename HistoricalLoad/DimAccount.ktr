@@ -493,16 +493,6 @@
   </connection>
   <order>
     <hop>
-      <from>Filter rows 2</from>
-      <to>Replace in string</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Get data from XML</from>
-      <to>Filter rows 2</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Get data from XML</from>
       <to>Replace in string</to>
       <enabled>Y</enabled>
@@ -689,8 +679,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
-      <yloc>816</yloc>
+      <xloc>512</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -724,8 +714,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2224</xloc>
-      <yloc>640</yloc>
+      <xloc>1056</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -762,8 +752,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>304</yloc>
+      <xloc>256</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -846,8 +836,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1738</xloc>
-      <yloc>816</yloc>
+      <xloc>704</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -978,8 +968,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>672</yloc>
+      <xloc>96</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1066,8 +1056,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2224</xloc>
-      <yloc>864</yloc>
+      <xloc>1056</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1113,73 +1103,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Replace in string</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>CA_ID</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>291</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>CA_ID</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>Integer</type>
-              <text>1066</text>
-              <length>-1</length>
-              <precision>0</precision>
-              <isnull>N</isnull>
-              <mask>####0;-####0</mask>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>208</yloc>
+      <xloc>512</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1213,8 +1138,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
-      <yloc>640</yloc>
+      <xloc>512</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1257,8 +1182,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>496</yloc>
+      <xloc>96</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1298,8 +1223,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
-      <yloc>640</yloc>
+      <xloc>512</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1331,8 +1256,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1760</xloc>
-      <yloc>640</yloc>
+      <xloc>512</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1497,7 +1422,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>96</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1537,8 +1462,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1588,8 +1513,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1622,8 +1547,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>672</yloc>
+      <xloc>384</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1656,8 +1581,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>640</yloc>
+      <xloc>896</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1707,8 +1632,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>304</yloc>
+      <xloc>96</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1776,8 +1701,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>496</yloc>
+      <xloc>96</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1841,8 +1766,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>496</yloc>
+      <xloc>96</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1937,8 +1862,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>816</yloc>
+      <xloc>512</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1982,8 +1907,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2027,8 +1952,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1872</xloc>
-      <yloc>640</yloc>
+      <xloc>656</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2069,8 +1994,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>496</yloc>
+      <xloc>384</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2119,8 +2044,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>304</yloc>
+      <xloc>256</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2161,8 +2086,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>672</yloc>
+      <xloc>224</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2203,8 +2128,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>816</yloc>
+      <xloc>896</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2245,8 +2170,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1984</xloc>
-      <yloc>640</yloc>
+      <xloc>768</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2295,8 +2220,8 @@ if (ActionType.trim()==='CLOSEACCT' || ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>496</yloc>
+      <xloc>96</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2374,8 +2299,8 @@ var prev_val_CA_NAME=CA_NAME;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>304</yloc>
+      <xloc>256</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

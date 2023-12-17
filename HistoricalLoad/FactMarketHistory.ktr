@@ -696,8 +696,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2608</xloc>
-      <yloc>400</yloc>
+      <xloc>1200</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -729,8 +729,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>480</yloc>
+      <xloc>880</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -845,8 +845,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1664</xloc>
-      <yloc>400</yloc>
+      <xloc>1232</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1025,8 +1025,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>400</yloc>
+      <xloc>256</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1207,8 +1207,8 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>64</yloc>
+      <xloc>560</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1588,7 +1588,7 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>80</yloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1687,8 +1687,8 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2720</xloc>
-      <yloc>400</yloc>
+      <xloc>1360</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1734,7 +1734,7 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
+      <xloc>400</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1868,8 +1868,8 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1294</xloc>
-      <yloc>151</yloc>
+      <xloc>1120</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1959,8 +1959,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2480</xloc>
-      <yloc>400</yloc>
+      <xloc>1200</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2023,8 +2023,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>320</yloc>
+      <xloc>1056</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2057,7 +2057,7 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>256</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2091,8 +2091,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>400</yloc>
+      <xloc>400</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2125,8 +2125,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2240</xloc>
-      <yloc>400</yloc>
+      <xloc>1056</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2161,8 +2161,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1118</xloc>
-      <yloc>311</yloc>
+      <xloc>880</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2199,8 +2199,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1230</xloc>
-      <yloc>311</yloc>
+      <xloc>1056</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2237,8 +2237,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1342</xloc>
-      <yloc>311</yloc>
+      <xloc>1168</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2275,8 +2275,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1454</xloc>
-      <yloc>311</yloc>
+      <xloc>1280</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2311,8 +2311,8 @@ while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1454</xloc>
-      <yloc>407</yloc>
+      <xloc>960</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2432,8 +2432,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>974</xloc>
-      <yloc>311</yloc>
+      <xloc>720</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2497,8 +2497,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2352</xloc>
-      <yloc>400</yloc>
+      <xloc>1200</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2534,8 +2534,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>240</yloc>
+      <xloc>560</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2598,7 +2598,7 @@ switch(FISCALQTRID%10) {
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>176</yloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2659,8 +2659,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
-      <yloc>400</yloc>
+      <xloc>880</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2701,8 +2701,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>400</yloc>
+      <xloc>400</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2743,8 +2743,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>304</yloc>
+      <xloc>560</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2786,7 +2786,7 @@ switch(FISCALQTRID%10) {
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>320</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2828,7 +2828,7 @@ switch(FISCALQTRID%10) {
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>400</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2877,8 +2877,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2000</xloc>
-      <yloc>400</yloc>
+      <xloc>880</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2930,8 +2930,8 @@ if (CALENDARWEEKID.length==5) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>160</yloc>
+      <xloc>560</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

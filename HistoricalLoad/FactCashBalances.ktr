@@ -606,8 +606,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1856</xloc>
-      <yloc>432</yloc>
+      <xloc>1216</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -655,8 +655,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>432</yloc>
+      <xloc>1072</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -696,8 +696,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>528</yloc>
+      <xloc>768</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -846,8 +846,54 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
+      <xloc>320</xloc>
       <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Cumulative sum</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>Y</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>Y</give_back_row>
+    <group>
+      <field>
+        <name>sk_accountid</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>sum</aggregate>
+        <subject>CT_AMT_sum</subject>
+        <type>CUM_SUM</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1108,7 +1154,7 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1104</xloc>
+      <xloc>928</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1172,7 +1218,7 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2080</xloc>
+      <xloc>1216</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1287,7 +1333,7 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1104</xloc>
+      <xloc>928</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1329,7 +1375,7 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>480</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1379,8 +1425,8 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>432</yloc>
+      <xloc>928</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1422,7 +1468,7 @@ FROM dimaccount
     </remotesteps>
     <GUI>
       <xloc>624</xloc>
-      <yloc>304</yloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1463,96 +1509,8 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1104</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows date</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>date</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
       <xloc>928</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cumulative sum</name>
-    <type>GroupBy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <all_rows>Y</all_rows>
-    <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore/>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>grp</prefix>
-    <add_linenr>N</add_linenr>
-    <linenr_fieldname/>
-    <give_back_row>Y</give_back_row>
-    <group>
-      <field>
-        <name>sk_accountid</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>sum</aggregate>
-        <subject>CT_AMT_sum</subject>
-        <type>CUM_SUM</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1696</xloc>
-      <yloc>432</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1601,8 +1559,50 @@ FROM dimaccount
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
+      <xloc>1072</xloc>
       <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows date</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>date</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

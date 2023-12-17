@@ -359,7 +359,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>48</xloc>
+      <xloc>112</xloc>
       <yloc>64</yloc>
       <attributes_kjc/>
     </entry>
@@ -398,8 +398,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1056</xloc>
-      <yloc>208</yloc>
+      <xloc>528</xloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -410,8 +410,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1616</xloc>
-      <yloc>208</yloc>
+      <xloc>1264</xloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -447,8 +447,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>208</yloc>
+      <xloc>528</xloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -484,8 +484,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
-      <yloc>208</yloc>
+      <xloc>720</xloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -521,8 +521,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>752</xloc>
-      <yloc>208</yloc>
+      <xloc>896</xloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -558,8 +558,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>912</xloc>
-      <yloc>208</yloc>
+      <xloc>1072</xloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -616,7 +616,7 @@ TRUNCATE TABLE "AUDIT";
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
+      <xloc>224</xloc>
       <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
@@ -699,8 +699,8 @@ from (
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1328</xloc>
-      <yloc>208</yloc>
+      <xloc>928</xloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -734,8 +734,8 @@ from (
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
-      <yloc>208</yloc>
+      <xloc>1104</xloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -773,8 +773,8 @@ from (
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1200</xloc>
-      <yloc>208</yloc>
+      <xloc>752</xloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -783,54 +783,14 @@ from (
       <type>SET_VARIABLES</type>
       <attributes/>
       <replacevars>Y</replacevars>
-      <filename/>
+      <filename>${Internal.Job.Filename.Directory}/../config/batch1.properties</filename>
       <file_variable_type>JVM</file_variable_type>
       <fields>
-        <field>
-          <variable_name>batch</variable_name>
-          <variable_value>Batch1</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>batch_id</variable_name>
-          <variable_value>1</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>input_path</variable_name>
-          <variable_value>C:\ULB\Data_Warehouse\TPC_DI_TOOLKIT\Tools\output</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>oracle_database</variable_name>
-          <variable_value>ORCL</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>oracle_host</variable_name>
-          <variable_value>localhost</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>oracle_password</variable_name>
-          <variable_value>tpcdisf3</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>oracle_username</variable_name>
-          <variable_value>DW_TPCDI_SF3</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>sf</variable_name>
-          <variable_value>sf3</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>48</xloc>
+      <xloc>112</xloc>
       <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
@@ -865,7 +825,7 @@ from (
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>272</xloc>
+      <xloc>352</xloc>
       <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
@@ -948,7 +908,7 @@ from (
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
+      <xloc>352</xloc>
       <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
@@ -1036,15 +996,6 @@ from (
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>SQL</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>SQL</from>
       <to>PCR Initialization</to>
       <from_nr>0</from_nr>
@@ -1065,6 +1016,15 @@ from (
     <hop>
       <from>Validation Initialization</from>
       <to>HistoricalLoadLevel1</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set variables</from>
+      <to>SQL</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

@@ -674,8 +674,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>928</yloc>
+      <xloc>976</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -709,8 +709,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
-      <yloc>1216</yloc>
+      <xloc>1120</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -747,8 +747,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>592</yloc>
+      <xloc>528</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -879,7 +879,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>288</xloc>
       <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1011,7 +1011,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>288</xloc>
       <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1115,8 +1115,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1744</xloc>
-      <yloc>1216</yloc>
+      <xloc>1120</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1140,7 +1140,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
+      <xloc>464</xloc>
       <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1410,8 +1410,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>304</yloc>
+      <xloc>208</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1459,8 +1459,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>416</yloc>
+      <xloc>208</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1506,8 +1506,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1696</xloc>
-      <yloc>752</yloc>
+      <xloc>976</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1541,8 +1541,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>1040</yloc>
+      <xloc>1120</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1582,8 +1582,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>928</yloc>
+      <xloc>976</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1615,8 +1615,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>1216</yloc>
+      <xloc>1120</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1655,8 +1655,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>592</yloc>
+      <xloc>672</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1689,8 +1689,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>752</yloc>
+      <xloc>816</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1723,7 +1723,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>368</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1780,8 +1780,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>592</yloc>
+      <xloc>208</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1825,7 +1825,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
+      <xloc>464</xloc>
       <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1909,8 +1909,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>592</yloc>
+      <xloc>528</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2005,8 +2005,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>752</yloc>
+      <xloc>816</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2084,8 +2084,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1696</xloc>
-      <yloc>928</yloc>
+      <xloc>976</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2180,8 +2180,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
-      <yloc>1216</yloc>
+      <xloc>1120</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2222,7 +2222,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
+      <xloc>208</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2264,7 +2264,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>368</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2306,7 +2306,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
+      <xloc>656</xloc>
       <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2348,8 +2348,8 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>592</yloc>
+      <xloc>816</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2398,7 +2398,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
+      <xloc>528</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2479,7 +2479,7 @@ var PTS = formattedDate + ' ' + formattedTime;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>368</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>

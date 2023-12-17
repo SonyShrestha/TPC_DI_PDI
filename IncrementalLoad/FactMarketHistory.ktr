@@ -717,16 +717,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 4</from>
-      <to>Filter rows 3</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 3</from>
-      <to>Sort rows 5</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Group by 2</from>
       <to>Calculator 3</to>
       <enabled>Y</enabled>
@@ -791,8 +781,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>496</yloc>
+      <xloc>368</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -826,8 +816,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -882,8 +872,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>496</yloc>
+      <xloc>368</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -923,8 +913,90 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>496</yloc>
+      <xloc>496</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator 3</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>copy_date</field_name>
+      <calc_type>COPY_FIELD</calc_type>
+      <field_a>DM_DATE</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>yyyy-MM-dd</conversion_mask>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator 4</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>date_int</field_name>
+      <calc_type>GET_ONLY_DIGITS</calc_type>
+      <field_a>copy_date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1039,8 +1111,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3616</xloc>
-      <yloc>368</yloc>
+      <xloc>1344</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1103,8 +1175,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4448</xloc>
-      <yloc>256</yloc>
+      <xloc>1488</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1136,8 +1208,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
-      <yloc>496</yloc>
+      <xloc>496</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1318,7 +1390,7 @@ order by d.fiscalyearid, d.fiscalqtrid, d.datevalue
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2768</xloc>
+      <xloc>1248</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1699,8 +1771,8 @@ where iscurrent='1'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>224</yloc>
+      <xloc>384</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1828,8 +1900,8 @@ on a.SK_SECURITYID=b.SK_SECURITYID</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>96</yloc>
+      <xloc>480</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1928,8 +2000,8 @@ on a.SK_SECURITYID=b.SK_SECURITYID</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4304</xloc>
-      <yloc>368</yloc>
+      <xloc>944</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1963,7 +2035,7 @@ on a.SK_SECURITYID=b.SK_SECURITYID</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
+      <xloc>672</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2010,8 +2082,8 @@ on a.SK_SECURITYID=b.SK_SECURITYID</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2016</xloc>
-      <yloc>368</yloc>
+      <xloc>800</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2054,8 +2126,8 @@ on a.SK_SECURITYID=b.SK_SECURITYID</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4080</xloc>
-      <yloc>256</yloc>
+      <xloc>1152</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2188,8 +2260,8 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3248</xloc>
-      <yloc>112</yloc>
+      <xloc>1488</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2227,8 +2299,8 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4080</xloc>
-      <yloc>368</yloc>
+      <xloc>944</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2279,8 +2351,8 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1904</xloc>
-      <yloc>368</yloc>
+      <xloc>672</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2415,8 +2487,8 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2256</xloc>
-      <yloc>224</yloc>
+      <xloc>800</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2625,8 +2697,8 @@ order by fi.fi_year, fi.fi_qtr, fi.sk_companyid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2707,8 +2779,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4256</xloc>
-      <yloc>256</yloc>
+      <xloc>1344</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2741,8 +2813,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2768</xloc>
-      <yloc>368</yloc>
+      <xloc>1088</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2775,7 +2847,7 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>256</xloc>
       <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2811,8 +2883,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3072</xloc>
-      <yloc>272</yloc>
+      <xloc>1312</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2845,8 +2917,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>368</yloc>
+      <xloc>672</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2883,8 +2955,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3184</xloc>
-      <yloc>272</yloc>
+      <xloc>1424</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2921,8 +2993,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3296</xloc>
-      <yloc>272</yloc>
+      <xloc>1536</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2959,8 +3031,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3408</xloc>
-      <yloc>272</yloc>
+      <xloc>1648</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2995,8 +3067,8 @@ var BatchId=BatchId;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3408</xloc>
-      <yloc>368</yloc>
+      <xloc>1344</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3116,8 +3188,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2928</xloc>
-      <yloc>272</yloc>
+      <xloc>1248</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3201,8 +3273,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3246,8 +3318,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
-      <yloc>496</yloc>
+      <xloc>496</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3283,8 +3355,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2768</xloc>
-      <yloc>208</yloc>
+      <xloc>1088</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3372,8 +3444,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1632</xloc>
-      <yloc>368</yloc>
+      <xloc>672</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3391,91 +3463,69 @@ switch(FISCALQTRID%10) {
     <fields>
       <field>
         <name>CDC_FLAG</name>
-        <rename/>
       </field>
       <field>
         <name>CDC_DSN</name>
-        <rename/>
       </field>
       <field>
         <name>DM_DATE</name>
-        <rename/>
       </field>
       <field>
         <name>DM_S_SYMB</name>
-        <rename/>
       </field>
       <field>
         <name>DM_CLOSE</name>
-        <rename/>
       </field>
       <field>
         <name>DM_HIGH</name>
-        <rename/>
       </field>
       <field>
         <name>DM_LOW</name>
-        <rename/>
       </field>
       <field>
         <name>DM_VOL</name>
-        <rename/>
       </field>
       <field>
         <name>SK_SECURITYID</name>
-        <rename/>
       </field>
       <field>
         <name>SK_COMPANYID</name>
-        <rename/>
       </field>
       <field>
         <name>date_str</name>
-        <rename/>
       </field>
       <field>
         <name>days</name>
-        <rename/>
       </field>
       <field>
         <name>SK_DATEID</name>
-        <rename/>
       </field>
       <field>
         <name>date_before_52_weeks</name>
-        <rename/>
       </field>
       <field>
         <name>DAYHIGH</name>
-        <rename/>
       </field>
       <field>
         <name>SYMBOL</name>
-        <rename/>
       </field>
       <field>
         <name>SK_DATEID_TBL</name>
-        <rename/>
       </field>
       <field>
         <name>row_number</name>
-        <rename/>
       </field>
       <field>
         <name>DAYLOW</name>
-        <rename/>
       </field>
       <field>
         <name>FIFTYTWOWEEKHIGH</name>
-        <rename/>
       </field>
       <field>
         <name>FIFTYTWOWEEKLOW</name>
-        <rename/>
       </field>
       <field>
         <name>DIVIDEND</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -3488,8 +3538,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>368</yloc>
+      <xloc>800</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3562,8 +3612,53 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3856</xloc>
-      <yloc>368</yloc>
+      <xloc>1104</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 6</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>copy_date</name>
+        <rename>copy_date</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3604,8 +3699,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>496</yloc>
+      <xloc>256</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3646,8 +3741,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>352</yloc>
+      <xloc>384</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3688,8 +3783,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2768</xloc>
-      <yloc>272</yloc>
+      <xloc>1088</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3730,8 +3825,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>240</yloc>
+      <xloc>672</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3772,8 +3867,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>496</yloc>
+      <xloc>496</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3814,8 +3909,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>368</yloc>
+      <xloc>672</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3856,8 +3951,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2144</xloc>
-      <yloc>224</yloc>
+      <xloc>800</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3898,8 +3993,8 @@ switch(FISCALQTRID%10) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2544</xloc>
-      <yloc>368</yloc>
+      <xloc>928</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3951,8 +4046,8 @@ if (CALENDARWEEKID.length==5) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2768</xloc>
-      <yloc>128</yloc>
+      <xloc>1088</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4032,179 +4127,8 @@ if (DM_HIGH*1>FIFTYTWOWEEKHIGH*1){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2544</xloc>
+      <xloc>928</xloc>
       <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 3</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Sort rows 5</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>SK_SECURITYID</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1444</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>####0;-####0</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2080</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculator 3</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>copy_date</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>DM_DATE</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask>yyyy-MM-dd</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2256</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 6</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>copy_date</name>
-        <rename>copy_date</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2384</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculator 4</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>date_int</field_name>
-      <calc_type>GET_ONLY_DIGITS</calc_type>
-      <field_a>copy_date</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>None</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2544</xloc>
-      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -777,8 +777,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4816</xloc>
-      <yloc>784</yloc>
+      <xloc>864</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -812,8 +812,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4960</xloc>
-      <yloc>784</yloc>
+      <xloc>864</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -850,8 +850,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4224</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -955,8 +955,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5040</xloc>
-      <yloc>544</yloc>
+      <xloc>1056</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1056,8 +1056,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>592</yloc>
+      <xloc>112</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1157,8 +1157,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
-      <yloc>336</yloc>
+      <xloc>320</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1788,8 +1788,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>736</yloc>
+      <xloc>112</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1852,8 +1852,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6192</xloc>
-      <yloc>880</yloc>
+      <xloc>1696</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1916,8 +1916,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5904</xloc>
-      <yloc>1008</yloc>
+      <xloc>1744</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2092,8 +2092,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6096</xloc>
-      <yloc>784</yloc>
+      <xloc>1680</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2141,8 +2141,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>736</yloc>
+      <xloc>112</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2206,8 +2206,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5888</xloc>
-      <yloc>880</yloc>
+      <xloc>1376</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2253,8 +2253,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5360</xloc>
-      <yloc>1008</yloc>
+      <xloc>1248</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2299,8 +2299,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5600</xloc>
-      <yloc>1008</yloc>
+      <xloc>1472</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2339,8 +2339,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4480</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2412,8 +2412,8 @@ var MessageSource='DimCustomer';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>6048</xloc>
-      <yloc>880</yloc>
+      <xloc>1536</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2494,8 +2494,8 @@ var BatchId=1;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5744</xloc>
-      <yloc>1008</yloc>
+      <xloc>1600</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2556,8 +2556,8 @@ if (ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4368</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2593,8 +2593,8 @@ if (ActionType.trim()==='INACT'){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5152</xloc>
-      <yloc>784</yloc>
+      <xloc>1056</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2691,8 +2691,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
-      <yloc>336</yloc>
+      <xloc>320</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2725,8 +2725,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3520</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2767,8 +2767,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>592</yloc>
+      <xloc>112</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2801,8 +2801,8 @@ if (Age > 45){
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3872</xloc>
-      <yloc>784</yloc>
+      <xloc>1248</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2847,8 +2847,8 @@ var minValidDOB = dateAdd(BatchDate,"y",-100);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5360</xloc>
-      <yloc>784</yloc>
+      <xloc>1248</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3365,8 +3365,8 @@ var lag_C_ID=C_ID;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2704</xloc>
-      <yloc>592</yloc>
+      <xloc>512</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3500,8 +3500,8 @@ var lag_C_ID=C_ID;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2400</xloc>
-      <yloc>592</yloc>
+      <xloc>512</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3673,8 +3673,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1600</xloc>
-      <yloc>592</yloc>
+      <xloc>288</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4093,8 +4093,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>336</yloc>
+      <xloc>320</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4133,8 +4133,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3696</xloc>
-      <yloc>512</yloc>
+      <xloc>1008</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4171,8 +4171,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3872</xloc>
-      <yloc>576</yloc>
+      <xloc>1248</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4210,8 +4210,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>736</yloc>
+      <xloc>112</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4934,8 +4934,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5792</xloc>
-      <yloc>784</yloc>
+      <xloc>1376</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5007,8 +5007,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
-      <yloc>336</yloc>
+      <xloc>320</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5128,8 +5128,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3184</xloc>
-      <yloc>592</yloc>
+      <xloc>512</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5176,8 +5176,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>736</yloc>
+      <xloc>112</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5300,8 +5300,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1904</xloc>
-      <yloc>592</yloc>
+      <xloc>512</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5345,8 +5345,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5360</xloc>
-      <yloc>880</yloc>
+      <xloc>1248</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5387,8 +5387,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4624</xloc>
-      <yloc>784</yloc>
+      <xloc>864</xloc>
+      <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5437,8 +5437,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4112</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5511,7 +5511,7 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
+      <xloc>112</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -5585,8 +5585,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>448</yloc>
+      <xloc>320</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5635,8 +5635,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2160</xloc>
-      <yloc>592</yloc>
+      <xloc>512</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5677,8 +5677,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>5488</xloc>
-      <yloc>1008</yloc>
+      <xloc>1360</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5719,8 +5719,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3344</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5761,8 +5761,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3696</xloc>
-      <yloc>784</yloc>
+      <xloc>720</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5803,8 +5803,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3520</xloc>
-      <yloc>576</yloc>
+      <xloc>816</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5845,8 +5845,100 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3872</xloc>
-      <yloc>672</yloc>
+      <xloc>1248</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>C_L_NAME</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper>upper</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+      <field>
+        <in_stream_name>C_F_NAME</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper>upper</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+      <field>
+        <in_stream_name>C_ADLINE1</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper>upper</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+      <field>
+        <in_stream_name>C_ADLINE2</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper>upper</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+      <field>
+        <in_stream_name>C_ZIPCODE</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper>upper</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1568</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5949,8 +6041,8 @@ phone3=country_code3+area_code3+local3+ext3;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3696</xloc>
-      <yloc>384</yloc>
+      <xloc>1008</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6001,100 +6093,8 @@ else{
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3184</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>String operations</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>C_L_NAME</in_stream_name>
-        <out_stream_name/>
-        <trim_type/>
-        <lower_upper>upper</lower_upper>
-        <padding_type/>
-        <pad_char/>
-        <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
-      </field>
-      <field>
-        <in_stream_name>C_F_NAME</in_stream_name>
-        <out_stream_name/>
-        <trim_type/>
-        <lower_upper>upper</lower_upper>
-        <padding_type/>
-        <pad_char/>
-        <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
-      </field>
-      <field>
-        <in_stream_name>C_ADLINE1</in_stream_name>
-        <out_stream_name/>
-        <trim_type/>
-        <lower_upper>upper</lower_upper>
-        <padding_type/>
-        <pad_char/>
-        <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
-      </field>
-      <field>
-        <in_stream_name>C_ADLINE2</in_stream_name>
-        <out_stream_name/>
-        <trim_type/>
-        <lower_upper>upper</lower_upper>
-        <padding_type/>
-        <pad_char/>
-        <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
-      </field>
-      <field>
-        <in_stream_name>C_ZIPCODE</in_stream_name>
-        <out_stream_name/>
-        <trim_type/>
-        <lower_upper>upper</lower_upper>
-        <padding_type/>
-        <pad_char/>
-        <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>5984</xloc>
-      <yloc>784</yloc>
+      <xloc>512</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

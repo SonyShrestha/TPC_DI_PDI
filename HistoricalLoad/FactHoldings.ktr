@@ -882,7 +882,7 @@ FROM dimtrade
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
+      <xloc>784</xloc>
       <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1032,8 +1032,8 @@ FROM dimtrade
       </output>
     </remotesteps>
     <GUI>
-      <xloc>135</xloc>
-      <yloc>331</yloc>
+      <xloc>128</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1315,7 +1315,7 @@ FROM dimtrade
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>640</xloc>
       <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1357,8 +1357,8 @@ FROM dimtrade
       </output>
     </remotesteps>
     <GUI>
-      <xloc>263</xloc>
-      <yloc>331</yloc>
+      <xloc>256</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
