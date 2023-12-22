@@ -563,7 +563,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DIMCOMPANY 2</from>
+      <from>DimBroker</from>
       <to>Sort rows 2 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -758,7 +758,7 @@
     </GUI>
   </step>
   <step>
-    <name>DIMCOMPANY 2</name>
+    <name>DimBroker</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
