@@ -7,15 +7,16 @@ This project involves TPC-DI Benchmarking using Pentaho Data Integration, with f
 1. Prepare transformations for Historical Data Load
 2. Prepare transformations for Incremental Updates
 3. Validation of prepared transformations 
-4. Analyze Performance Mterics such as Load Time, Throughput along with Number of Records loaded
+4. Analyze Performance Metrics such as Load Time, Throughput along with Number of Records loaded
 
 <br/>
 
 # Instructions
 To execute jobs and transformations prepared follow folllowing steps.
 1. Install latest version of Pentaho 
-2. Change configuration for historical and incremental data load in properties file provided inside PDI/config directory
-3. Open Pentaho Job named TPCDI.kjb and run the job from UI
+2. Execute DDL Script inside ddl/create_tables.sql for creating database and tables 
+3. Change configuration for historical and incremental data load in properties file provided inside PDI/config directory
+4. Open Pentaho Job named TPCDI.kjb and run the job from UI
 
 <br/>
 
