@@ -14,7 +14,7 @@ This project involves TPC-DI Benchmarking using Pentaho Data Integration, with f
 # Instructions
 To execute jobs and transformations prepared follow folllowing steps.
 1. Install latest version of Pentaho 
-2. Execute DDL Script inside ddl/create_tables.sql for creating database and tables 
+2. Execute DDL Script inside ddl/create_tables.sql for creating database and tables required for benchmarking
 3. Change configuration for historical and incremental data load in properties file provided inside PDI/config directory
 4. Open Pentaho Job named TPCDI.kjb and run the job from UI
 
